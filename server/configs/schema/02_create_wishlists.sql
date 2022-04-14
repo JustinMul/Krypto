@@ -1,0 +1,7 @@
+
+DROP TABLE IF EXISTS wishlists CASCADE;
+
+CREATE TABLE wishlists (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
