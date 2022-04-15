@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS wishlists CASCADE;
 
 CREATE TABLE wishlists (

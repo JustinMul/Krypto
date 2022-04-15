@@ -1,6 +1,5 @@
-import React from 'react'
 
-const TrendingCrypto = (props) => {
+function TrendingCrypto(props) {
   return (
     <li>
       <img src={props.image} alt={props.name}></img>

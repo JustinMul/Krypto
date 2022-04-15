@@ -1,8 +1,0 @@
-
-DROP TABLE IF EXISTS stocks CASCADE;
-
-CREATE TABLE stocks (
-  id SERIAL PRIMARY KEY,
-  wishlists_id INTEGER REFERENCES wishlists(id) ON DELETE CASCADE,
-  stocks_id INTEGER
-);

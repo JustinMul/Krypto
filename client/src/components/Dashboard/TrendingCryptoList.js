@@ -1,17 +1,17 @@
-import {React,useState,useEffect} from 'react';
-
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import TrendingCrypto from './TrendingCrypto';
 
-const TrendingCryptoList = () => {
+export default function TrendingCryptoList() {
   const [state, setState] = useState([{}]);
   useEffect(()=>{
-    axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=10&page=1&sparkline=false%27')
+    axios.get('/TrendingCrypto')
       .then((res)=> setState(res.data))
-      .catch((err)=>console.log(err));
+      .catch((err)=> console.log(err));
   },[]);
-  const TrendingCryptoList = state.map((crypto)=>{
+
+  const Crypto = state.map((crypto)=>{
     return (
       <TrendingCrypto
       key = {crypto.id}
@@ -23,11 +23,10 @@ const TrendingCryptoList = () => {
       />
     );
   });
+
   return (
     <div>
-      {TrendingCryptoList}
+      {Crypto}
     </div>
   )
 }
-
-export default TrendingCryptoList
