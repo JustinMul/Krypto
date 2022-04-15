@@ -6,6 +6,7 @@ const db = require('./configs/db.config');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/trend');
+const marketRouter = require('./routes/market');
 
 const app = express();
 const cors = require('cors');
@@ -19,6 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/TrendingCrypto', usersRouter(db));
+app.use('/Market', marketRouter(db));
 
 console.log(`running on port`);
 module.exports = app;

@@ -1,5 +1,5 @@
 
-function TrendingCrypto(props) {
+function MarketCrypto(props) {
   return (
     <li>
       <img src={props.image} alt={props.name}></img>
@@ -14,4 +14,4 @@ function TrendingCrypto(props) {
   )
 }
 
-export default TrendingCrypto
+export default MarketCrypto
