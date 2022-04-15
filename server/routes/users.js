@@ -1,5 +1,5 @@
-const router = require('express').Router();
-
+const express = require('express');
+const router = express.Router();
 const users = ['Bob', 'Alex', 'Will', 'Tristan'];
 
 const axios = require("axios").default;
@@ -18,13 +18,7 @@ const options = {
 module.exports = (db) => {
   // all routes will go here
   router.get('/', (req, res) => {
-    axios.request(options).then(function (response) {
-      res.json(response.data);
-      console.log(response.data);
-    }).catch(function (error) {
-      console.error(error);
-    });
+    res.json(users);
   });
-
   return router;
 };
