@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import Dashboard from './components/Dashboard/Dashboard';
 import TrendingCryptoList from './components/Dashboard/TrendingCryptoList';
 
 
@@ -8,7 +9,7 @@ function App() {
     <div>
       <Routes>
 
-        <Route exact path="/dashboard/" element={<TrendingCryptoList/>}/>
+        <Route exact path="/dashboard/" element={<Dashboard/>}/>
         <Route exact path="/crypto/" element={<TrendingCryptoList/>}/>
         <Route exact path="/watchlist/" element={<TrendingCryptoList/>}/>
         <Route exact path="/news/" element={<TrendingCryptoList/>}/>

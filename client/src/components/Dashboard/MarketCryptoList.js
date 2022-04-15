@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import TrendingCrypto from './TrendingCrypto';
+import MarketCrypto from './MarketCrypto';
 
-export default function TrendingCryptoList(props) {
-console.log('this is props', props.data)
+export default function MarketCryptoList(props) {
 
-  const trendingCrypto = props.data.trending.map((crypto)=>{
+
+  const marketCrypto = props.data.market.map((crypto)=>{
     return (
-      <TrendingCrypto
+      <MarketCrypto
       key = {crypto.id}
       image={crypto.image}
       name={crypto.name}
@@ -21,7 +21,7 @@ console.log('this is props', props.data)
 
   return (
     <div>
-      {trendingCrypto}
+      {marketCrypto}
     </div>
   )
 }
