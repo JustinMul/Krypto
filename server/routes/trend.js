@@ -10,7 +10,6 @@ const options = {
 
 
 module.exports = (db) => {
-  // all routes will go here
   router.use(cors());
   router.get('/', (req, res) => {
     axios.request(options).then((response) => {
