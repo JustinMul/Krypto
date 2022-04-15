@@ -1,12 +1,12 @@
 import {React, useState} from 'react'
 
-const SearchBar = () => {
+function SearchBar(props){
   const [crypto, setCrypto] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    
+    props.onSubmit(crypto);
   };
 
   const handleChange = (event) => {
