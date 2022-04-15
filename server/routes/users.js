@@ -8,6 +8,7 @@ const options = {
   url: `https://api.coingecko.com/api/v3/search?query=${test}`
 };
 
+
 module.exports = (db) => {
   // all routes will go here
   router.get('/', (req, res) => {
@@ -19,6 +20,7 @@ module.exports = (db) => {
     });
     // res.json(users);
   });
+
 
   return router;
 };
