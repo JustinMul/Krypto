@@ -4,8 +4,12 @@ import TrendingCryptoList from "./TrendingCryptoList";
 import MarketCryptoList from './MarketCryptoList';
 import sortByPercentageChange from "../../helpers/sorting";
 
+import SearchBar from "./SearchBar";
+
+import search from "../../helpers/searching";
 
 export default function Dashboard() {
+  
   const [state, setState] = useState({
     market: [],
     trending: []
@@ -25,6 +29,8 @@ export default function Dashboard() {
 
   return (
     <div>
+      <SearchBar onSubmit={setState}/>
+
       <TrendingCryptoList data={state}/>
       <MarketCryptoList data={state}/>
     </div>
