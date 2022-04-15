@@ -4,16 +4,16 @@ import TrendingCryptoList from "./TrendingCryptoList";
 import MarketCryptoList from './MarketCryptoList';
 import sortByPercentageChange from "../../helpers/sorting";
 
-import SearchBar from "./SearchBar";
-
-import search from "../../helpers/searching";
 
 export default function Dashboard() {
   
   const [state, setState] = useState({
     market: [],
     trending: []
+    
   });
+
+  const [search,setSearch] = useState('')
 
     useEffect(() => {
       Promise.all([
@@ -27,13 +27,30 @@ export default function Dashboard() {
     })));
   }, []);
 
+  const handleChange = e =>{
+    setSearch(e.target.value)
+  }
+  const filteredCoins = state.market.filter(coin=>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+    );
+    
+  console.log('this is filtered coins', filteredCoins)
   return (
-    <div>
-      <SearchBar onSubmit={setState}/>
 
+
+    <div>
+   <div className="coin-app">
+      <div className="coin-search">
+        {/* <h1 className="coin-text">Search your desired coin</h1> */}
+        <form action="">
+          <input type="text" className="coin-input" placeholder="Provide the coin name" onChange={handleChange}/>
+        </form>
       <TrendingCryptoList data={state}/>
-      <MarketCryptoList data={state}/>
+          </div>
+              <MarketCryptoList data={filteredCoins}/>
+        </div>
     </div>
 
   );
 }
+

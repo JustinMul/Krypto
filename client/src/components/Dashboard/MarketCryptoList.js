@@ -6,7 +6,7 @@ import MarketCrypto from './MarketCrypto';
 export default function MarketCryptoList(props) {
 
 
-  const marketCrypto = props.data.market.map((crypto)=>{
+  const marketCrypto = props.data.map((crypto)=>{
     return (
       <MarketCrypto
       key = {crypto.id}
