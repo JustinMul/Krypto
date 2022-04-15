@@ -1,24 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const users = ['Bob', 'Alex', 'Will', 'Tristan'];
-
 const axios = require("axios").default;
+const test = 'ethereum';
 
 const options = {
   method: 'GET',
-  url: 'https://yfapi.net/v1/finance/trending/CA',
-  params: {
-    modules: 'defaultKeyStatistics,assetProfile'
-  },
-  headers: {
-    'x-api-key': 'hJzxoN4ClH9hOkp4RQ0A7VF8SPXzazI4Nw7VOOJ1'
-  }
+  url: `https://api.coingecko.com/api/v3/search?query=${test}`
 };
+
 
 module.exports = (db) => {
   // all routes will go here
   router.get('/', (req, res) => {
-    res.json(users);
+    axios.request(options).then((response) =>{
+      res.json(response.data);
+    }).catch((error) =>{
+      console.error(error);
+    });
   });
   return router;
 };
