@@ -3,7 +3,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import TrendingCryptoList from './components/Dashboard/TrendingCryptoList';
 import SideBarList from './components/Dashboard/SideBarList';
 import Watchlist from './components/Watchlist/Watchlist';
-import SingleCrypto from './components/Dashboard/SingleCrypto';
+import SingleCrypto from './components/singleCrypto/SingleCrypto';
 
 function App() {
 

@@ -26,7 +26,7 @@ export default function SideBarList () {
         <Link to="/cryptotools">Tools</Link>
         </li>
         <li>
-        <Link to="/logout">Watchlist</Link>
+        <Link to="/logout">Log Out</Link>
         </li>
       </ul>
       </div>

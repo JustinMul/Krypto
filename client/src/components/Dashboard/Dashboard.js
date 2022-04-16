@@ -11,15 +11,19 @@ import searchFilter from "../../helpers/searchFilter";
 const Dashboard = () => {
   const [state, setState] = useState([{
     trending:[],
-    market:[]
+    market:[],
+    isLoading: true
   }]);
+
   const [search, setSearch] = useState("");
   useEffect(() => {
     axios.get('/market') 
       .then((res) => {
         setState((prev)=>[{ ...prev,
           trending:topFourTrending(res.data),
-          market:res.data}])
+          market:res.data,
+          isLoading: false
+        }])
         }
       )
       .catch((err)=>console.log(err));
@@ -33,7 +37,7 @@ const Dashboard = () => {
     <>
       <TrendingCryptoList data={state[0].trending}/>
       <SearchForm search={search} onChange={inputHandler}/>
-      <MarketCryptoList data={filteredRows}/>
+      <MarketCryptoList data={filteredRows} isLoading={state[0].isLoading}/>
     </>
   )
 }

@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 // const usersRouter = require('./routes/trend');
 const marketRouter = require('./routes/market');
 const cryptoRouter = require('./routes/singleCrypto');
+const chartRouter = require('./routes/chart');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use('/', indexRouter);
 // app.use('/TrendingCrypto', usersRouter(db));
 app.use('/Market', marketRouter(db));
 app.use('/crypto', cryptoRouter(db));
+app.use('/chart', chartRouter(db));
 
 console.log(`running on port`);
 module.exports = app;

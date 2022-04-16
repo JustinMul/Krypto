@@ -1,10 +1,11 @@
 import {React, useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Chart from './Chart';
 
 const SingleCrypto = (props) => {
   const { id } = useParams();
-  // (id.replace('%20', '-'))
+
   useEffect(() => {
     axios.get(`/crypto/${id}`) 
       .then((res) => {
@@ -15,7 +16,7 @@ const SingleCrypto = (props) => {
   },[id]);
   return (
     <div>
-      hi
+      <Chart id={id}/>
     </div>
   )
 }
