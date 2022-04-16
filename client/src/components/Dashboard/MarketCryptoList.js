@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import MarketCrypto from './MarketCrypto';
 
 export default function MarketCryptoList(props) {
-  console.log("props:",props.data);
 
   const marketCrypto = props.data.map((crypto)=>{
     return (
@@ -23,5 +21,5 @@ export default function MarketCryptoList(props) {
     <div>
       {marketCrypto}
     </div>
-  )
+  );
 }

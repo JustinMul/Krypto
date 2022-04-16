@@ -1,13 +1,13 @@
-
-
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
+import urlSpaceReplacer from '../../helpers/urlSpaceReplacer';
+
 const MarketCrypto = (props) => {
-  console.log("props:",props);
-  
+  // console.log("props:",props);
+  let cleanedUrl = urlSpaceReplacer(props.name)
   return (
       <li>
-        <Link to={`/crypto/${props.name.toLowerCase()}`}>
+        <Link to={`/crypto/${cleanedUrl}`}>
           <img src={props.image} alt={props.name}></img>
         </Link>
         <div>
