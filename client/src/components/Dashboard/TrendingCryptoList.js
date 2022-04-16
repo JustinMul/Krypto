@@ -4,9 +4,9 @@ import axios from 'axios';
 import TrendingCrypto from './TrendingCrypto';
 
 export default function TrendingCryptoList(props) {
-console.log('this is props', props.data)
 
-  const trendingCrypto = props.data.trending.map((crypto)=>{
+
+  const trendingCrypto = props.data.map((crypto)=>{
     return (
       <TrendingCrypto
       key = {crypto.id}
