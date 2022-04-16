@@ -12,20 +12,27 @@ const Charts = (props) => {
   
   const [historicData, setHistoricData] = useState([]);
   const [days, setDays] = useState(1);
+  const [day, setDay] = useState(7)
+  // const []
   // const [flag,setflag] = useState(false);
 
   const id = props.id;
+ 
+  const daySet = function (day){
+    setDay(day)
+  }
+
   console.log('this is props', props)
   
   useEffect(() => {
-    axios.get(`/chart/${id}`) 
+    axios.get(`/chart/${id}/${day}`) 
       .then((res) => { 
         setHistoricData(res.data.prices)
         // console.log('this is the response', res);
         }
       )
       .catch((err)=>console.log(err));
-  },[id]);
+  },[id, day]);
   
 
   console.log("historicDatahistoricData: ", historicData)
@@ -35,18 +42,20 @@ const Charts = (props) => {
       <Line
     data={{
       labels: historicData.map((coin) => {
+       
       let date = new Date(coin[0]);
+      console.log(date.getMonth())
       let time =
-        date.getHours() > 12
-          ? `${date.getHours() - 12}:${date.getMinutes()} PM`
-          : `${date.getHours()}:${date.getMinutes()} AM`;
+        date.toLocaleDateString()
+          // ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+          // : `${date.getHours()}:${date.getMinutes()} AM`;
       return days === 1 ? time : date.toLocaleDateString();
     }),
 
     datasets: [
       {
         data: historicData.map((coin) => coin[1]),
-        label: `Price ( Past ${days} Days ) in cad`,
+        label: `${props.id.toUpperCase()} ( Past ${day} Days ) in CAD`,
         borderColor: "#EEBC1D",
       },
     ],
@@ -59,7 +68,13 @@ const Charts = (props) => {
     },
   }}
 />
-    </div>
+<button onClick={() => daySet(1)}>One Day</button>
+<button onClick={() => daySet(7)}>One Week</button>
+<button onClick={() => daySet(30)}>One Month</button>
+<button onClick={() => daySet(365)}>One Year</button>
+
+
+  </div>
   )
 }
 
