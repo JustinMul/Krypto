@@ -2,58 +2,39 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import TrendingCryptoList from "./TrendingCryptoList";
 import MarketCryptoList from './MarketCryptoList';
-import sortByPercentageChange from "../../helpers/sorting";
+import topFourTrending from "../../helpers/topFourTrending";
+import SearchForm from "./SearchForm";
+import searchFilter from "../../helpers/searchFilter";
 
 
-export default function Dashboard() {
-  
-  const [state, setState] = useState({
-    market: [],
-    trending: []
-    
-  });
+const Dashboard = () => {
+  const [state, setState] = useState([{
+    trending:[],
+    market:[]
+  }]);
+  const [search, setSearch] = useState("");
+  useEffect(() => {
+    axios.get('/market') 
+      .then((res) => {
+        setState((prev)=>[{ ...prev,
+          trending:topFourTrending(res.data),
+          market:res.data}])
+        }
+      )
+      .catch((err)=>console.log(err));
+  },[]);
 
-  const [search,setSearch] = useState('')
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(false);
-  // const [hasMore, setHasMore] = useState(false);
-
-    useEffect(() => {
-      Promise.all([
-      axios.get('/Market'),
-      axios.get('/Market')
-    ]).then((all) => 
-    setState((prev) => ({
-      ...prev,
-      market: all[0].data,
-      trending: sortByPercentageChange(all[1].data)
-    })));
-  }, []);
-
-  const handleChange = e =>{
-    setSearch(e.target.value)
-  }
-  const filteredCoins = state.market.filter(coin=>
-    coin.name.toLowerCase().includes(search.toLowerCase())
-    );
-    
-  console.log('this is filtered coins', filteredCoins)
+  const inputHandler = (event) => {
+    setSearch(event.target.value);
+  };
+  const filteredRows = searchFilter(state[0].market, search)
   return (
-
-
-    <div>
-   <div className="coin-app">
-      <div className="coin-search">
-        {/* <h1 className="coin-text">Search your desired coin</h1> */}
-        <form action="">
-          <input type="text" className="coin-input" placeholder="Provide the coin name" onChange={handleChange}/>
-        </form>
-      <TrendingCryptoList data={state}/>
-          </div>
-              <MarketCryptoList data={filteredCoins}/>
-        </div>
-    </div>
-
-  );
+    <>
+      <TrendingCryptoList data={state[0].trending}/>
+      <SearchForm search={search} onChange={inputHandler}/>
+      <MarketCryptoList data={filteredRows}/>
+    </>
+  )
 }
 
+export default Dashboard

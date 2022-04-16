@@ -1,16 +1,22 @@
 
-function MarketCrypto(props) {
-  return (
-    <li>
-      <img src={props.image} alt={props.name}></img>
-      <div>
-        <span>{props.name}</span>
 
-        <p>{props.price_change_percentage_24h}</p>
-      </div>
-      <div>{props.current_price}</div>
-      <div>{props.last_updated}</div>
-    </li>
+import React from 'react'
+import { Link } from 'react-router-dom';
+const MarketCrypto = (props) => {
+  console.log("props:",props);
+  
+  return (
+      <li>
+        <Link to={`/crypto/${props.name.toLowerCase()}`}>
+          <img src={props.image} alt={props.name}></img>
+        </Link>
+        <div>
+          <span>{props.name}</span>
+          <span>{props.price_change_percentage_24h}</span>
+        </div>
+        <div>{props.current_price}</div>
+        <div>{props.last_updated}</div>
+      </li>
   )
 }
 

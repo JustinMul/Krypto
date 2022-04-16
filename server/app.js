@@ -5,8 +5,9 @@ const logger = require('morgan');
 const db = require('./configs/db.config');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/trend');
+// const usersRouter = require('./routes/trend');
 const marketRouter = require('./routes/market');
+const cryptoRouter = require('./routes/singleCrypto');
 
 const app = express();
 const cors = require('cors');
@@ -19,8 +20,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/TrendingCrypto', usersRouter(db));
+// app.use('/TrendingCrypto', usersRouter(db));
 app.use('/Market', marketRouter(db));
+app.use('/crypto', cryptoRouter(db));
 
 console.log(`running on port`);
 module.exports = app;
