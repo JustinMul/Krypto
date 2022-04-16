@@ -16,11 +16,11 @@ const Dashboard = () => {
 
   const [search, setSearch] = useState("");
   useEffect(() => {
-    axios.get('/market') 
+    axios.get('/market')
       .then((res) => {
         setState((prev)=>[{ ...prev,
-          trending:topFourTrending(res.data),
           market:res.data,
+          trending:topFourTrending(res.data),
           isLoading: false
         }])
         }
