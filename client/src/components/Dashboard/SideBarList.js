@@ -1,10 +1,15 @@
 import { Routes, Route, Link } from 'react-router-dom';
+import { Drawer } from '@mui/material';
+import { Typography } from '@mui/material';
+import { ClassNames } from '@emotion/react';
 
-export default function SideBarList () {
+export default function SideBarList (classes) {
 
   return (
    
-    <div>
+<div>
+
+  
       <div> 
         <img src="https://pickaface.net/gallery/avatar/20160625_050020_889_FAKE.png" alt="image"/>
         <p>Justin</p>

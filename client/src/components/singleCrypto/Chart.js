@@ -1,12 +1,9 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Chart as ChartJS } from 'chart.js/auto'
 import { Chart } from 'react-chartjs-2'
 import { Line } from 'react-chartjs-2';
-
-
-
 
 const Charts = (props) => {
   

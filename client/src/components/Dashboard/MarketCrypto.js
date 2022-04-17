@@ -12,10 +12,10 @@ const MarketCrypto = (props) => {
         </Link>
         <div>
           <span>{props.name}</span>
-          <span>{props.price_change_percentage_24h}</span>
+          <span>24 Hour Percentage Change: {props.price_change_percentage_24h}</span>
         </div>
-        <div>{props.current_price}</div>
-        <div>{props.last_updated}</div>
+        <div>Current Price: {props.current_price}</div>
+        <div>Last Updated: {props.last_updated}</div>
       </li>
   )
 }

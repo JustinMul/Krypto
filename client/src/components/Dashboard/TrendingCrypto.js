@@ -12,10 +12,10 @@ function TrendingCrypto(props) {
       <div>
         <span>{props.name}</span>
 
-        <p>{props.price_change_percentage_24h}</p>
+        <p>24 Hour Percentage Change: {props.price_change_percentage_24h}</p>
       </div>
-      <div>{props.current_price}</div>
-      <div>{props.last_updated}</div>
+      <div>Current Price: {props.current_price}</div>
+      <div>Last Updated: {props.last_updated}</div>
     </li>
   )
 }
