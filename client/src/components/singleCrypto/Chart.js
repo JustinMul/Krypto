@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Chart as ChartJS } from 'chart.js/auto'
@@ -33,6 +33,7 @@ const Charts = (props) => {
   
 
   console.log("historicDatahistoricData: ", historicData)
+  let delayed;
   
   return (
     <div>
@@ -60,9 +61,22 @@ const Charts = (props) => {
   options={{
     elements: {
       point: {
-        radius: 1,
+        radius: 2.5,
       },
     },
+    responsive: true,
+    animation: {
+      onComplete: () => {
+        delayed = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (context.type === 'data' && context.mode === 'default' && !delayed) {
+          delay = context.dataIndex * 5 + context.datasetIndex * 10;
+        }
+        return delay;
+      }
+    }
   }}
 />
 <button onClick={() => daySet(1)}>One Day</button>

@@ -4,12 +4,14 @@ import TrendingCryptoList from './components/Dashboard/TrendingCryptoList';
 import SideBarList from './components/Dashboard/SideBarList';
 import Watchlist from './components/Watchlist/Watchlist';
 import SingleCrypto from './components/singleCrypto/SingleCrypto';
+import Header from './components/Header/Header'
 
 function App() {
 
   return (
     <div>
-    <SideBarList/>
+      <Header/>
+      <SideBarList/>
       <Routes>
         
         <Route exact path="/dashboard/" element={<Dashboard/>}/>
@@ -21,7 +23,7 @@ function App() {
         <Route path="/crypto/:id" element={<SingleCrypto/>}/>
 
       </Routes>
-      </div>
+    </div>
   );
 }
 

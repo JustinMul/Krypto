@@ -7,7 +7,7 @@ export default function MarketCryptoList(props) {
   const marketCrypto = props.data.map((crypto)=>{
     return (
       <MarketCrypto
-      key = {crypto.id}
+      key={crypto.id}
       id={crypto.id}
       image={crypto.image}
       name={crypto.name}

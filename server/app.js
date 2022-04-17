@@ -3,6 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const db = require('./configs/db.config');
+const cors = require('cors');
 
 const indexRouter = require('./routes/index');
 // const usersRouter = require('./routes/trend');
@@ -11,7 +12,6 @@ const cryptoRouter = require('./routes/singleCrypto');
 const chartRouter = require('./routes/chart');
 
 const app = express();
-const cors = require('cors');
 app.use(cors());
 
 app.use(logger('dev'));
