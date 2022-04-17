@@ -8,6 +8,7 @@ export default function MarketCryptoList(props) {
     return (
       <MarketCrypto
       key = {crypto.id}
+      id={crypto.id}
       image={crypto.image}
       name={crypto.name}
       price_change_percentage_24h={crypto.price_change_percentage_24h}

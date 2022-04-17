@@ -8,7 +8,7 @@ const MarketCrypto = (props) => {
   return (
       <li>
         <Link to={`/crypto/${cleanedUrl}`}>
-          <img src={props.image} alt={props.name}></img>
+          <img src={props.image} alt={props.id}></img>
         </Link>
         <div>
           <span>{props.name}</span>
