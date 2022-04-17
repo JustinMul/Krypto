@@ -3,6 +3,10 @@ import { Drawer } from '@mui/material';
 import { Typography } from '@mui/material';
 import { ClassNames } from '@emotion/react';
 
+const drawerWidth = 240
+
+
+
 export default function SideBarList (classes) {
 
   return (

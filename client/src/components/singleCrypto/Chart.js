@@ -9,7 +9,7 @@ const Charts = (props) => {
   
   const [historicData, setHistoricData] = useState([]);
   const [days, setDays] = useState(1);
-  const [day, setDay] = useState(7)
+  const [day, setDay] = useState(7);
   // const []
   // const [flag,setflag] = useState(false);
 
@@ -33,6 +33,7 @@ const Charts = (props) => {
   
 
   console.log("historicDatahistoricData: ", historicData)
+  let delayed;
   
   return (
     <div>
@@ -53,16 +54,31 @@ const Charts = (props) => {
       {
         data: historicData.map((coin) => coin[1]),
         label: `${props.id.toUpperCase()} ( Past ${day} Days ) in CAD`,
-        borderColor: "#EEBC1D",
+       
+        borderColor: 'rgb(255, 99, 132)',
+       backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   }}
   options={{
     elements: {
       point: {
-        radius: 1,
+        radius: 4,
       },
     },
+    responsive: true,
+    animation: {
+      onComplete: () => {
+        delayed = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (context.type === 'data' && context.mode === 'default' && !delayed) {
+          delay = context.dataIndex * 5 + context.datasetIndex * 10;
+        }
+        return delay;
+      }
+    }
   }}
 />
 <button onClick={() => daySet(1)}>One Day</button>

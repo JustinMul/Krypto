@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import urlSpaceReplacer from '../../helpers/urlSpaceReplacer';
 
 function TrendingCrypto(props) {
-  let cleanedUrl = urlSpaceReplacer(props.name)
+  let cleanedUrl = urlSpaceReplacer(props.id)
   return (
     <li>
       <Link to={`/crypto/${cleanedUrl}`}>

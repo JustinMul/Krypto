@@ -4,7 +4,7 @@ import urlSpaceReplacer from '../../helpers/urlSpaceReplacer';
 
 const MarketCrypto = (props) => {
   // console.log("props:",props);
-  let cleanedUrl = urlSpaceReplacer(props.name)
+  let cleanedUrl = urlSpaceReplacer(props.id)
   return (
       <li>
         <Link to={`/crypto/${cleanedUrl}`}>
