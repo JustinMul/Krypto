@@ -13,6 +13,5 @@ module.exports = (db) => {
       console.error(error);
     });
   });
-
   return router;
 };

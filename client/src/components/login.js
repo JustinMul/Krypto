@@ -36,7 +36,7 @@ const Login = () => {
  };
  
  const github = () => {
-   window.open("http://localhost:3002/dashboard", "_self");
+   window.open("http://localhost:3000/dashboard", "_self");
  };
  // Styling for Submit Button
  
