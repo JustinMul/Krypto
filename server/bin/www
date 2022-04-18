@@ -1,23 +1,31 @@
 #!/usr/bin/env node
 
-require('dotenv').config();
+require('dotenv').config()
+/**
+ * Module dependencies.
+ */
 
-const app = require('../app');
-const debug = require('debug')('server:server');
-const http = require('http');
+const {app,server} = require('../app');
+var debug = require('debug')('server:server');
+var http = require('http');
+
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '8081');
+
+var port = normalizePort(process.env.PORT || '8080');
+
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-const server = http.createServer(app);
+// var server = http.createServer(app);
+
+
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -86,3 +94,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+module.exports = server;

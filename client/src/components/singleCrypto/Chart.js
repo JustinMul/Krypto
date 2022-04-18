@@ -9,7 +9,7 @@ const Charts = (props) => {
   
   const [historicData, setHistoricData] = useState([]);
   const [days, setDays] = useState(1);
-  const [day, setDay] = useState(7)
+  const [day, setDay] = useState(7);
   // const []
   // const [flag,setflag] = useState(false);
 
@@ -54,14 +54,16 @@ const Charts = (props) => {
       {
         data: historicData.map((coin) => coin[1]),
         label: `${props.id.toUpperCase()} ( Past ${day} Days ) in CAD`,
-        borderColor: "#EEBC1D",
+       
+        borderColor: 'rgb(255, 99, 132)',
+       backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
   }}
   options={{
     elements: {
       point: {
-        radius: 2.5,
+        radius: 4,
       },
     },
     responsive: true,
