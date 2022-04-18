@@ -2,8 +2,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Drawer } from '@mui/material';
 import { Typography } from '@mui/material';
 import { ClassNames } from '@emotion/react';
-
-const drawerWidth = 240
+import {useState, useEffect} from 'react';
 
 
 
@@ -12,11 +11,8 @@ export default function SideBarList (classes) {
   return (
    
 <div>
-
-  
       <div> 
         <img src="https://pickaface.net/gallery/avatar/20160625_050020_889_FAKE.png" alt="image"/>
-        <p>Justin</p>
       </div>
       <ul>
         <li>
@@ -35,7 +31,7 @@ export default function SideBarList (classes) {
         <Link to="/cryptotools">Tools</Link>
         </li>
         <li>
-        <Link to="/logout">Log Out</Link>
+        <Link to="/login">Logout</Link>
         </li>
       </ul>
       </div>
