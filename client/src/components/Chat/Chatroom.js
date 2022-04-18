@@ -33,7 +33,7 @@ const Chatroom = (props) => {
         <button onClick={joinRoom}>Join A Room</button>
       </div>
     ) : (
-      <Chat socket={socket} username={username} room={props.roomId} />
+      <Chat socket={socket} username={username} room={props.roomId}/>
     )}
   </div>
 );
