@@ -8,6 +8,7 @@ import searchFilter from "../../helpers/searchFilter";
 
 
 const Dashboard = () => {
+  
   const [state, setState] = useState([{
     trending:[],
     market:[],

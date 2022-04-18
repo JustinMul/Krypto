@@ -6,14 +6,20 @@ import {useState, useEffect} from 'react';
 
 
 
-export default function SideBarList (classes) {
+export default function SideBarList () {
+  // console.log('inside side bar list');
+  // const [ username, setUsername] = useState("");
+  // useEffect(()=>{
+  //   setUsername(localStorage.getItem("userName"))
+  // }, [username]);
 
   return (
-   
-<div>
+    <div>
       <div> 
         <img src="https://pickaface.net/gallery/avatar/20160625_050020_889_FAKE.png" alt="image"/>
+      <div>{localStorage.getItem("userName")}</div>
       </div>
+      
       <ul>
         <li>
         <Link to="/dashboard">Dashboard</Link>
@@ -31,7 +37,7 @@ export default function SideBarList (classes) {
         <Link to="/cryptotools">Tools</Link>
         </li>
         <li>
-        <Link to="/login">Logout</Link>
+        <Link to="/login" onClick={() => localStorage.clear()}>Logout</Link>
         </li>
       </ul>
       </div>
