@@ -11,9 +11,6 @@ export default function MarketCryptoList(props) {
     
     if (fav) {
     axios.put(`/user-fav`, {data: fav , user: JSON.parse(localStorage.getItem('username'))})
-    .then((response) => {
-      console.log('this is the response', response)
-    });
     }
   }
   

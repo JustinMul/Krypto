@@ -56,20 +56,22 @@ app.put('/user-data',(req, res) => {
 
 
 
-//
+//used to insert into watchlist
 app.put('/user-fav',(req, res) => {
   let response = req.body.data;
   console.log("req.body for fav: " , req.body);
-  db.query(`INSERT INTO watchlists (user_email, crypto_id)
-  VALUES ($1, $2) RETURNING *;`, [req.body.user.email,req.body.data])
-    .then((e)=> {
-      res.send(e.rows)
-    });
-
+  db.query(`INSERT INTO watchlists (user_email, crypto_id, user_email_cyrpto_id)
+  VALUES ($1, $2, $3) RETURNING *;`, [req.body.user.email,req.body.data,`${req.body.user.email}${req.body.data}`])
+    .catch((error) => console.log("Error: ", error));
 });
-/*
 
-*/
+//used to retrive all the favs from the watchlist database
+app.put('/fav-list',(req, res) => {
+  let response = req.body.user.email;
+  console.log("this is the response: " , response);
+  db.query(`select crypto_id FROM watchlists where user_email = $1`, [response])
+    .then(response => res.send(response.rows));
+});
 
 
 console.log(`running on port`);
