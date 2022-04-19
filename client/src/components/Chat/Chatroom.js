@@ -10,6 +10,12 @@ const Chatroom = (props) => {
   const [room, setRoom] = useState("");
   const [showChat, setShowChat] = useState(false);
 
+  useEffect(() => {
+    
+    setUsername(JSON.parse(localStorage.getItem('username')));
+    
+  }, []);
+
   const joinRoom = () => {
     if (username !== "" && props.roomId !== "") {
       socket.emit("join_room", props.roomId);
@@ -33,7 +39,7 @@ const Chatroom = (props) => {
         <button onClick={joinRoom}>Join A Room</button>
       </div>
     ) : (
-      <Chat socket={socket} username={username} room={props.roomId} />
+      <Chat socket={socket} username={username} room={props.roomId}/>
     )}
   </div>
 );

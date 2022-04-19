@@ -5,7 +5,7 @@ import SideBarList from './components/Dashboard/SideBarList';
 import Watchlist from './components/Watchlist/Watchlist';
 import SingleCrypto from './components/singleCrypto/SingleCrypto';
 import Header from './components/Header/Header';
-import Login from './components/login';
+import Login from './components/Login';
 import ChatroomList from './components/Chat/ChatroomList';
 import LoginTest from './components/LoginTest';
 import axios from 'axios';
