@@ -7,10 +7,11 @@ export default function MarketCryptoList(props) {
   
 
   const handleSubmit = () => {
-
-    axios.put(`/user-fav`, {data: fav , user: props.user}).then((response) => {
-     
-    });
+    if (fav) {
+    axios.put(`/user-fav`, {data: fav , user: props.user});
+    // .then((response) => {
+    // });
+    }
   }
 
   useEffect(()=>{
