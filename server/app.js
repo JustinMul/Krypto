@@ -62,7 +62,7 @@ app.put('/user-data',(req, res) => {
 app.put('/user-fav',(req, res) => {
   let response = req.body.data;
   console.log("req.body for fav: " , req.body);
-  db.query(`INSERT INTO users WHERE email = $1`, [responds.user])
+  db.query(`INSERT INTO users WHERE email = $1`, [response.user])
     .then(data => {
       
       if (data.rows[0]) {
