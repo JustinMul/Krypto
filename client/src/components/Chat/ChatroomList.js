@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react'
 import Chatroom from './Chatroom';
+import Header from '../Header/Header';
+import SideBarList from '../Dashboard/SideBarList';
 const ChatroomList = (props) => {
 
   const [room, setRoom] = useState("");
@@ -29,7 +31,8 @@ const ChatroomList = (props) => {
 
   return (
     <div>
-      
+      <Header/>
+      <SideBarList/>
       {button()}
       
     </div>

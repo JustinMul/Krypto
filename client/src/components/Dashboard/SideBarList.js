@@ -3,6 +3,7 @@ import { Drawer } from '@mui/material';
 import { Typography } from '@mui/material';
 import { ClassNames } from '@emotion/react';
 import {useState, useEffect} from 'react';
+import { Avatar } from '@mui/material';
 
 
 
@@ -12,15 +13,32 @@ export default function SideBarList (props) {
   // useEffect(()=>{
   //   setUsername(localStorage.getItem("userName"))
   // }, [username]);
-  const [ name, setName ] = useState(props.user);
-  const clearName = () => {
-    setName(null);
+  // const [ name, setName ] = useState(props.user);
+  // const clearName = () => {
+  //   setName(null);
+  // }
+  const [value, setValue] = useState({});
+  useEffect(() => {
+    
+    setValue(JSON.parse(localStorage.getItem('username')));
+    
+  }, []);
+
+  const handleClick = () => {
+    setValue(localStorage.removeItem('username'));
   }
+
   return (
     <div>
       <div> 
-        <img src="https://pickaface.net/gallery/avatar/20160625_050020_889_FAKE.png" alt="image"/>
-      <div>{name}</div>
+        {/* <img src="https://pickaface.net/gallery/avatar/20160625_050020_889_FAKE.png" alt="image"/>
+      <div>{name}</div> */}
+      <Avatar
+        alt="Remy Sharp"
+        src={value.img}
+        sx={{ width: 80, height: 80 }}
+        />
+        <p>{`${value.name}`}</p>
       </div>
       <ul>
         <li>
@@ -39,7 +57,8 @@ export default function SideBarList (props) {
         <Link to="/cryptotools">Tools</Link>
         </li>
         <li>
-        <Link to="/" onClick={() => clearName()}>Logout</Link>
+        {/* <Link to="/" onClick={() => clearName()}>Logout</Link> */}
+        <Link to="/" onClick ={handleClick}>Logout</Link>
         </li>
       </ul>
       </div>
