@@ -41,13 +41,14 @@ const validation = {
   name: "",
   wishlist: []
 };
-
+//this is for validating log in
 app.put('/user-data',(req, res) => {
   let responds = req.body.data;
   console.log("req.body from client: " , responds.user);
 
   db.query(`SELECT * FROM users WHERE email = $1`, [responds.user])
     .then(data => {
+      
       if (data.rows[0]) {
         console.log("user: ", data.rows[0]);
         validation.name = data.rows[0].name;
@@ -55,6 +56,27 @@ app.put('/user-data',(req, res) => {
     });
   res.send(validation);
 });
+
+
+//
+app.put('/user-fav',(req, res) => {
+  let response = req.body.data;
+  console.log("req.body for fav: " , req.body);
+  db.query(`INSERT INTO users WHERE email = $1`, [responds.user])
+    .then(data => {
+      
+      if (data.rows[0]) {
+        console.log("user: ", data.rows[0]);
+        validation.name = data.rows[0].name;
+      }
+    });
+  res.send(validation);
+ 
+  res.send(validation);
+});
+/*
+
+*/
 
 
 console.log(`running on port`);

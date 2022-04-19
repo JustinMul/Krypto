@@ -1,0 +1,1 @@
+INSERT INTO wishlists (user_id,) VALUES ('rick.sandchez@gmail.com', '123', 'Rick', 'https://static.wikia.nocookie.net/rickandmorty/images/3/3c/Untitled117.png/revision/latest/top-crop/width/360/height/360?cb=20190519213632');
