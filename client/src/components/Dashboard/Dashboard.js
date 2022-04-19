@@ -41,7 +41,7 @@ const Dashboard = (props) => {
       <SideBarList/>
       <TrendingCryptoList data={state[0].trending}/>
       <SearchForm search={search} onChange={inputHandler}/>
-      <MarketCryptoList user={props.user} data={filteredRows} isLoading={state[0].isLoading}/>
+      <MarketCryptoList  data={filteredRows} isLoading={state[0].isLoading}/>
     </>
   )
 }

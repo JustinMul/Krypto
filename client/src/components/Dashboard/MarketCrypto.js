@@ -23,8 +23,8 @@ const MarketCrypto = (props) => {
         </div>
         <div>Current Price: {props.current_price}</div>
         <div>Last Updated: {props.last_updated}</div>
-        {/* <button onClick={() => props.setFav(props.id)}> Add to Favourties</button> */}
-        <Fab aria-label="like"><FavoriteIcon style={{ color: red[500] }}/></Fab>
+        <button onClick={() => props.setFav(props.id)}> Add to Favourties</button>
+        {/* <Fab aria-label="like"  onClick={props.setFav(props.id)}><FavoriteIcon style={{ color: red[500] }}/></Fab> */}
       </li>
   )
 }
