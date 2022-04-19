@@ -14,7 +14,7 @@ export default function MarketCryptoList(props) {
     }
   }
   
-
+console.log('this is the value of FAV :', fav )
   useEffect(()=>{
     handleSubmit();
   }, [fav]);

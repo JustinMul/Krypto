@@ -11,17 +11,17 @@ const Watchlist = () => {
     watchlist: []
   }]);
 
-  // const [search, setSearch] = useState("");
-  // useEffect(() => {
-  //   Promise.all
-  //   axios.get('/market')
-  //     .then((res) => {
-  //       setMarket((prev)=>[])
-  //       }
-  //     )
-  //     .catch((err)=>console.log(err));
-  // },[]);
-
+  const [deleted, setDeleted] = useState("");
+  const handleSubmit = () => {
+    if (deleted) {
+    axios.put(`/user-delete`, {data: deleted , user: JSON.parse(localStorage.getItem('username'))})
+    }
+    
+  }
+  useEffect(()=>{
+    handleSubmit();
+  }, [deleted]);
+  
   useEffect(() => {
     Promise.all([
       axios.get('/market'),
@@ -33,20 +33,47 @@ const Watchlist = () => {
         watchlist: all[1].data
       }])
     })
-  },[]);
-console.log("Watchlist: ", state[0].watchlist);
+
+  },[deleted]);
+
+const arr = [];
+
+  const filter = state[0].watchlist.map((wishListCrypto) => {
+    state[0].market.map(marketCrypto => {
+      if (JSON.stringify(wishListCrypto.crypto_id) === JSON.stringify(marketCrypto.id)) {
+        console.log("wishlist: ", wishListCrypto.crypto_id);
+        arr.push(marketCrypto);
+      }
+    }
+
+  );
+  });
+  console.log("(outside) the Page may crash but read me: ", state);
+
+  const filtered = arr.map((marketCrypto)=> {
+    console.log("the Page may crash but read me: ", state);
+    return(
+      <WatchlistItem
+      key={marketCrypto.id}
+      id={marketCrypto.id}
+      image={marketCrypto.image}
+      name={marketCrypto.name}
+      price_change_percentage_24h={marketCrypto.price_change_percentage_24h}
+      current_price={marketCrypto.current_price}
+      last_updated={marketCrypto.last_updated}
+      setDeleted={setDeleted}
+      />
+    );
+  })
+
   
-const watchlistItem = state[0].market.map (()=> {
-
-})
-
   return (
     <div>
     <Header/>
     <SideBarList/>
-      watchlist
+      {filtered}
     </div>
-  )
+  );
 }
 
 export default Watchlist;

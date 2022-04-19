@@ -65,6 +65,16 @@ app.put('/user-fav',(req, res) => {
     .catch((error) => console.log("Error: ", error));
 });
 
+//used to delete from watchlist
+app.put('/user-delete',(req, res) => {
+  let response = req.body.data;
+  console.log("req.body for fav: " , req.body);
+  db.query(`DELETE FROM watchlists WHERE user_email = $1 and crypto_id = $2;`, [req.body.user.email,req.body.data])
+    .catch((error) => console.log("Error: ", error));
+});
+
+
+
 //used to retrive all the favs from the watchlist database
 app.put('/fav-list',(req, res) => {
   let response = req.body.user.email;
@@ -72,6 +82,8 @@ app.put('/fav-list',(req, res) => {
   db.query(`select crypto_id FROM watchlists where user_email = $1`, [response])
     .then(response => res.send(response.rows));
 });
+
+
 
 
 console.log(`running on port`);
