@@ -7,7 +7,8 @@ import SearchForm from "./SearchForm";
 import searchFilter from "../../helpers/searchFilter";
 
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+ 
   const [state, setState] = useState([{
     trending:[],
     market:[],
@@ -36,7 +37,7 @@ const Dashboard = () => {
     <>
       <TrendingCryptoList data={state[0].trending}/>
       <SearchForm search={search} onChange={inputHandler}/>
-      <MarketCryptoList data={filteredRows} isLoading={state[0].isLoading}/>
+      <MarketCryptoList user={props.user} data={filteredRows} isLoading={state[0].isLoading}/>
     </>
   )
 }

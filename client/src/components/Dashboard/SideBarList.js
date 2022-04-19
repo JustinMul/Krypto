@@ -6,13 +6,21 @@ import {useState, useEffect} from 'react';
 
 
 
-export default function SideBarList (classes) {
-
+export default function SideBarList (props) {
+  // console.log('inside side bar list');
+  // const [ username, setUsername] = useState("");
+  // useEffect(()=>{
+  //   setUsername(localStorage.getItem("userName"))
+  // }, [username]);
+  const [ name, setName ] = useState(props.user);
+  const clearName = () => {
+    setName(null);
+  }
   return (
-   
-<div>
+    <div>
       <div> 
         <img src="https://pickaface.net/gallery/avatar/20160625_050020_889_FAKE.png" alt="image"/>
+      <div>{name}</div>
       </div>
       <ul>
         <li>
@@ -31,7 +39,7 @@ export default function SideBarList (classes) {
         <Link to="/cryptotools">Tools</Link>
         </li>
         <li>
-        <Link to="/login">Logout</Link>
+        <Link to="/" onClick={() => clearName()}>Logout</Link>
         </li>
       </ul>
       </div>

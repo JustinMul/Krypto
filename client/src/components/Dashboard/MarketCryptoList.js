@@ -3,6 +3,19 @@ import axios from 'axios';
 import MarketCrypto from './MarketCrypto';
 
 export default function MarketCryptoList(props) {
+  const [fav, setFav] = useState("")
+  
+
+  const handleSubmit = () => {
+
+    axios.put(`/user-fav`, {data: fav , user: props.user}).then((response) => {
+     
+    });
+  }
+
+  useEffect(()=>{
+    handleSubmit();
+  }, [fav]);
 
   const marketCrypto = props.data.map((crypto)=>{
     return (
@@ -14,8 +27,9 @@ export default function MarketCryptoList(props) {
       price_change_percentage_24h={crypto.price_change_percentage_24h}
       current_price={crypto.current_price}
       last_updated={crypto.last_updated}
-      id = {crypto.id}
-      
+      setFav={setFav}
+      fav={fav}
+      user = {props.user}
       />
     );
   });
