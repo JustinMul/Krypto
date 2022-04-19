@@ -4,17 +4,17 @@ import MarketCrypto from './MarketCrypto';
 
 
 export default function MarketCryptoList(props) {
-  const [fav, setFav] = useState("")
-  
+  const [fav, setFav] = useState("");  
+console.log('this is the value of fav: ', fav)
 
   const handleSubmit = () => {
+
     if (fav) {
-    axios.put(`/user-fav`, {data: fav , user: props.user});
+    axios.put(`/user-fav`, {data: fav , user: JSON.parse(localStorage.getItem('username'))});
     // .then((response) => {
     // });
     }
   }
-
   useEffect(()=>{
     handleSubmit();
   }, [fav]);
@@ -30,8 +30,6 @@ export default function MarketCryptoList(props) {
       current_price={crypto.current_price}
       last_updated={crypto.last_updated}
       setFav={setFav}
-      fav={fav}
-      user = {props.user}
       />
     );
   });
