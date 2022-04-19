@@ -4,8 +4,9 @@ import Dashboard from './components/Dashboard/Dashboard';
 
 import Watchlist from './components/Watchlist/Watchlist';
 import SingleCrypto from './components/singleCrypto/SingleCrypto';
-import ChatroomList from './components/Chat/ChatroomList';
+
 import Login from './components/login';
+import ChatroomList from './components/Chat/ChatroomList';
 
 import ProtectedRoutes from './hooks/userAuth';
 

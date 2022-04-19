@@ -61,7 +61,11 @@ app.put('/user-fav',(req, res) => {
   let response = req.body.data;
   console.log("req.body for fav: " , req.body);
   db.query(`INSERT INTO watchlists (user_email, crypto_id)
-  VALUES ($1, $2) RETURNING *;`, [req.body.user.email,req.body.data]);
+  VALUES ($1, $2) RETURNING *;`, [req.body.user.email,req.body.data])
+    .then((e)=> {
+      res.send(e.rows);
+    });
+
 });
 /*
 
