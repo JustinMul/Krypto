@@ -14,6 +14,7 @@ module.exports = (db) => {
   router.use(cors());
   router.get('/', (req, res) => {
     axios.request(options).then((response) => {
+      console.log('THIS IS HOW MANY TIMES*******');
       res.json(response.data);
     }).catch((error) => {
       console.error(error);

@@ -34,6 +34,7 @@ const Dashboard = (props) => {
     setSearch(event.target.value);
   };
   const filteredRows = searchFilter(state[0].market, search)
+
   return (
     <>
       <Header/>

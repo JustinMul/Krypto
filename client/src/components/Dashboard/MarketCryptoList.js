@@ -13,6 +13,8 @@ console.log('this is the value of fav: ', fav)
     axios.put(`/user-fav`, {data: fav , user: JSON.parse(localStorage.getItem('username'))})
     }
   }
+  
+console.log('this is the value of FAV :', fav )
   useEffect(()=>{
     handleSubmit();
   }, [fav]);
