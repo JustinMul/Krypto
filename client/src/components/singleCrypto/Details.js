@@ -1,4 +1,7 @@
 import React from 'react'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { red } from '@mui/material/colors';
+import Fab from '@mui/material/Fab';
 
 const Details = (props) => {
   
@@ -14,6 +17,9 @@ const Details = (props) => {
       <p>Price Change (24h): {(props.details.priceChange) ? props.details.priceChange : "N/A"}</p> 
       <p>Analyst up sentiment: {(props.details.data.sentiment_votes_up_percentage) ? props.details.data.sentiment_votes_up_percentage : "N/A"}% </p>
       <p> Analyst down sentiment: {(props.details.data.sentiment_votes_down_percentage) ? props.details.data.sentiment_votes_down_percentage : "N/A"}%</p>
+      <Fab  aria-label="like">
+        <FavoriteIcon style={{ color: red[500] }}/>
+      </Fab>
     </div>
   )
 }

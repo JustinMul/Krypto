@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Chart from './Chart';
 import Details from './Details';
-
+import Header from '../Header/Header';
+import SideBarList from '../Dashboard/SideBarList';
 
 const SingleCrypto = (props) => {
   const { id } = useParams();
@@ -36,6 +37,8 @@ const SingleCrypto = (props) => {
   
   return (
     <div>
+      <Header/>
+      <SideBarList/>
       <Chart id={id}/>
       <Details details={state[0]}/>
 

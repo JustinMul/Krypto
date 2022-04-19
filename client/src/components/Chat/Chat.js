@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import Avatar from '@mui/material/Avatar';
 
-function Chat({ socket, username, room }) {
+function Chat({ socket, username, room, img }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
       const messageData = {
+        img: img,
         room: room,
         author: username,
         message: currentMessage,
@@ -30,7 +34,7 @@ function Chat({ socket, username, room }) {
   }, [socket]);
 
   return (
-    <div className="chat-window">
+<div className="chat-window">
       <div className="chat-header">
         <p>Welcome to {room} chat</p>
       </div>
@@ -44,6 +48,10 @@ function Chat({ socket, username, room }) {
               >
                 <div>
                   <div className="message-content">
+                  <Avatar alt="Remy Sharp"
+                    src={messageContent.img}
+                    sx={{ width: 80, height: 80 }}
+                  />
                   <p id="time">{messageContent.author} sent at: {messageContent.time}</p>
                     <p><strong>{messageContent.message}</strong></p>
                   </div>
@@ -67,10 +75,11 @@ function Chat({ socket, username, room }) {
             event.key === "Enter" && sendMessage();
           }}
         />
-        <button onClick={sendMessage}>&#9658;</button>
+        <Button onClick={sendMessage} variant="contained" endIcon={<SendIcon />}>
+        Send
+        </Button>
       </div>
     </div>
   );
 }
-
 export default Chat;

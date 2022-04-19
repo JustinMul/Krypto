@@ -37,24 +37,20 @@ app.use('/chart', chartRouter(db));
 
 app.use(cors());
 //add new user
-const validation = {
-  name: "",
-  wishlist: []
-};
+// const validation = {
+//   name: "",
+//   wishlist: []
+// };
 //this is for validating log in
 app.put('/user-data',(req, res) => {
-  let responds = req.body.data;
-  console.log("req.body from client: " , responds.user);
+  let data = {
+    email:req.body.data.email,
+    password:req.body.data.password
+  };
 
-  db.query(`SELECT * FROM users WHERE email = $1`, [responds.user])
-    .then(data => {
-      
-      if (data.rows[0]) {
-        console.log("user: ", data.rows[0]);
-        validation.name = data.rows[0].name;
-      }
-    });
-  res.send(validation);
+  db.query(`SELECT * FROM users WHERE email = $1 AND password = $2`, [data.email,data.password])
+    .then(response => res.send(response.rows[0]))
+    .catch(e => console.error(e.stack));
 });
 
 

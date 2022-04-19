@@ -5,6 +5,8 @@ import MarketCryptoList from './MarketCryptoList';
 import topFourTrending from "../../helpers/topFourTrending";
 import SearchForm from "./SearchForm";
 import searchFilter from "../../helpers/searchFilter";
+import Header from '../Header/Header';
+import SideBarList from "./SideBarList";
 
 
 const Dashboard = (props) => {
@@ -35,6 +37,8 @@ const Dashboard = (props) => {
   const filteredRows = searchFilter(state[0].market, search)
   return (
     <>
+      <Header/>
+      <SideBarList/>
       <TrendingCryptoList data={state[0].trending}/>
       <SearchForm search={search} onChange={inputHandler}/>
       <MarketCryptoList user={props.user} data={filteredRows} isLoading={state[0].isLoading}/>

@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom';
 import urlSpaceReplacer from '../../helpers/urlSpaceReplacer';
 import { useState } from 'react';
 import axios from 'axios';
+import Fab from '@mui/material/Fab';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { red } from '@mui/material/colors';
+
 
 const MarketCrypto = (props) => {
   // console.log("props:",props);
   let cleanedUrl = urlSpaceReplacer(props.id)
  
- 
-
   return (
       <li>
         <Link to={`/crypto/${cleanedUrl}`}>
@@ -21,7 +23,8 @@ const MarketCrypto = (props) => {
         </div>
         <div>Current Price: {props.current_price}</div>
         <div>Last Updated: {props.last_updated}</div>
-        <button onClick={() => props.setFav(props.id)}> Add to Favourties</button>
+        {/* <button onClick={() => props.setFav(props.id)}> Add to Favourties</button> */}
+        <Fab aria-label="like"><FavoriteIcon style={{ color: red[500] }}/></Fab>
       </li>
   )
 }
