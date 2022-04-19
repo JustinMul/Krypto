@@ -54,7 +54,7 @@ export default function SideBarList (props) {
         <Link to="/chatrooms">Chat</Link>
         </li>
         <li>
-        <Link to="/cryptotools">Tools</Link>
+        <Link to="/calculators">Calculators</Link>
         </li>
         <li>
         {/* <Link to="/" onClick={() => clearName()}>Logout</Link> */}
