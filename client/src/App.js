@@ -10,8 +10,7 @@ import ChatroomList from './components/Chat/ChatroomList';
 import NewsList from './components/News/NewsList';
 
 import ProtectedRoutes from './hooks/userAuth';
-import CurrencyConverter
- from './components/CurrencyConverter';
+import CurrencyConverter from './components/CurrencyConverter';
 function App() {
 
   return (
