@@ -51,6 +51,7 @@ export default function CurrencyConverter() {
 
       setNumber(event.target.value)
     }
+    setResult('')
   }
   const handleSecondary = (event) => {
     console.log("SecondaryValue:",event.target.value);
@@ -59,6 +60,7 @@ export default function CurrencyConverter() {
       name:event.target.value.name,
       image:event.target.value.image
     })
+    setResult('')
   };
   const handlePrimary = (event)=>{
     // console.log("PrimaryValue:",event.target.value);
@@ -68,6 +70,7 @@ export default function CurrencyConverter() {
       name:event.target.value.name,
       image:event.target.value.image
     })
+    setResult('')
     
     // console.log('primary values', event.target.value.current_price, event.target.value.id)
   }
@@ -75,6 +78,7 @@ export default function CurrencyConverter() {
   const amount = number * primary.price;
 
   const handleResult = () => {
+ 
     let final = 0;
     
     final = amount/secondary.price;
