@@ -249,6 +249,7 @@ export default function PrimarySearchAppBar() {
             <FormControlLabel
               control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
               label="Dark Mode"
+              
             />
           </FormGroup>          
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

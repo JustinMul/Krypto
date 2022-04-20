@@ -4,8 +4,10 @@ import News from './News'
 import Header from '../Header/Header';
 import SideBarList from '../Dashboard/SideBarList'
 
+import CircularProgress from '@mui/material/CircularProgress';
 const NewsList = () => {
-  const [news, setNews] = useState([])
+  const[news, setNews] = useState([])
+  const[loading, setLoading] = useState(false)
   const options = {
     method: 'GET',
     url: 'https://crypto-news14.p.rapidapi.com/news/cointelegraph',
@@ -14,26 +16,29 @@ const NewsList = () => {
       'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
     }
   }
-  console.log("HOST:",process.env.REACT_APP_HOST_KEY,)
+  
   useEffect(()=>{
     axios.request(options).then(function (response) {
       setNews(...news,response.data)
+      setLoading(true)
     }).catch(function (error) {
       console.error(error);
     });
   },[]);
-  const newsList = news.map((article)=>{
 
+  const newsList = news.map((article)=>{
+    
     return (
-      <News key={article.title}title={article.title} image={article.image} description={article.desc} date={article.date} source={article.url} />
+      <News key={article.title} title={article.title} image={article.image} description={article.desc} date={article.date} source={article.url} />
     )
   })
   return (
-    <div>
+    <>
       <Header/>
       <SideBarList/>
-      {newsList}
-    </div>
+      {loading ? newsList : <CircularProgress/>}
+      {/* {newsList} */}
+    </>
   )
 }
 

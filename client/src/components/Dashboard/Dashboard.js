@@ -7,25 +7,28 @@ import SearchForm from "./SearchForm";
 import searchFilter from "../../helpers/searchFilter";
 import Header from '../Header/Header';
 import SideBarList from "./SideBarList";
-
+import { CircularProgress } from "@mui/material";
 
 const Dashboard = (props) => {
   const [state, setState] = useState([{
     trending:[],
     market:[],
-    isLoading: true
+   
   }]);
 
   const [search, setSearch] = useState("");
+  const[loading, setLoading] = useState(false)
   useEffect(() => {
     axios.get('/market')
       .then((res) => {
         setState((prev)=>[{ ...prev,
           market:res.data,
           trending:topFourTrending(res.data),
-          isLoading: false
+         
         }])
-        }
+        },  setTimeout(()=>{
+          setLoading(true)
+        }, 500)
       )
       .catch((err)=>console.log(err));
   },[]);
@@ -39,9 +42,12 @@ const Dashboard = (props) => {
     <>
       <Header/>
       <SideBarList/>
-      <TrendingCryptoList data={state[0].trending}/>
-      <SearchForm search={search} onChange={inputHandler}/>
-      <MarketCryptoList  data={filteredRows} isLoading={state[0].isLoading}/>
+      {loading ? 
+        (<div><TrendingCryptoList data={state[0].trending}/>
+       <SearchForm search={search} onChange={inputHandler}/>
+       <MarketCryptoList data={filteredRows}/></div> )
+       : <CircularProgress/>}
+      
 
     </>
   )
