@@ -60,9 +60,10 @@ app.put('/user-data',(req, res) => {
 app.put('/user-fav',(req, res) => {
   let response = req.body.data;
   console.log("req.body for fav: " , req.body);
-  db.query(`INSERT INTO watchlists (user_email, crypto_id, user_email_cyrpto_id)
-  VALUES ($1, $2, $3) RETURNING *;`, [req.body.user.email,req.body.data,`${req.body.user.email}${req.body.data}`])
-    .catch((error) => console.log("Error: ", error));
+  db.query(`INSERT INTO watchlists (user_email, crypto_id, image, user_email_cyrpto_id)
+  VALUES ($1, $2, $3, $4) RETURNING *;`, [req.body.user.email, req.body.id, req.body.img,`${req.body.user.email}${req.body.id}`])
+    .then((res) => res.send(res))
+    .catch((error) => res.send(error));
 });
 
 //used to delete from watchlist
@@ -70,7 +71,8 @@ app.put('/user-delete',(req, res) => {
   let response = req.body.data;
   console.log("req.body for fav: " , req.body);
   db.query(`DELETE FROM watchlists WHERE user_email = $1 and crypto_id = $2;`, [req.body.user.email,req.body.data])
-    .catch((error) => console.log("Error: ", error));
+    .then((res) => res.send(res))
+    .catch((error) => res.send(error));
 });
 
 
@@ -79,8 +81,9 @@ app.put('/user-delete',(req, res) => {
 app.put('/fav-list',(req, res) => {
   let response = req.body.user.email;
   console.log("this is the response: " , response);
-  db.query(`select crypto_id FROM watchlists where user_email = $1`, [response])
-    .then(response => res.send(response.rows));
+  db.query(`select crypto_id, image FROM watchlists where user_email = $1`, [response])
+    .then(response => res.send(response.rows))
+    .catch((error) => res.send(error));
 });
 
 

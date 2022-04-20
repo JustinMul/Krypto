@@ -28,7 +28,7 @@ const Dashboard = (props) => {
         }
       )
       .catch((err)=>console.log(err));
-  },[search]);
+  },[]);
 
   const inputHandler = (event) => {
     setSearch(event.target.value);

@@ -10,6 +10,8 @@ import Box from '@mui/material/Box';
 import SendIcon from '@mui/icons-material/Send';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import TextField from '@mui/material/TextField';
+import Header from './Header/Header';
+import SideBarList from './Dashboard/SideBarList';
 
 export default function CurrencyConverter() {
   const [ state, setState] = useState([{data:[]}]);
@@ -32,7 +34,8 @@ export default function CurrencyConverter() {
   const cryptoList = state[0].data.map((crypto)=>{
 
     return (
-      <MenuItem key ={crypto.name} value={crypto.current_price}>{crypto.name}<img src={crypto.image}alt = "crypto" width = '30' ></img></MenuItem>
+      
+      <MenuItem key ={crypto.name} value={crypto.current_price}><img src={crypto.image}alt = "crypto" width = '30' /> {crypto.name}</MenuItem>
     );
   })
   const handleChange = (event) => {
@@ -70,7 +73,9 @@ export default function CurrencyConverter() {
     setResult("");
   }
   return (
-    
+    <>
+    <Header/>
+    <SideBarList/>
     <Box
       sx={{
         width: 500,
@@ -131,5 +136,6 @@ export default function CurrencyConverter() {
       {result ? result : null}
       </div>
     </Box>
+    </>
   );
 }

@@ -12,66 +12,60 @@ const Watchlist = () => {
   }]);
 
   const [deleted, setDeleted] = useState("");
-  const handleSubmit = () => {
-    if (deleted) {
-    axios.put(`/user-delete`, {data: deleted , user: JSON.parse(localStorage.getItem('username'))})
-    }
-    
-  }
-  useEffect(() => {
-    handleSubmit();
-  }, [deleted]);
+  const [render, setRender] = useState("");
+
   
   useEffect(() => {
     Promise.all([
-      axios.get('/market'),
+      // axios.get('/market'),
       axios.put('/fav-list', {user: JSON.parse(localStorage.getItem('username'))} )
     ]).then((all)=> {
       console.log('This is what is returned from the api calls:', all);
       setState(prev => [{...prev,
-        market: all[0].data,
-        watchlist: all[1].data
+        watchlist: all[0].data
       }])
     })
 
-  },[deleted]);
+  },[render]);
 
-const arr = [];
-
-  const filter = state[0].watchlist.map((wishListCrypto) => {
-    state[0].market.map(marketCrypto => {
-      if (JSON.stringify(wishListCrypto.crypto_id) === JSON.stringify(marketCrypto.id)) {
-        console.log("wishlist: ", wishListCrypto.crypto_id);
-        arr.push(marketCrypto);
-      }
+  const handleSubmit = () => {
+    setRender(deleted);
+    if (deleted) {
+    axios.put(`/user-delete`, {data: deleted , user: JSON.parse(localStorage.getItem('username'))})
     }
+  }
+  useEffect(() => {
+    handleSubmit();
+  }, [deleted]);
 
-  );
-  });
   console.log("(outside) the Page may crash but read me: ", state);
 
-  const filtered = arr.map((marketCrypto)=> {
+  const filtered = state[0].watchlist.map((marketCrypto)=> {
     console.log("the Page may crash but read me: ", state);
     return(
       <WatchlistItem
-      key={marketCrypto.id}
-      id={marketCrypto.id}
+      key={marketCrypto.crypto_id}
+      id={marketCrypto.crypto_id}
       image={marketCrypto.image}
-      name={marketCrypto.name}
-      price_change_percentage_24h={marketCrypto.price_change_percentage_24h}
-      current_price={marketCrypto.current_price}
-      last_updated={marketCrypto.last_updated}
       setDeleted={setDeleted}
       />
     );
   })
-
+//  const [test, setTest] = setState(false);
+//   const handlefav = () => {
+//     if (!test){
+//       setTest(true);
+//     }
+//     setTest(false);
+//   }
   
   return (
     <div>
     <Header/>
     <SideBarList/>
       {filtered}
+    {/* <button onClick={() => handlefav()}>fav list</button> */}
+      {/* {(test) ? filtered : <div>lost connection</div>} */}
     </div>
   );
 }

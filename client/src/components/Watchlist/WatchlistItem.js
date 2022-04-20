@@ -13,19 +13,20 @@ const WatchlistItem = (props) => {
   let cleanedUrl = urlSpaceReplacer(props.id)
  
   return (
-      <li>
+      <div>
+        <button onClick={() => props.setDeleted(props.id)}> Remove </button>
         <Link to={`/crypto/${cleanedUrl}`}>
-          <img src={props.image} alt={props.id}></img>
+          <img src={props.image} alt={props.id} width = '20'/>
+          <span>{props.id}</span>
         </Link>
-        <div>
-          <span>{props.name}</span>
+        {/* <span> Current Price: {props.current_price}</span> */}
+
+        {/* <div>
           <span>24 Hour Percentage Change: {props.price_change_percentage_24h}</span>
-        </div>
-        <div>Current Price: {props.current_price}</div>
-        <div>Last Updated: {props.last_updated}</div>
-        <button onClick={() => props.setDeleted(props.id)}> Remove from to Favourties</button>
+        </div> */}
+        {/* <div>Last Updated: {props.last_updated}</div> */}
         {/* <Fab aria-label="like"  onClick={props.setFav(props.id)}><FavoriteIcon style={{ color: red[500] }}/></Fab> */}
-      </li>
+      </div>
   )
 }
 // localStorage.setItem("userName", response.data.name);

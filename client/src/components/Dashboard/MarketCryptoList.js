@@ -4,18 +4,19 @@ import MarketCrypto from './MarketCrypto';
 
 
 export default function MarketCryptoList(props) {
-  const [fav, setFav] = useState("");  
-console.log('this is the value of fav: ', fav)
+  const [fav, setFav] = useState([]);  
 
   const handleSubmit = () => {
     
-    if (fav) {
-    axios.put(`/user-fav`, {data: fav , user: JSON.parse(localStorage.getItem('username'))})
+    if (fav.length > 0) {
+      console.log("axios call to the back end to store fav gets called")
+      axios.put(`/user-fav`, {id: fav[0], img: fav[1] , user: JSON.parse(localStorage.getItem('username'))})
+      .then((res) => console.log("This is the responds from /user-fav post: ", res)).catch((error) => console.log("from user-fav error: ", error))
     }
+
   }
   
-console.log('this is the value of FAV :', fav )
-  useEffect(()=>{
+  useEffect(() => {
     handleSubmit();
   }, [fav]);
 
@@ -30,6 +31,7 @@ console.log('this is the value of FAV :', fav )
       current_price={crypto.current_price}
       last_updated={crypto.last_updated}
       setFav={setFav}
+      fav={fav}
       />
     );
   });

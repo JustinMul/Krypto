@@ -5,18 +5,17 @@ import urlSpaceReplacer from '../../helpers/urlSpaceReplacer';
 function TrendingCrypto(props) {
   let cleanedUrl = urlSpaceReplacer(props.id)
   return (
-    <li>
+    <div>
       <Link to={`/crypto/${cleanedUrl}`}>
-        <img src={props.image} alt={props.name}></img>
+        <img src={props.image} alt={props.name} width="50"/>
       </Link>
+        <span> {props.name}</span>
       <div>
-        <span>{props.name}</span>
-
-        <p>24 Hour Percentage Change: {props.price_change_percentage_24h}</p>
+        <span>Percentage Change (24h): {Math.round(props.price_change_percentage_24h)}%</span>
       </div>
       <div>Current Price: {props.current_price}</div>
       <div>Last Updated: {props.last_updated}</div>
-    </li>
+    </div>
   )
 }
 
