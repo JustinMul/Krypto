@@ -50,7 +50,6 @@ const Dashboard = (props) => {
     <>
       <Header mode={props.mode} setMode={props.setMode}/>
       <SideBarList mode={props.mode} setMode={props.setMode}/>
-      <TrendingCryptoList data={state[0].trending}/>
       {loading ? 
         (<div><TrendingCryptoList data={state[0].trending}/>
        <SearchForm search={search} onChange={inputHandler}/>
