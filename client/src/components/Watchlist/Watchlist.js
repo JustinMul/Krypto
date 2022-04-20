@@ -18,7 +18,7 @@ const Watchlist = () => {
     }
     
   }
-  useEffect(()=>{
+  useEffect(() => {
     handleSubmit();
   }, [deleted]);
   
@@ -27,7 +27,7 @@ const Watchlist = () => {
       axios.get('/market'),
       axios.put('/fav-list', {user: JSON.parse(localStorage.getItem('username'))} )
     ]).then((all)=> {
-      console.log('This is what is returned from the api calls:', all)
+      console.log('This is what is returned from the api calls:', all);
       setState(prev => [{...prev,
         market: all[0].data,
         watchlist: all[1].data
