@@ -60,7 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function Header(props) {
 
   const [value, setValue] = useState({});
   useEffect(() => {
@@ -248,7 +248,8 @@ export default function PrimarySearchAppBar() {
           <FormGroup>
             <FormControlLabel
               control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-              label="Dark Mode"
+              label={props.mode}
+              onClick={() => (props.mode === 'dark') ? props.setMode('light') : props.setMode('dark')}
             />
           </FormGroup>          
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

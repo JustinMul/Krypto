@@ -7,7 +7,13 @@ import SearchForm from "./SearchForm";
 import searchFilter from "../../helpers/searchFilter";
 import Header from '../Header/Header';
 import SideBarList from "./SideBarList";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 const Dashboard = (props) => {
   const [state, setState] = useState([{
@@ -36,14 +42,15 @@ const Dashboard = (props) => {
   const filteredRows = searchFilter(state[0].market, search)
 
   return (
+    <ThemeProvider theme={darkTheme}>
     <>
-      <Header/>
+      <Header mode={props.mode} setMode={props.setMode}/>
       <SideBarList/>
       <TrendingCryptoList data={state[0].trending}/>
       <SearchForm search={search} onChange={inputHandler}/>
       <MarketCryptoList  data={filteredRows} isLoading={state[0].isLoading}/>
-
     </>
+    </ThemeProvider>
   )
 }
 

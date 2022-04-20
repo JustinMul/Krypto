@@ -31,7 +31,7 @@ const ChatroomList = (props) => {
 
   return (
     <div>
-      <Header/>
+      <Header mode={props.mode} setMode={props.setMode}/>
       <SideBarList/>
       {button()}
       

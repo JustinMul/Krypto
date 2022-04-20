@@ -4,7 +4,7 @@ import News from './News'
 import Header from '../Header/Header';
 import SideBarList from '../Dashboard/SideBarList'
 
-const NewsList = () => {
+const NewsList = (props) => {
   const [news, setNews] = useState([])
   const options = {
     method: 'GET',
@@ -30,7 +30,7 @@ const NewsList = () => {
   })
   return (
     <div>
-      <Header/>
+      <Header mode={props.mode} setMode={props.setMode}/>
       <SideBarList/>
       {newsList}
     </div>

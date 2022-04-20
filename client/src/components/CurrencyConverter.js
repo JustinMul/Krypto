@@ -14,7 +14,7 @@ import Header from './Header/Header';
 import SideBarList from './Dashboard/SideBarList';
 import { cyan } from '@mui/material/colors';
 
-export default function CurrencyConverter() {
+export default function CurrencyConverter(props) {
   const [ state, setState] = useState([{data:[]}]);
   const [ primary, setPrimary] = useState({
     price:"",
@@ -100,7 +100,7 @@ export default function CurrencyConverter() {
 
   return (
     <>
-    <Header/>
+    <Header mode={props.mode} setMode={props.setMode}/>
     <SideBarList/>
     <Box
       sx={{

@@ -5,7 +5,7 @@ import axios from 'axios';
 import WatchlistItem from './WatchlistItem';
 
 
-const Watchlist = () => {
+const Watchlist = (props) => {
   const [state, setState] = useState([{
     market: [],
     watchlist: []
@@ -61,7 +61,7 @@ const Watchlist = () => {
   
   return (
     <div>
-    <Header/>
+    <Header mode={props.mode} setMode={props.setMode}/>
     <SideBarList/>
       {filtered}
     {/* <button onClick={() => handlefav()}>fav list</button> */}

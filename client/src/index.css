@@ -6,6 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+div.light{
+  background-color: white;
+}
+div.dark{
+  background-color: black;
+  color: grey;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
