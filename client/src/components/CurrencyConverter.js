@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -7,15 +7,45 @@ import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import SendIcon from '@mui/icons-material/Send';
+import axios from 'axios';
  
- 
+
 export default function CurrencyConverter() {
- const [age, setAge] = useState('');
- 
- const handleChange = (event) => {
-   setAge(event.target.value);
+  
+//  const [primaryCurr, setPrimaryCurr] = useState([]);
+//  const [secondaryCurr, setSecondaryCurr] = useState([]);
+ const [state, setState] = useState([{
+   p: []
+ }]);
+ const [primaryValue, setPrimaryValue] = useState('');
+ const [secondaryValue, setSecondaryValue] = useState('');
+
+ useEffect(() => {
+  axios.get('/market')
+    .then((res) => {
+    setState(prev => [{...prev, 
+      p:res.data,
+      s:res.data
+    }]);
+      }
+    )
+    .catch((err)=>console.log(err));
+},[]);
+ const handlePrimaryChange = (event) => {
+  setPrimaryValue(event.target.value);
  };
+ const handleSecondaryChange = (event) => {
+  setSecondaryValue(event.target.value)
+ };
+
+console.log('This is state:', state)
+const primaryCurrList = state[0].p.map((primary) => {
+    return(
+      <MenuItem value={primary.id}><img src={primary.image} width = "20"/> {primary.id}</MenuItem>
+    )
  
+})
+
  return (
   
    <Box
@@ -29,16 +59,14 @@ export default function CurrencyConverter() {
        <Select
          labelId="demo-simple-select-helper-label"
          id="demo-simple-select-helper"
-         value={age}
+         value={primaryValue}
          label="Age"
-         onChange={handleChange}
+         onChange={(event) => handlePrimaryChange(event)}
        >
          <MenuItem value="">
            <em>None</em>
          </MenuItem>
-         <MenuItem value={10}>Ten</MenuItem>
-         <MenuItem value={20}>Twenty</MenuItem>
-         <MenuItem value={30}>Thirty</MenuItem>
+         {primaryCurrList}
        </Select>
        <FormHelperText>Primary Currency</FormHelperText>
      </FormControl>
@@ -47,16 +75,14 @@ export default function CurrencyConverter() {
        <Select
          labelId="demo-simple-select-helper-label"
          id="demo-simple-select-helper"
-         value={age}
+         value={secondaryValue}
          label="Age"
-         onChange={handleChange}
+         onChange={handleSecondaryChange}
        >
          <MenuItem value="">
            <em>None</em>
          </MenuItem>
-         <MenuItem value={10}>Ten</MenuItem>
-         <MenuItem value={20}>Twenty</MenuItem>
-         <MenuItem value={30}>Thirty</MenuItem>
+         {primaryCurrList}
        </Select>
        <FormHelperText>Secondary Currency</FormHelperText>
      </FormControl>
