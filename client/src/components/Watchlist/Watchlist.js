@@ -3,9 +3,15 @@ import Header from '../Header/Header'
 import SideBarList from '../Dashboard/SideBarList'
 import axios from 'axios';
 import WatchlistItem from './WatchlistItem';
-
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const Watchlist = (props) => {
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
   const [state, setState] = useState([{
     market: [],
     watchlist: []
@@ -48,25 +54,21 @@ const Watchlist = (props) => {
       id={marketCrypto.crypto_id}
       image={marketCrypto.image}
       setDeleted={setDeleted}
+      mode={props.mode}
       />
     );
   })
-//  const [test, setTest] = setState(false);
-//   const handlefav = () => {
-//     if (!test){
-//       setTest(true);
-//     }
-//     setTest(false);
-//   }
   
   return (
+    <ThemeProvider theme={darkTheme}>
     <div>
-    <Header mode={props.mode} setMode={props.setMode}/>
-    <SideBarList/>
-      {filtered}
-    {/* <button onClick={() => handlefav()}>fav list</button> */}
-      {/* {(test) ? filtered : <div>lost connection</div>} */}
+      <Header mode={props.mode} setMode={props.setMode}/>
+      <SideBarList mode={props.mode} setMode={props.setMode}/>
+      <div className="testing">
+        {filtered}
+      </div>
     </div>
+    </ThemeProvider>
   );
 }
 

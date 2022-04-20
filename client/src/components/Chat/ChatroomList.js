@@ -5,8 +5,14 @@ import { useState, useEffect } from 'react'
 import Chatroom from './Chatroom';
 import Header from '../Header/Header';
 import SideBarList from '../Dashboard/SideBarList';
-const ChatroomList = (props) => {
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+const ChatroomList = (props) => {
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
   const [room, setRoom] = useState("");
   const button = () => {
     console.log('this is the value of room', room)
@@ -31,10 +37,13 @@ const ChatroomList = (props) => {
 
   return (
     <div>
+          <ThemeProvider theme={darkTheme}>
       <Header mode={props.mode} setMode={props.setMode}/>
-      <SideBarList/>
+      <SideBarList mode={props.mode} setMode={props.setMode}/>
+      <div className='testing'>
       {button()}
-      
+      </div>
+      </ThemeProvider>
     </div>
   )
 }

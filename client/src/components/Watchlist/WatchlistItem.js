@@ -11,11 +11,18 @@ import { red } from '@mui/material/colors';
 const WatchlistItem = (props) => {
   // console.log(" this is props:",props);
   let cleanedUrl = urlSpaceReplacer(props.id)
- 
+  const [textColor, setTextColor] = useState('black');
+  useEffect(() => {
+    if (props.mode === 'dark') {
+      setTextColor('rgb(171, 171, 171)');
+    } else if (props.mode === 'light') {
+      setTextColor('black');
+    }
+  }, [props.mode])
   return (
       <div>
         <button onClick={() => props.setDeleted(props.id)}> Remove </button>
-        <Link to={`/crypto/${cleanedUrl}`}>
+        <Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: textColor }}>
           <img src={props.image} alt={props.id} width = '20'/>
           <span>{props.id}</span>
         </Link>

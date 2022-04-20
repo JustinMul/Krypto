@@ -7,11 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 div.light{
-  background-color: white;
+  background-color: rgb(152, 165, 185);
 }
 div.dark{
-  background-color: black;
-  color: grey;
+  background-color: rgb(41, 39, 39);
+  color: rgb(171, 171, 171);
+}
+div.testing{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100%; 
 }
 
 code {

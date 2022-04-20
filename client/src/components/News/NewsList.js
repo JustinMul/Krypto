@@ -3,8 +3,14 @@ import axios from 'axios';
 import News from './News'
 import Header from '../Header/Header';
 import SideBarList from '../Dashboard/SideBarList'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const NewsList = (props) => {
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
   const [news, setNews] = useState([])
   const options = {
     method: 'GET',
@@ -29,11 +35,15 @@ const NewsList = (props) => {
     )
   })
   return (
+    <ThemeProvider theme={darkTheme}>
     <div>
       <Header mode={props.mode} setMode={props.setMode}/>
-      <SideBarList/>
+      <SideBarList mode={props.mode} setMode={props.setMode}/>
+      <div className='testing'>
       {newsList}
+      </div>
     </div>
+    </ThemeProvider>
   )
 }
 

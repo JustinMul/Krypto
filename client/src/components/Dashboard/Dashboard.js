@@ -9,13 +9,13 @@ import Header from '../Header/Header';
 import SideBarList from "./SideBarList";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
 
 const Dashboard = (props) => {
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
   const [state, setState] = useState([{
     trending:[],
     market:[],
@@ -45,7 +45,7 @@ const Dashboard = (props) => {
     <ThemeProvider theme={darkTheme}>
     <>
       <Header mode={props.mode} setMode={props.setMode}/>
-      <SideBarList/>
+      <SideBarList mode={props.mode} setMode={props.setMode}/>
       <TrendingCryptoList data={state[0].trending}/>
       <SearchForm search={search} onChange={inputHandler}/>
       <MarketCryptoList  data={filteredRows} isLoading={state[0].isLoading}/>

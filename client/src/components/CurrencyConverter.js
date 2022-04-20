@@ -13,6 +13,7 @@ import TextField from '@mui/material/TextField';
 import Header from './Header/Header';
 import SideBarList from './Dashboard/SideBarList';
 import { cyan } from '@mui/material/colors';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 export default function CurrencyConverter(props) {
   const [ state, setState] = useState([{data:[]}]);
@@ -28,6 +29,12 @@ export default function CurrencyConverter(props) {
   });
   const [ number, setNumber] = useState(1);
   const [ result, setResult] = useState(0);
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
 
   useEffect(() => {
     axios.get('/market') 
@@ -103,9 +110,10 @@ export default function CurrencyConverter(props) {
   }
 
   return (
-    <>
+    <div>
+          <ThemeProvider theme={darkTheme}>
     <Header mode={props.mode} setMode={props.setMode}/>
-    <SideBarList/>
+    <SideBarList mode={props.mode} setMode={props.setMode}/>
     <Box
       sx={{
         width: 500,
@@ -184,6 +192,7 @@ export default function CurrencyConverter(props) {
       {result ? `${number} ${primary.name} = ${result} ${secondary.name}` : null}
       </div>
     </Box>
-    </>
+    </ThemeProvider>
+    </div>
   );
 }

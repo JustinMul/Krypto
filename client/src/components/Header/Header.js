@@ -248,7 +248,7 @@ export default function Header(props) {
           <FormGroup>
             <FormControlLabel
               control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-              label={props.mode}
+              label={props.mode + " mode"}
               onClick={() => (props.mode === 'dark') ? props.setMode('light') : props.setMode('dark')}
             />
           </FormGroup>          

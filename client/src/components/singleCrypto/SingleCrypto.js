@@ -38,7 +38,7 @@ const SingleCrypto = (props) => {
   return (
     <div>
       <Header mode={props.mode} setMode={props.setMode}/>
-      <SideBarList/>
+      <SideBarList mode={props.mode} setMode={props.setMode}/>
       <Chart id={id}/>
       <Details details={state[0]}/>
 

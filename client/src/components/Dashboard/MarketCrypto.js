@@ -9,7 +9,7 @@ const MarketCrypto = (props) => {
   let cleanedUrl = urlSpaceReplacer(props.id)
 
   return (
-      <div>
+      <div >
         <Link to={`/crypto/${cleanedUrl}`}>
           <img src={props.image} alt={props.id} width="50"/>
         </Link>

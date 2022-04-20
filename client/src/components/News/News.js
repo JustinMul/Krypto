@@ -12,7 +12,6 @@ import Divider from '@mui/material/Divider';
 const News = ({title, image, description, date, source}) => {
   
   return (
-
     <Card m={{ maxWidth: 80}}>
       <CardMedia
         component="img"
