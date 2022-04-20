@@ -110,7 +110,7 @@ export default function CurrencyConverter(props) {
   }
 
   return (
-    <div>
+    <div className="testing">
           <ThemeProvider theme={darkTheme}>
     <Header mode={props.mode} setMode={props.setMode}/>
     <SideBarList mode={props.mode} setMode={props.setMode}/>
