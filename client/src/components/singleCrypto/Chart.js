@@ -42,7 +42,8 @@ const Charts = (props) => {
       labels: historicData.map((coin) => {
        
       let date = new Date(coin[0]);
-      console.log(date.getMonth())
+      console.log('this is a test', date)
+      //time isn't needed unless we want to change to less than 1 day
       let time =
         date.toLocaleDateString()
           // ? `${date.getHours() - 12}:${date.getMinutes()} PM`
@@ -63,8 +64,15 @@ const Charts = (props) => {
   options={{
     elements: {
       point: {
-        radius: 4,
+        radius: 2,
       },
+    },
+    scales: {
+      x: {
+        ticks: {
+          maxTicksLimit: 12
+        }
+    }
     },
     responsive: true,
     animation: {

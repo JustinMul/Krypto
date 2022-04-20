@@ -12,11 +12,20 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import TextField from '@mui/material/TextField';
 import Header from './Header/Header';
 import SideBarList from './Dashboard/SideBarList';
+import { cyan } from '@mui/material/colors';
 
 export default function CurrencyConverter() {
   const [ state, setState] = useState([{data:[]}]);
-  const [ primary, setPrimary] = useState(null);
-  const [ secondary, setSecondary] = useState(null);
+  const [ primary, setPrimary] = useState({
+    price:"",
+    name:"",
+    image:""
+  });
+  const [ secondary, setSecondary] = useState({
+    price:"",
+    name:"",
+    image:""
+  });
   const [ number, setNumber] = useState(1);
   const [ result, setResult] = useState(0);
 
@@ -32,10 +41,9 @@ export default function CurrencyConverter() {
   },[]);
 
   const cryptoList = state[0].data.map((crypto)=>{
-
+  
     return (
-      
-      <MenuItem key ={crypto.name} value={crypto.current_price}><img src={crypto.image}alt = "crypto" width = '30' /> {crypto.name}</MenuItem>
+      <MenuItem key ={crypto.name} value={{name:crypto.name, price: crypto.current_price, image: crypto.image}}>{crypto.name}<img src={crypto.image}alt = "crypto" width = '30' ></img></MenuItem>
     );
   })
   const handleChange = (event) => {
@@ -46,32 +54,50 @@ export default function CurrencyConverter() {
   }
   const handleSecondary = (event) => {
     console.log("SecondaryValue:",event.target.value);
-    setSecondary(event.target.value);
+    setSecondary({
+      price:event.target.value.price,
+      name:event.target.value.name,
+      image:event.target.value.image
+    })
   };
   const handlePrimary = (event)=>{
+    // console.log("PrimaryValue:",event.target.value);
     console.log("PrimaryValue:",event.target.value);
-    setPrimary(event.target.value)
+    setPrimary({
+      price:event.target.value.price,
+      name:event.target.value.name,
+      image:event.target.value.image
+    })
+    
+    // console.log('primary values', event.target.value.current_price, event.target.value.id)
   }
 
-  const amount = number * primary;
+  const amount = number * primary.price;
 
   const handleResult = () => {
     let final = 0;
-    if(amount > secondary){
-      final = amount/secondary;
-    } else {
-      final = secondary/amount;
-    }
+    
+    final = amount/secondary.price;
+    
     setResult(final);
   }
-  console.log(result);
+  // console.log(result);
 
   const handleRefresh = () => {
     setNumber("");
-    setPrimary("");
-    setSecondary("");
+
+    setPrimary({
+      name: "",
+      price: "",
+      image: ""
+    });
+    setSecondary({
+    price:"",
+    name:"",
+  image:""});
     setResult("");
   }
+
   return (
     <>
     <Header/>
@@ -97,7 +123,16 @@ export default function CurrencyConverter() {
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          value={primary ? primary : ""}
+          value={primary}
+          renderValue={(crypto)=> {
+            if(crypto.image) {
+              return(
+                <MenuItem key ={crypto.name} value={{name:crypto.name, price: crypto.price, image: crypto.image}}>{crypto.name}<img src={crypto.image}alt = "crypto" width = '30' ></img></MenuItem>
+              )
+            }
+           
+
+          }}
           label="Primary"
           onChange={handlePrimary}
         >
@@ -113,9 +148,18 @@ export default function CurrencyConverter() {
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          value={secondary ? secondary : ""}
+          value={secondary}
           label="Secondary"
           onChange={handleSecondary}
+          renderValue={(crypto)=> {
+            if(crypto.image) {
+              return(
+                <MenuItem key ={crypto.name} value={{name:crypto.name, price: crypto.price, image: crypto.image}}>{crypto.name}<img src={crypto.image}alt = "crypto" width = '30' ></img></MenuItem>
+              )
+            }
+           
+
+          }}
         >
           <MenuItem value="">
             <em>Select a Coin</em>
@@ -133,7 +177,7 @@ export default function CurrencyConverter() {
         </Button>
       </div>
       <div>
-      {result ? result : null}
+      {result ? `${number} ${primary.name} = ${result} ${secondary.name}` : null}
       </div>
     </Box>
     </>
