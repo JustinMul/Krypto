@@ -12,6 +12,7 @@ import { CircularProgress, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { sizing } from "@mui/system";
 import MarketCryptoHeader from "../Header/MarketCryptoHeader";
+
 const Dashboard = (props) => {
   const darkTheme = createTheme({
     palette: {
@@ -45,6 +46,14 @@ const Dashboard = (props) => {
     setSearch(event.target.value);
   };
   const filteredRows = searchFilter(state[0].market, search)
+  const [textColor, setTextColor] = useState('black');
+  useEffect(() => {
+    if (props.mode === 'dark') {
+      setTextColor('rgb(171, 171, 171)');
+    } else if (props.mode === 'light') {
+      setTextColor('black');
+    }
+  }, [props.mode])
 
   return (
 
@@ -54,21 +63,23 @@ const Dashboard = (props) => {
       <Header mode={props.mode} setMode={props.setMode}/>
 
       <Box sx={{ml:2, mt:4, mr:2, mb:4}}>
-        <Grid container spacing={2} >
-          <Grid >
+        <Grid container spacing={2}>
+          <Grid>
             <SideBarList mode={props.mode} setMode={props.setMode}/>
           </Grid>
 
           <Grid>
+          <Typography variant="h3">Dashboard</Typography> 
+            
             {loading ? 
             (<div>
               <Grid >
-                Trending
+               <Typography align="center" variant="h4">Trending</Typography> 
                 <TrendingCryptoList data={state[0].trending}/> 
               </Grid>
               <SearchForm search={search} onChange={inputHandler}/>
-                     <MarketCryptoHeader/>
-              <Grid style={{maxHeight: '75vh', overflow: 'auto'}}>
+                     
+              <Grid>
                 <MarketCryptoList data={filteredRows}/>
               </Grid>
             </div>)
