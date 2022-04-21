@@ -23,7 +23,7 @@ const Chatroom = (props) => {
       setShowChat(true);
     }
   };
-  
+  console.log("username.name: ", username.name)
   return (
     <div className="App">
     {!showChat ? (

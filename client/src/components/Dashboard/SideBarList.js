@@ -17,13 +17,14 @@ export default function SideBarList (props) {
   // const clearName = () => {
   //   setName(null);
   // }
-  const [textColor, setTextColor] = useState('black');
+  // const [textColor, setTextColor] = useState('black');
   const [value, setValue] = useState({});
   useEffect(() => {
     
     setValue(JSON.parse(localStorage.getItem('username')));
     
   }, []);
+  const [textColor, setTextColor] = useState('black');
   useEffect(() => {
     if (props.mode === 'dark') {
       setTextColor('rgb(171, 171, 171)');

@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Avatar from '@mui/material/Avatar';
 
-function Chat({ socket, username, room, img }) {
+function Chat({ socket, user, room, img }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
@@ -13,7 +13,7 @@ function Chat({ socket, username, room, img }) {
       const messageData = {
         img: img,
         room: room,
-        author: username,
+        author: user,
         message: currentMessage,
         time:
           new Date(Date.now()).getHours() +
@@ -44,7 +44,7 @@ function Chat({ socket, username, room, img }) {
             return (
               <div
                 className="message"
-                id={username === messageContent.author ? "you" : "other"}
+                id={user === messageContent.author ? "you" : "other"}
               >
                 <div>
                   <div className="message-content">

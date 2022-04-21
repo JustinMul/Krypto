@@ -10,10 +10,14 @@ export default function MarketCryptoList(props) {
     
     if (fav.length > 0) {
       console.log("axios call to the back end to store fav gets called")
-      axios.put(`/user-fav`, {id: fav[0], img: fav[1] , user: JSON.parse(localStorage.getItem('username'))})
-      .then((res) => console.log("This is the responds from /user-fav post: ", res)).catch((error) => console.log("from user-fav error: ", error))
+      axios.put(`/insert-watchlist`, {
+        id: fav[0], 
+        img: fav[1], 
+        user: JSON.parse(localStorage.getItem('username'))})
+        .then((res) => 
+        console.log("This is the responds from /insert-watchlist post: ", res))
+        .catch((error) => console.log("from insert-watchlist error: ", error))
     }
-
   }
   
   useEffect(() => {

@@ -24,7 +24,7 @@ const Watchlist = (props) => {
   useEffect(() => {
     Promise.all([
       // axios.get('/market'),
-      axios.put('/fav-list', {user: JSON.parse(localStorage.getItem('username'))} )
+      axios.put('/watchlist', {user: JSON.parse(localStorage.getItem('username'))} )
     ]).then((all)=> {
       console.log('This is what is returned from the api calls:', all);
       setState(prev => [{...prev,
