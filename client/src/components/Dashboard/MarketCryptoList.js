@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import MarketCrypto from './MarketCrypto';
-
+import { CircularProgress, Grid } from "@mui/material";
 
 export default function MarketCryptoList(props) {
   const [fav, setFav] = useState([]);  
@@ -13,7 +13,6 @@ export default function MarketCryptoList(props) {
       axios.put(`/user-fav`, {id: fav[0], img: fav[1] , user: JSON.parse(localStorage.getItem('username'))})
       .then((res) => console.log("This is the responds from /user-fav post: ", res)).catch((error) => console.log("from user-fav error: ", error))
     }
-
   }
   
   useEffect(() => {
@@ -37,8 +36,11 @@ export default function MarketCryptoList(props) {
   });
 
   return (
-    <div className='crypto_container'>
-      {marketCrypto}
-    </div>
+
+      <div className='crypto_container'>
+        
+        {marketCrypto}
+      </div>
+
   );
 }

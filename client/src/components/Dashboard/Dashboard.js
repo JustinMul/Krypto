@@ -8,9 +8,10 @@ import searchFilter from "../../helpers/searchFilter";
 import Header from '../Header/Header';
 import SideBarList from "./SideBarList";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CircularProgress } from "@mui/material";
-
-
+import { CircularProgress, Grid, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { sizing } from "@mui/system";
+import MarketCryptoHeader from "../Header/MarketCryptoHeader";
 const Dashboard = (props) => {
   const darkTheme = createTheme({
     palette: {
@@ -46,17 +47,35 @@ const Dashboard = (props) => {
   const filteredRows = searchFilter(state[0].market, search)
 
   return (
+
     <ThemeProvider theme={darkTheme}>
-    <>
+    
+
       <Header mode={props.mode} setMode={props.setMode}/>
-      <SideBarList mode={props.mode} setMode={props.setMode}/>
-      {loading ? 
-        (<div><TrendingCryptoList data={state[0].trending}/>
-       <SearchForm search={search} onChange={inputHandler}/>
-       <MarketCryptoList data={filteredRows}/></div> )
-       : <CircularProgress/>}
-      
-    </>
+
+      <Box sx={{ml:2, mt:4, mr:2, mb:4}}>
+        <Grid container spacing={2} >
+          <Grid >
+            <SideBarList mode={props.mode} setMode={props.setMode}/>
+          </Grid>
+
+          <Grid>
+            {loading ? 
+            (<div>
+              <Grid >
+                Trending
+                <TrendingCryptoList data={state[0].trending}/> 
+              </Grid>
+              <SearchForm search={search} onChange={inputHandler}/>
+                     <MarketCryptoHeader/>
+              <Grid style={{maxHeight: '75vh', overflow: 'auto'}}>
+                <MarketCryptoList data={filteredRows}/>
+              </Grid>
+            </div>)
+            : <CircularProgress/>} 
+          </Grid>
+        </Grid>
+      </Box>
     </ThemeProvider>
   )
 }
