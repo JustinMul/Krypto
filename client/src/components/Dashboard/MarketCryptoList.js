@@ -37,7 +37,7 @@ export default function MarketCryptoList(props) {
   });
 
   return (
-    <div className='crypto_container'>
+    <div>
       {marketCrypto}
     </div>
   );

@@ -69,9 +69,11 @@ const Charts = (props) => {
     },
     scales: {
       x: {
+        display: true,
+            stacked: true,
         ticks: {
           maxTicksLimit: 12
-        }
+        },
     }
     },
     responsive: true,

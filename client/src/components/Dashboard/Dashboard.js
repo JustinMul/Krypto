@@ -53,7 +53,7 @@ const Dashboard = (props) => {
       {loading ? 
         (<div><TrendingCryptoList data={state[0].trending}/>
        <SearchForm search={search} onChange={inputHandler}/>
-       <MarketCryptoList data={filteredRows}/></div> )
+       <div className="container"><MarketCryptoList data={filteredRows}/></div></div> )
        : <CircularProgress/>}
       
     </>
