@@ -67,12 +67,16 @@ const Charts = (props) => {
         radius: 2,
       },
     },
+    maintainAspectRatio: false,
     scales: {
       x: {
+        
         ticks: {
-          maxTicksLimit: 12
+          maxTicksLimit: 30
+     
         }
-    }
+    },
+    
     },
     responsive: true,
     animation: {
