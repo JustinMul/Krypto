@@ -79,7 +79,8 @@ const Dashboard = (props) => {
               <SearchForm search={search} onChange={inputHandler}/>
                      
               <Grid>
-                <MarketCryptoList data={filteredRows}/>
+                <MarketCryptoList data={filteredRows} mode={props.mode} 
+              setMode={props.setMode}/>
               </Grid>
             </div>)
             : <CircularProgress/>} 

@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
+import dateConvert from '../../helpers/dateConvert';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -59,7 +61,7 @@ function TrendingCrypto(props) {
       }}>
     
    
-      <Grid container spacing={0}>
+      <Grid container spacing={0.5}>
         <Grid item>
           <ButtonBase sx={{ width: 50, height: 100 }}>
           <Link to={`/crypto/${cleanedUrl}`}><img src={props.image} alt={props.name} width="50"/>  </Link>
@@ -72,18 +74,18 @@ function TrendingCrypto(props) {
                {props.name}
               </Typography>
               <Typography variant="body2" gutterBottom>
-              ${props.current_price}
+              ${(props.current_price).toFixed(2)}
               </Typography>
             </Grid>
             <Grid item>
               <Typography sx={{ cursor: 'pointer' }} variant="body2">
-              {props.last_updated}
+              {dateConvert(props.last_updated)}
               </Typography>
             </Grid>
           </Grid>
           <Grid item>
-            <Typography variant="subtitle1" component="div">
-            {Math.round(props.price_change_percentage_24h)}%
+            <Typography variant="subtitle1" component="div" style={{color: "green"}}>
+            {Math.round(props.price_change_percentage_24h)}% <FileUploadIcon/>
             </Typography>
           </Grid>
         </Grid>

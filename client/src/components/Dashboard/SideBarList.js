@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, useTheme, alpha } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -16,12 +16,17 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { useState } from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-
+import { Link } from 'react-router-dom';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import AddToQueueIcon from '@mui/icons-material/AddToQueue';
+import ChatIcon from '@mui/icons-material/Chat';
+import LogoutIcon from '@mui/icons-material/Logout';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import SwapVerticalCircleIcon from '@mui/icons-material/SwapVerticalCircle';
 const drawerWidth = 195;
 
 const openedMixin = (theme) => ({
@@ -91,11 +96,15 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 
-  
 
-
-  export default function SideBarList(props) {
-    const [value, setValue] = useState({});
+export default function SideBarList(props) {
+ 
+      const [textColor, setTextColor] = useState('black');
+      const [value, setValue] = useState({});
+    
+    const handleClick = () => {
+      setValue(localStorage.removeItem('username'));
+    }
     const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       width: 62,
       height: 34,
@@ -155,9 +164,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
       setOpen(false);
     };
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -191,15 +200,18 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {/* button for dashboard */}
+          {<Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
+            
             <ListItemButton
-              key={text}
+              key="dashboard"
               sx={{
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',
                 px: 2.5,
               }}
             >
+
               <ListItemIcon
                 sx={{
                   minWidth: 0,
@@ -207,36 +219,145 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
                   justifyContent: 'center',
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <DashboardIcon/>
               </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
-          ))}
+            </Link>
+          }
+
+          {/* button for watchlist */}
+          {<Link to="/watchlist" style={{ textDecoration: 'none', color: 'grey'}}>
+            
+            <ListItemButton
+              key="watchlist"
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}
+              >
+                <AddToQueueIcon />
+              </ListItemIcon>
+              <ListItemText primary="Watchlist" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+            </Link>
+          }
+
+            {/* button for Chatrooms */}
+            {<Link to="/chatrooms" style={{ textDecoration: 'none', color: 'grey'}}>
+                        
+              <ListItemButton
+                key="chatrooms"
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ChatIcon />
+                </ListItemIcon>
+                <ListItemText primary="Chatrooms" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+                        </Link>
+              }
+
+               {/* button for news */}
+              {<Link to="/news" style={{ textDecoration: 'none', color: 'grey'}}>
+                        
+                <ListItemButton
+                  key="news"
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                  }}
+                >
+  
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <NewspaperIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="News" sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+                          </Link>
+                }
+
+                {/* button for calculators */}
+                {<Link to="/calculators" style={{ textDecoration: 'none', color: 'grey'}}>
+                        
+                  <ListItemButton
+                    key="calculators"
+                    sx={{
+                      minHeight: 48,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                    }}
+                  >
+    
+                <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <SwapVerticalCircleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Converter" sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+                          </Link>
+                  }
+              
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItemButton
-              key={text}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-          ))}
-        </List>
+        
+        {<Link to="/" onClick={() => handleClick()} style={{ textDecoration: 'none', color: 'grey'}}>
+                        
+                        <ListItemButton
+                          key="/"
+                          sx={{
+                            minHeight: 48,
+                            justifyContent: open ? 'initial' : 'center',
+                            px: 2.5,
+                          }}
+                          onClick ={handleClick}
+                        >
+                          <ListItemIcon
+                            sx={{
+                              minWidth: 0,
+                              mr: open ? 3 : 'auto',
+                              justifyContent: 'center',
+                            }}
+                            >
+                            <LogoutIcon/>
+                           
+                          </ListItemIcon>
+                          <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
+                        </ListItemButton>
+                                  </Link>
+                        }
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
