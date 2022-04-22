@@ -1,16 +1,12 @@
 import {React, useState, useEffect} from 'react';
 import axios from 'axios';
 import News from './News'
-import Header from '../Header/Header';
+
+import Box from  '@mui/material/Box';
 import SideBarList from '../Dashboard/SideBarList'
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 import CircularProgress from '@mui/material/CircularProgress';
-
-
-
-
-
-const NewsList = (props) => {
+const NewsList = () => {
   const[news, setNews] = useState([])
   const[loading, setLoading] = useState(false)
   const options = {
@@ -21,11 +17,6 @@ const NewsList = (props) => {
       'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
     }
   }
-  const darkTheme = createTheme({
-    palette: {
-      mode: props.mode,
-    },
-  });
   
   useEffect(()=>{
     axios.request(options).then(function (response) {
@@ -39,20 +30,24 @@ const NewsList = (props) => {
   const newsList = news.map((article)=>{
     
     return (
+      
       <News key={article.title} title={article.title} image={article.image} description={article.desc} date={article.date} source={article.url} />
+      
     )
   })
+
   return (
-    <ThemeProvider theme={darkTheme}>
-    <div>
-      <Header mode={props.mode} setMode={props.setMode}/>
-      <SideBarList mode={props.mode} setMode={props.setMode}/>
-      
-      {loading ? newsList : <CircularProgress/>}
-      {/* {newsList} */}
-   
-    </div>
-    </ThemeProvider>
+    <Box sx={{mt:10,mb:5}} display="grid" gridTemplateColumns="repeat(12, 1fr)" columngap="3" rowgap="3">
+      <Box gridColumn="span 0.5">
+        <SideBarList/>
+      </Box>
+      <Box gridColumn="span 10">
+        {loading ?
+        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',gridAutoRows: '1fr'}}>
+          {newsList}
+        </Box> : <CircularProgress/>}
+      </Box>
+    </Box>
   )
 }
 
