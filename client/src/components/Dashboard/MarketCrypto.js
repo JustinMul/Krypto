@@ -16,6 +16,7 @@ import {useState, useEffect} from 'react';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import dateConvert from '../../helpers/dateConvert';
+import '../../index.css'
 
 const MarketCrypto = (props) => {
   let cleanedUrl = urlSpaceReplacer(props.id)
@@ -38,7 +39,7 @@ const MarketCrypto = (props) => {
       </TableCell>
       <TableCell align="left"><Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: textColor}}>{props.name}</Link></TableCell>
       <TableCell align="left"> <Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: textColor}}>$ {(props.current_price)}</Link></TableCell>
-      <TableCell align="left"><Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: (Math.round(props.price_change_percentage_24h) > 0) ? "green" : "red"}}>{Math.round(props.price_change_percentage_24h)}% {(Math.round(props.price_change_percentage_24h) > 0) ? <FileUploadIcon/> : <FileDownloadIcon/>}</Link></TableCell>
+      <TableCell align="left"><Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: (Math.round(props.price_change_percentage_24h) > 0) ? "green" : "red"}}><div className='shiftdown'>{Math.round(props.price_change_percentage_24h)}% {(Math.round(props.price_change_percentage_24h) > 0) ?<div className='flexdown'><FileUploadIcon/></div>: <div className='flexdown'><FileDownloadIcon/> </div>}</div></Link></TableCell>
       <TableCell align="left"> <Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: textColor}}>{dateConvert(props.last_updated)}</Link></TableCell>
       <TableCell>{<Button aria-label="like"  onClick={() => props.setFav([props.id, props.image])}><FavoriteIcon style={{ color: red[500] }}/></Button>}</TableCell>
 

@@ -6,13 +6,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 div.light{
   background-color: rgb(152, 165, 185);
 }
+
 div.dark{
   background-color: rgb(41, 39, 39);
   color: rgb(171, 171, 171);
 }
+
 div.testing{
   display: flex;
   flex-direction: column;
@@ -23,6 +26,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 div.rowTest{
   display: flex;
   flex-direction: row;
@@ -33,4 +37,9 @@ html.light{
 }
 html.dark{
   background-color: rgb(41, 39, 39);
+}
+
+div.shiftdown{
+   display: flex;
+   flex-direction: row;
 }

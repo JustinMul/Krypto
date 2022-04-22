@@ -58,35 +58,27 @@ const Dashboard = (props) => {
   return (
 
     <ThemeProvider theme={darkTheme}>
-    
 
-      <Header mode={props.mode} setMode={props.setMode}/>
-      <Box sx={{ml:2, mt:4, mr:2, mb:4}}>
-        <Grid container spacing={2}>
-          <Grid>
-            <SideBarList mode={props.mode} setMode={props.setMode}/>
-          </Grid>
-
-          <Grid>
-          <Typography variant="h3">Dashboard</Typography> 
-            
+      <Box sx={{ mt: -4 }}>
+        <Grid container justifyContent={"center"}>
             {loading ? 
-            (<div>
-              <Grid >
-               <Typography align="center" variant="h4">Trending</Typography> 
-                <TrendingCryptoList data={state[0].trending}/> 
+            (<div>        
+              <SideBarList mode={props.mode} setMode={props.setMode}/>
+              <Typography fontSize={25} >Dashboard</Typography> 
+              <Typography align="center" fontSize={14}   >Trending</Typography> 
+              <TrendingCryptoList data={state[0].trending}/> 
+              <Grid p={3} >
+                <SearchForm search={search} onChange={inputHandler} mode={props.mode} setMode={props.setMode}/>
               </Grid>
-              <SearchForm search={search} onChange={inputHandler}/>
-                     
-              <Grid>
                 <MarketCryptoList data={filteredRows} mode={props.mode} 
               setMode={props.setMode}/>
-              </Grid>
+          
             </div>)
             : <CircularProgress/>} 
-          </Grid>
+    
         </Grid>
       </Box>
+
     </ThemeProvider>
   )
 }

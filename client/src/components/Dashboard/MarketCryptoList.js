@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import MarketCrypto from './MarketCrypto';
-import { CircularProgress, Grid } from "@mui/material";
+import { CircularProgress, Grid, Typography } from "@mui/material";
 // import { Grid } from '@mui/material';
 import TableRow from '@mui/material/TableRow';
 import TableHead from '@mui/material/TableHead';
@@ -11,6 +11,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import MarketCryptoHeader from '../Header/MarketCryptoHeader';
+
 
 export default function MarketCryptoList(props) {
   const [fav, setFav] = useState([]);  
@@ -53,8 +54,8 @@ export default function MarketCryptoList(props) {
 
   return (
       <div >
-            <Grid container direction={"column"} style={{maxHeight: '50vh', overflow: 'hidden' }}>         
-            <TableContainer component={Paper} >
+            <Grid container direction={"column"} style={{maxHeight: '52.5vh', overflow: 'hidden'}} mb={2.8}>         
+            <TableContainer component={Paper}>
             <Table stickyHeader aria-label="sticky table" align="left">
               <MarketCryptoHeader/>
                     <TableBody>  
@@ -62,7 +63,11 @@ export default function MarketCryptoList(props) {
                     </TableBody>
             </Table>
           </TableContainer>
+       
         </Grid>
+        {/* <Grid>
+             <Typography style={{color: 'red'}} >test</Typography>
+            </Grid> */}
       </div>
   );
 }
