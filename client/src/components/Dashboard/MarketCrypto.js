@@ -16,6 +16,8 @@ import {useState, useEffect} from 'react';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import dateConvert from '../../helpers/dateConvert';
+import ClearIcon from '@mui/icons-material/Clear';
+
 import '../../index.css'
 
 const MarketCrypto = (props) => {
@@ -41,7 +43,19 @@ const MarketCrypto = (props) => {
       <TableCell align="left"> <Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: textColor}}>$ {(props.current_price)}</Link></TableCell>
       <TableCell align="left"><Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: (Math.round(props.price_change_percentage_24h) > 0) ? "green" : "red"}}><div className='shiftdown'>{Math.round(props.price_change_percentage_24h)}% {(Math.round(props.price_change_percentage_24h) > 0) ?<div className='flexdown'><FileUploadIcon/></div>: <div className='flexdown'><FileDownloadIcon/> </div>}</div></Link></TableCell>
       <TableCell align="left"> <Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: textColor}}>{dateConvert(props.last_updated)}</Link></TableCell>
-      <TableCell>{<Button aria-label="like"  onClick={() => props.setFav([props.id, props.image])}><FavoriteIcon style={{ color: red[500] }}/></Button>}</TableCell>
+
+        { (props.dashboard === "watchlist") ?
+                <TableCell>
+                <Button aria-label="like"  onClick={() => props.setDeleted(props.id)}>
+                  <ClearIcon style={{ color: red[500] }}/>
+                  </Button>
+                  </TableCell>
+:
+<TableCell><Button aria-label="like"  onClick={() => props.setFav([props.id, props.image])}>
+<FavoriteIcon style={{ color: red[500] }}/>
+</Button></TableCell> 
+        }
+
 
     </TableRow>
 

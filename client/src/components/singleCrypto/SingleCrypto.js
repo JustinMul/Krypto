@@ -5,8 +5,14 @@ import Chart from './Chart';
 import Details from './Details';
 import Header from '../Header/Header';
 import SideBarList from '../Dashboard/SideBarList';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const SingleCrypto = (props) => {
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
   const { id } = useParams();
   const [state, setState] = useState([{
     img: "",
@@ -36,6 +42,7 @@ const SingleCrypto = (props) => {
 
   
   return (
+    <ThemeProvider theme={darkTheme}>
     <div>
       <Header mode={props.mode} setMode={props.setMode}/>
       <SideBarList mode={props.mode} setMode={props.setMode}/>
@@ -43,6 +50,7 @@ const SingleCrypto = (props) => {
       <Details details={state[0]}/>
 
     </div>
+    </ThemeProvider>
   )
 }
 

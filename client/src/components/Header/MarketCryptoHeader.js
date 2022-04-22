@@ -9,35 +9,34 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 
-const MarketCryptoHeader = () => {
+const MarketCryptoHeader = (props) => {
   return (
-
-    <TableHead >
-    <TableCell align="left"  sx= {
-   {backgroundColor: (theme) =>
-   theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
- }>Symbol</TableCell>
-     <TableCell align="left" sx= {
-   {backgroundColor: (theme) =>
-   theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
- }>Currency</TableCell>
-     <TableCell align="left" sx= {
-   {backgroundColor: (theme) =>
-   theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
- }>Current Price</TableCell>
-     <TableCell align="left" sx= {
-   {backgroundColor: (theme) =>
-   theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
- }>Change</TableCell>
-     <TableCell align="left" sx= {
-   {backgroundColor: (theme) =>
-   theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
- }>Last Updated</TableCell>
-     <TableCell align="left" sx= {
-   {backgroundColor: (theme) =>
-   theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
- }>Add To Watchlist</TableCell>
-   </TableHead>
+      <TableHead >
+         <TableCell align="left"  sx= {
+        {backgroundColor: (theme) =>
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+      }>Symbol</TableCell>
+          <TableCell align="left" sx= {
+        {backgroundColor: (theme) =>
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+      }>Currency</TableCell>
+          <TableCell align="left" sx= {
+        {backgroundColor: (theme) =>
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+      }>Current Price</TableCell>
+          <TableCell align="left" sx= {
+        {backgroundColor: (theme) =>
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+      }>Change</TableCell>
+          <TableCell align="left" sx= {
+        {backgroundColor: (theme) =>
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+      }>Last Updated</TableCell>
+          <TableCell align="left" sx= {
+        {backgroundColor: (theme) =>
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+      }>{(props.dashboard === 'market')? "Add To Watchlist" : "Remove"}</TableCell>
+        </TableHead>
 
  
   )

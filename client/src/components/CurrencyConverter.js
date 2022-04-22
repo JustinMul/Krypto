@@ -54,7 +54,7 @@ export default function CurrencyConverter(props) {
   const cryptoList = state[0].data.map((crypto)=>{
   
     return (
-      <MenuItem key ={crypto.name} value={{name:crypto.name, price: crypto.current_price, image: crypto.image}}>{crypto.name}<img src={crypto.image}alt = "crypto" width = '30' ></img></MenuItem>
+      <MenuItem key ={crypto.name} value={{name:crypto.name, price: crypto.current_price, image: crypto.image}}><img src={crypto.image}alt = "crypto" width = '30'/>{crypto.name}</MenuItem>
     );
   })
   const handleChange = (event) => {
@@ -145,7 +145,7 @@ export default function CurrencyConverter(props) {
           renderValue={(crypto)=> {
             if(crypto.image) {
               return(
-              <MenuItem key ={crypto.name} value={{name:crypto.name, price: crypto.price, image: crypto.image}}>{crypto.name}<img src={crypto.image}alt = "crypto" width = '30' ></img></MenuItem>
+              <MenuItem key ={crypto.name} value={{name:crypto.name, price: crypto.price, image: crypto.image}}><img src={crypto.image}alt = "crypto" width = '30'/>{crypto.name}</MenuItem>
               )
             };
           }}

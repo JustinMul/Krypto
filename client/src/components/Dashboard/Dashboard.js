@@ -12,6 +12,9 @@ import { CircularProgress, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { sizing } from "@mui/system";
 import MarketCryptoHeader from "../Header/MarketCryptoHeader";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Button } from "@mui/material";
+import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 
 const Dashboard = (props) => {
   const darkTheme = createTheme({
@@ -24,7 +27,15 @@ const Dashboard = (props) => {
     market:[],
    
   }]);
-
+  const [render, setRender] = useState("");
+  const [dashboard, setDashboard] = useState("market");
+  const handlewatchlist = () => {
+    if (dashboard === 'market') {
+    setDashboard("watchlist");
+    } else if (dashboard === 'watchlist') {
+      setDashboard("market");
+    }
+  }
   const [search, setSearch] = useState("");
   const[loading, setLoading] = useState(false)
   useEffect(() => {
@@ -40,7 +51,7 @@ const Dashboard = (props) => {
         }, 500)
       )
       .catch((err)=>console.log(err));
-  },[]);
+  },[dashboard, render]);
 
   const inputHandler = (event) => {
     setSearch(event.target.value);
@@ -55,6 +66,7 @@ const Dashboard = (props) => {
     }
   }, [props.mode])
 
+
   return (
 
     <ThemeProvider theme={darkTheme}>
@@ -65,13 +77,16 @@ const Dashboard = (props) => {
             (<div>        
               <SideBarList mode={props.mode} setMode={props.setMode}/>
               <Typography fontSize={25} >Dashboard</Typography> 
-              <Typography align="center" fontSize={14}   >Trending</Typography> 
+              <Typography align="center" fontSize={14} >Trending</Typography> 
               <TrendingCryptoList data={state[0].trending}/> 
-              <Grid p={3} >
+              <Grid pt={4} >
                 <SearchForm search={search} onChange={inputHandler} mode={props.mode} setMode={props.setMode}/>
               </Grid>
               <Grid >
-                <MarketCryptoList data={filteredRows} mode={props.mode} 
+                <Grid display={'flex'} direction={"row"} justifyContent={"end"}>
+                {(dashboard === "market") ? <Button onClick={handlewatchlist}>Watch List <FavoriteBorderIcon/></Button> : <Button onClick={handlewatchlist}>Market <CurrencyBitcoinIcon/></Button>}
+                </Grid>
+                <MarketCryptoList render={render} setRender={setRender} dashboard={dashboard} data={filteredRows} mode={props.mode} 
               setMode={props.setMode}/>
               </Grid>
           

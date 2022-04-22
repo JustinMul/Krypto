@@ -27,6 +27,11 @@ import ChatIcon from '@mui/icons-material/Chat';
 import LogoutIcon from '@mui/icons-material/Logout';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import SwapVerticalCircleIcon from '@mui/icons-material/SwapVerticalCircle';
+import {useEffect} from 'react';
+import { Avatar } from '@mui/material';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+
 const drawerWidth = 195;
 
 const openedMixin = (theme) => ({
@@ -163,6 +168,17 @@ export default function SideBarList(props) {
     const handleDrawerClose = () => {
       setOpen(false);
     };
+    const [username, setUsername] = useState({});
+    const handleSwtich = () => {
+      (props.mode === 'dark') ? props.setMode('light') : props.setMode('dark')
+    }
+  
+    useEffect(() => {
+      
+      setUsername(JSON.parse(localStorage.getItem('username')));
+     
+    }, []);
+
   return (
     <Box sx={{ display: 'flex'}}>
       <CssBaseline />
@@ -180,23 +196,42 @@ export default function SideBarList(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-        
+          <Box display={'flex'} flexGrow={1}>
+          <Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
+            <img src={'https://thumbs.gfycat.com/IllSharpCod.webp'} prop={"img"} width='40'/>
+            </Link>
+          
+          <Typography variant="h6" noWrap component="div" pl={2} pt={1}>
+             Hello {username.name}   
+          </Typography>
+              
+              </Box>
+              <Box>
             <FormGroup>
             <FormControlLabel
-              control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-              label={props.mode + " mode"}
-              onClick={() => (props.mode === 'dark') ? props.setMode('light') : props.setMode('dark')}
+              control={<Switch sx={{ m: 1 }} onChange={handleSwtich}/>}
+              label={(props.mode === 'light') ? <Brightness4Icon/> : <DarkModeIcon/>}
+              
             />
+            
           </FormGroup> 
-          </Typography>
+          
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
+        <Avatar alt="Remy Sharp"
+                    src={username.img}
+                    sx={{ width: 50, height: 50, border: 1, borderColor: "black" }}
+                  />
+          <Typography variant="h6" noWrap component="div" pl={2} pt={1}>
+            {username.name}   
+          </Typography>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
+          
         </DrawerHeader>
         <Divider />
         <List>
@@ -225,33 +260,7 @@ export default function SideBarList(props) {
             </ListItemButton>
             </Link>
           }
-
-          {/* button for watchlist */}
-          {<Link to="/watchlist" style={{ textDecoration: 'none', color: 'grey'}}>
-            
-            <ListItemButton
-              key="watchlist"
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                <AddToQueueIcon />
-              </ListItemIcon>
-              <ListItemText primary="Watchlist" sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-            </Link>
-          }
-
+          
             {/* button for Chatrooms */}
             {<Link to="/chatrooms" style={{ textDecoration: 'none', color: 'grey'}}>
                         

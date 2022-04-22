@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import {useState} from 'react';
 import Dashboard from './components/Dashboard/Dashboard';
 
-import Watchlist from './components/Watchlist/Watchlist';
+
 import SingleCrypto from './components/singleCrypto/SingleCrypto';
 
 import Login from './components/login';
@@ -43,15 +43,6 @@ function App() {
             />
           }
         /> 
-
-        <Route path="/watchlist" 
-          element={
-            <Watchlist 
-              mode={mode} 
-              setMode={setMode}
-            />
-          }
-        />
 
         <Route path="/news" 
           element={
