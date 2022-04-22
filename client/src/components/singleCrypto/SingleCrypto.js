@@ -5,8 +5,16 @@ import Chart from './Chart';
 import Details from './Details';
 import Header from '../Header/Header';
 import SideBarList from '../Dashboard/SideBarList';
+import { Box } from '@mui/system';
+import Grid from '@mui/material/Grid';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const SingleCrypto = (props) => {
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
   const { id } = useParams();
   const [state, setState] = useState([{
     img: "",
@@ -16,7 +24,6 @@ const SingleCrypto = (props) => {
     circulating_Supply: "",
     priceChange: ""
   }]);
-
 
   useEffect(() => {
     axios.get(`/crypto/${id}`) 
@@ -34,16 +41,31 @@ const SingleCrypto = (props) => {
     .catch((err)=>console.log(err));
 },[id]);
 
-  
+  console.log(state[0])
   return (
-    <div>
-      <Header mode={props.mode} setMode={props.setMode}/>
+  
+    <ThemeProvider theme={darkTheme}>
+   <Grid container direction={'column'}  alignItems="center" justifyContent="center">
       <SideBarList mode={props.mode} setMode={props.setMode}/>
-      <Chart id={id}/>
-      <Details details={state[0]}/>
 
-    </div>
+      <Grid item mb={0} >
+        <img src = {state[0].img} width={100}></img>
+        <div>{state[0].data.name}</div>
+      </Grid>
+
+      <Grid item mt={5}  width={800}>
+        <Chart id={props.id} />
+      </Grid>
+
+      <Grid item >
+        <Details details={state[0]} id ={id}/>
+      </Grid>
+     
+    </Grid>
+  </ThemeProvider>
+    
   )
+
 }
 
 export default SingleCrypto
