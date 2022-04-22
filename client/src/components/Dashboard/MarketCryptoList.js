@@ -11,9 +11,11 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import MarketCryptoHeader from '../Header/MarketCryptoHeader';
+import {makeStyles} from '@mui/material';
 
 
 export default function MarketCryptoList(props) {
+
   const [fav, setFav] = useState([]);  
 
   const handleSubmit = () => {
@@ -54,8 +56,11 @@ export default function MarketCryptoList(props) {
 
   return (
       <div >
-            <Grid container direction={"column"} style={{maxHeight: '52.5vh', overflow: 'hidden'}} mb={2.8}>         
-            <TableContainer component={Paper} >
+            <Grid container direction={"column"} style={{maxHeight: '52.5vh', overflow: 'hidden'}}>         
+            <TableContainer component={Paper}  sx= {
+              {backgroundColor: (theme) =>
+              theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+            }>
             <Table stickyHeader aria-label="sticky table" align="left">
               <MarketCryptoHeader/>
                     <TableBody>  
