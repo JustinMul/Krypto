@@ -53,7 +53,7 @@ export default function MarketCryptoList(props) {
 
   return (
       <div >
-            <Grid container direction={"column"} style={{maxHeight: '50vh', overflow: 'hidden' }}>         
+            <Grid container direction={"column"} alignContent={"center"} style={{maxHeight: '50vh', overflow: 'hidden' }}>         
             <TableContainer component={Paper} >
             <Table stickyHeader aria-label="sticky table" align="left">
               <MarketCryptoHeader/>

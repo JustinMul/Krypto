@@ -20,7 +20,12 @@ import { Typography } from "@mui/material";
 import SwapVerticalCircleIcon from '@mui/icons-material/SwapVerticalCircle';
 
 
-export default function CurrencyConverter() {
+export default function CurrencyConverter(props) {
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
   const [ state, setState] = useState([{data:[]}]);
   const [ primary, setPrimary] = useState({
     price:"",
@@ -104,9 +109,10 @@ export default function CurrencyConverter() {
   }
 
   return (
+    <ThemeProvider theme={darkTheme}>
     <>
     {/* <Header/> */}
-    <SideBarList/>
+    <SideBarList mode={props.mode} setMode={props.setMode}/>
     
     <Box
       sx={{
@@ -201,5 +207,6 @@ export default function CurrencyConverter() {
     </Box>
     
     </>
+    </ThemeProvider>
   );
 }

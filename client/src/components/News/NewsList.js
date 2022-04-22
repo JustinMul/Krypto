@@ -6,7 +6,14 @@ import Box from  '@mui/material/Box';
 import SideBarList from '../Dashboard/SideBarList'
 
 import CircularProgress from '@mui/material/CircularProgress';
-const NewsList = () => {
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const NewsList = (props) => {
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
   const[news, setNews] = useState([])
   const[loading, setLoading] = useState(false)
   const options = {
@@ -37,9 +44,10 @@ const NewsList = () => {
   })
 
   return (
+    <ThemeProvider theme={darkTheme}>
     <Box sx={{mt:10,mb:5}} display="grid" gridTemplateColumns="repeat(12, 1fr)" columngap="3" rowgap="3">
       <Box gridColumn="span 0.5">
-        <SideBarList/>
+        <SideBarList mode={props.mode} setMode={props.setMode}/>
       </Box>
       <Box gridColumn="span 10">
         {loading ?
@@ -48,6 +56,7 @@ const NewsList = () => {
         </Box> : <CircularProgress/>}
       </Box>
     </Box>
+    </ThemeProvider>
   )
 }
 
