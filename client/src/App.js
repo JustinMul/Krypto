@@ -11,6 +11,7 @@ import NewsList from './components/News/NewsList';
 
 import ProtectedRoutes from './hooks/userAuth';
 import CurrencyConverter from './components/CurrencyConverter';
+import TrendingCryptoList from './components/Dashboard/TrendingCryptoList';
 
 
 
@@ -81,6 +82,15 @@ function App() {
         <Route path="/calculators" 
           element={
             <CurrencyConverter 
+              mode={mode} 
+              setMode={setMode}
+            />
+          }
+        />
+
+<Route path="/trending" 
+          element={
+            <TrendingCryptoList 
               mode={mode} 
               setMode={setMode}
             />

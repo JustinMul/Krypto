@@ -72,9 +72,9 @@ const Charts = (props) => {
         display: true,
             stacked: true,
         ticks: {
-          maxTicksLimit: 12
-        },
-    }
+          maxTicksLimit: 30
+        }
+    },
     },
     responsive: true,
     animation: {

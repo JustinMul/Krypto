@@ -23,3 +23,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+div.rowTest{
+  display: flex;
+  flex-direction: row;
+}
+
+html.light{
+  background-color: rgb(152, 165, 185);
+}
+html.dark{
+  background-color: rgb(41, 39, 39);
+}
