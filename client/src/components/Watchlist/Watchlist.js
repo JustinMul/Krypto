@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import Header from '../Header/Header'
 import SideBarList from '../Dashboard/SideBarList'
 import axios from 'axios';
 import WatchlistItem from './WatchlistItem';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CircularProgress, Grid, Typography } from "@mui/material";
+import MarketCryptoHeader from '../Header/WatchListHeader';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+
+import TableContainer from '@mui/material/TableContainer';
+import Paper from '@mui/material/Paper';
 
 const Watchlist = (props) => {
 
@@ -60,15 +66,28 @@ const Watchlist = (props) => {
   })
   
   return (
+
+
     <ThemeProvider theme={darkTheme}>
-    <div>
-      <Header mode={props.mode} setMode={props.setMode}/>
+           <Grid container spacing={2} direction={"row"} justifyContent={"center"} mt={8}>
+             <Grid>
       <SideBarList mode={props.mode} setMode={props.setMode}/>
-      <div className="testing">
-        {filtered}
-      </div>
-    </div>
-    </ThemeProvider>
+      </Grid>
+      <Grid>
+        <TableContainer component={Paper} >
+            <Table stickyHeader aria-label="sticky table" align="left">
+              <MarketCryptoHeader/>
+                    <TableBody>  
+                    {filtered}
+                    </TableBody>
+            </Table>
+      </TableContainer>
+          
+            </Grid>
+   </Grid>
+   </ThemeProvider>
+
+
   );
 }
 
