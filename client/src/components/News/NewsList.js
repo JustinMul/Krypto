@@ -45,17 +45,17 @@ const NewsList = (props) => {
 
   return (
     <ThemeProvider theme={darkTheme}>
-    <Box sx={{mt:10,mb:5}} display="grid" gridTemplateColumns="repeat(12, 1fr)" columngap="3" rowgap="3">
-      <Box gridColumn="span 0.5">
-        <SideBarList mode={props.mode} setMode={props.setMode}/>
+      <Box sx={{mt:10,mb:5}} display="grid" gridTemplateColumns="repeat(12, 1fr)" columngap="3" rowgap="3">
+        <Box gridColumn="span 0.5">
+          <SideBarList mode={props.mode} setMode={props.setMode}/>
+        </Box>
+        <Box gridColumn="span 10">
+          {loading ?
+          <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',gridAutoRows: '1fr'}}>
+            {newsList}
+          </Box> : <CircularProgress/>}
+        </Box>
       </Box>
-      <Box gridColumn="span 10">
-        {loading ?
-        <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',gridAutoRows: '1fr'}}>
-          {newsList}
-        </Box> : <CircularProgress/>}
-      </Box>
-    </Box>
     </ThemeProvider>
   )
 }

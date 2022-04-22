@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 
 const MarketCryptoHeader = () => {
   return (
-   
+
       <TableHead>
          <TableCell align="left">Symbol</TableCell>
           <TableCell align="left">Currency</TableCell>
@@ -20,6 +20,7 @@ const MarketCryptoHeader = () => {
           <TableCell align="left">Last Updated</TableCell>
           <TableCell align="left">Add To Watchlist</TableCell>
         </TableHead>
+
  
   )
 }
