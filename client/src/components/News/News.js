@@ -1,5 +1,5 @@
 import { React } from 'react'
-
+import { Box } from '@mui/system';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -9,33 +9,42 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 
 
+import Paper from '@mui/material/Paper';
+
+
 const News = ({title, image, description, date, source}) => {
+
   
   return (
-    <Card m={{ maxWidth: 80}}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image={image}
-      />
-      <Divider variant="inset"/>
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {date}
-        </Typography>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {description}
-        </Typography>
-      </CardContent>
-      <Divider variant="middle"/>
-      <CardActions>
-        <Button size="small" onClick = {(e) => (window.location.href = `${source}`)}>Source</Button>
-      </CardActions>
-    </Card>
+  <Box m="auto">  
+        {/* <Item sx={{ gridRow: '1', gridColumn: 'span 2' }}> */}
+        <Paper elevation={3}> 
+          <Card sx={{ maxWidth: 400}}>
+            <CardMedia
+              component="img"
+              alt="news"
+              height="140"
+              image={image}
+            />
+            <Divider variant="inset"/>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {date}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                {title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {description}
+              </Typography>
+            </CardContent>
+            <Divider variant="middle"/>
+            <CardActions>
+              <Button size="small" onClick = {(e) => (window.location.href = `${source}`)}>Source</Button>
+            </CardActions>
+          </Card>
+      </Paper>
+  </Box>
   )
 }
 
