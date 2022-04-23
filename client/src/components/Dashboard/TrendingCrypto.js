@@ -28,32 +28,6 @@ function TrendingCrypto(props) {
         
     <div>
       <Grid   style={{flex: "wrap"}} p={1}>
-        {/* <Link to={`/crypto/${cleanedUrl}`}>
-          <Grid>
-
-            <Grid container justifyContent="center">
-            <img src={props.image} alt={props.name} width="50"/>
-            </Grid>
-
-            <Grid>
-            <span> {props.name}</span>
-            </Grid>
-
-              <Grid>
-              <span>Percentage Change (24h): {Math.round(props.price_change_percentage_24h)}%</span>
-              </Grid>
-
-              <Grid>
-            <div>Current Price: {props.current_price}</div>
-            </Grid>
-
-            <Grid>
-            <div>Last Updated: {props.last_updated}</div>
-            </Grid>
-
-         </Grid>
-        </Link> */}
-
          <Paper
       sx={{
         p: 1,
