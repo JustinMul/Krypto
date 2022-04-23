@@ -16,6 +16,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Button } from "@mui/material";
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import Skeleton from '@mui/material/Skeleton';
+// import SlideFromContainer from "./SlideFrom";
 
 const Dashboard = (props) => {
   const [state, setState] = useState([{
@@ -77,6 +78,7 @@ const Dashboard = (props) => {
             {loading ? 
             (<div>        
               <SideBarList mode={props.mode} setMode={props.setMode}/>
+              {/* <SlideFromContainer/> */}
               <Typography fontSize={25} >Dashboard</Typography> 
               <Typography align="center" fontSize={14} >Trending</Typography> 
 

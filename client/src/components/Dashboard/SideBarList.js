@@ -31,6 +31,7 @@ import {useEffect} from 'react';
 import { Avatar } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
+import { Chat } from '../chatt/Chat';
 
 const drawerWidth = 195;
 
