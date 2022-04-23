@@ -159,9 +159,11 @@ const ChatRooms = () => {
  
  return (
    <div>
- 
+    
      <SideBarList/>
+     <Grid ml={10}>
      {button()}
+     </Grid>
     
    </div>
  )
