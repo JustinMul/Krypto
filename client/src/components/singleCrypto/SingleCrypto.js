@@ -8,6 +8,7 @@ import SideBarList from '../Dashboard/SideBarList';
 import { Box } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Skeleton from '@mui/material/Skeleton';
 
 const SingleCrypto = (props) => {
   const darkTheme = createTheme({
@@ -15,6 +16,7 @@ const SingleCrypto = (props) => {
       mode: props.mode,
     },
   });
+  const[loading, setLoading] = useState(false)
   const { id } = useParams();
   const [state, setState] = useState([{
     img: "",
@@ -36,7 +38,9 @@ const SingleCrypto = (props) => {
         circulatingSupply: res.data.market_data.circulating_supply,
         priceChange: res.data.market_data.price_change_24h
       }])
-      }
+      }, setTimeout(()=>{
+        setLoading(true)
+      }, 500)
     )
     .catch((err)=>console.log(err));
 },[id]);
@@ -45,11 +49,12 @@ const SingleCrypto = (props) => {
   return (
 
     <ThemeProvider theme={darkTheme}>
+      {(loading) ? 
    <Grid container direction={'column'}  alignItems="center" justifyContent="center">
 
       <SideBarList mode={props.mode} setMode={props.setMode}/>
 
-      <Grid item mb={0} >
+      <Grid item mb={0} align="center">
         <img src = {state[0].img} width={100}></img>
         <div>{state[0].data.name}</div>
       </Grid>
@@ -58,11 +63,30 @@ const SingleCrypto = (props) => {
         <Chart id={props.id} />
       </Grid>
 
-      <Grid item >
+      <Grid item>
         <Details details={state[0]} id ={id}/>
       </Grid>
      
-    </Grid>
+    </Grid>:
+       <Grid container direction={'column'}  alignItems="center" justifyContent="center">
+
+       <SideBarList mode={props.mode} setMode={props.setMode}/>
+ 
+       <Grid item mb={0} align="center">
+        <Skeleton variant="circular" width={90} height={90} />
+        <Skeleton width="60%" />
+       </Grid>
+ 
+       <Grid item mt={5} mb={5}  width={800} align="center">
+       <Skeleton variant="rectangular" animation="wave" width={750} height={400} />
+       </Grid>
+ 
+
+       <Skeleton variant="rectangular" animation="wave" width={"70%"} height={100} />
+
+      
+     </Grid>
+}
   </ThemeProvider>
 
   )

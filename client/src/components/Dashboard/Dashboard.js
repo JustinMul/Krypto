@@ -15,29 +15,30 @@ import MarketCryptoHeader from "../Header/MarketCryptoHeader";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Button } from "@mui/material";
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
+import Skeleton from '@mui/material/Skeleton';
 
 const Dashboard = (props) => {
+  const [state, setState] = useState([{
+    trending:[],
+    market:[],
+    
+  }]);
+  const [render, setRender] = useState("");
+  const [dashboard, setDashboard] = useState("market");
+  const [search, setSearch] = useState("");
+  const[loading, setLoading] = useState(false)
   const darkTheme = createTheme({
     palette: {
       mode: props.mode,
     },
   });
-  const [state, setState] = useState([{
-    trending:[],
-    market:[],
-   
-  }]);
-  const [render, setRender] = useState("");
-  const [dashboard, setDashboard] = useState("market");
   const handlewatchlist = () => {
     if (dashboard === 'market') {
-    setDashboard("watchlist");
+      setDashboard("watchlist");
     } else if (dashboard === 'watchlist') {
       setDashboard("market");
     }
   }
-  const [search, setSearch] = useState("");
-  const[loading, setLoading] = useState(false)
   useEffect(() => {
     axios.get('/market')
       .then((res) => {
@@ -79,7 +80,7 @@ const Dashboard = (props) => {
               <Typography fontSize={25} >Dashboard</Typography> 
               <Typography align="center" fontSize={14} >Trending</Typography> 
 
-              <TrendingCryptoList data={state[0].trending}/> 
+              <TrendingCryptoList loading={loading} data={state[0].trending}/> 
               <Grid pt={4} >
                 <SearchForm search={search} onChange={inputHandler} mode={props.mode} setMode={props.setMode}/>
               </Grid>
@@ -87,12 +88,28 @@ const Dashboard = (props) => {
               
                 {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} gap={124}> <Typography fontSize={20} >Market</Typography><Button onClick={handlewatchlist}><FavoriteBorderIcon/></Button></Grid> : <Grid container display={'flex'} direction={"row"} gap={120}> <Typography fontSize={20} >Watch List</Typography><Button onClick={handlewatchlist}><CurrencyBitcoinIcon/></Button></Grid>}
                 </Grid>
-                <MarketCryptoList render={render} setRender={setRender} dashboard={dashboard} data={filteredRows} mode={props.mode} 
+                <MarketCryptoList loading={loading} render={render} setRender={setRender} dashboard={dashboard} data={filteredRows} mode={props.mode} 
               setMode={props.setMode}/>
               
           
             </div>)
-            : <CircularProgress/>} 
+            :             (<div>        
+              <SideBarList mode={props.mode} setMode={props.setMode}/>
+              <Typography fontSize={25} >Dashboard</Typography> 
+              <Typography align="center" fontSize={14} >Trending</Typography> 
+
+              <Skeleton variant="rectangular" animation="wave" width={1100} height={140} />
+              <Grid pt={4}  align="center">
+              <SearchForm search={search} onChange={inputHandler} mode={props.mode} setMode={props.setMode}/>
+              </Grid>
+              <Grid >
+              
+                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} gap={124}> <Typography fontSize={20} >Market</Typography><Button onClick={handlewatchlist}><FavoriteBorderIcon/></Button></Grid> : <Grid container display={'flex'} direction={"row"} gap={120}> <Typography fontSize={20} >Watch List</Typography><Button onClick={handlewatchlist}><CurrencyBitcoinIcon/></Button></Grid>}
+                </Grid>
+                <Skeleton variant="rectangular" animation="wave" height={'48vh'} />
+              
+          
+            </div>)} 
     
         </Grid>
       </Box>
