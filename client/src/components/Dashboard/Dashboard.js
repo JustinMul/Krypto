@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import TrendingCryptoList from "./TrendingCryptoList";
 import MarketCryptoList from './MarketCryptoList';
@@ -66,29 +66,30 @@ const Dashboard = (props) => {
     }
   }, [props.mode])
 
-
+  const containerRef = React.useRef(null);
   return (
 
     <ThemeProvider theme={darkTheme}>
 
-      <Box sx={{ mt: -4 }}>
+      <Box sx={{ mt: -4 }} ref={containerRef}>
         <Grid container justifyContent={"center"}>
             {loading ? 
             (<div>        
               <SideBarList mode={props.mode} setMode={props.setMode}/>
               <Typography fontSize={25} >Dashboard</Typography> 
               <Typography align="center" fontSize={14} >Trending</Typography> 
+
               <TrendingCryptoList data={state[0].trending}/> 
               <Grid pt={4} >
                 <SearchForm search={search} onChange={inputHandler} mode={props.mode} setMode={props.setMode}/>
               </Grid>
               <Grid >
-                <Grid display={'flex'} direction={"row"} justifyContent={"end"}>
-                {(dashboard === "market") ? <Button onClick={handlewatchlist}>Watch List <FavoriteBorderIcon/></Button> : <Button onClick={handlewatchlist}>Market <CurrencyBitcoinIcon/></Button>}
+              
+                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} gap={124}> <Typography fontSize={20} >Market</Typography><Button onClick={handlewatchlist}><FavoriteBorderIcon/></Button></Grid> : <Grid container display={'flex'} direction={"row"} gap={120}> <Typography fontSize={20} >Watch List</Typography><Button onClick={handlewatchlist}><CurrencyBitcoinIcon/></Button></Grid>}
                 </Grid>
                 <MarketCryptoList render={render} setRender={setRender} dashboard={dashboard} data={filteredRows} mode={props.mode} 
               setMode={props.setMode}/>
-              </Grid>
+              
           
             </div>)
             : <CircularProgress/>} 

@@ -207,13 +207,12 @@ export default function SideBarList(props) {
               
               </Box>
               <Box>
-            <FormGroup>
+          <FormGroup>
             <FormControlLabel
               control={<Switch sx={{ m: 1 }} onChange={handleSwtich}/>}
-              label={(props.mode === 'light') ? <Brightness4Icon/> : <DarkModeIcon/>}
-              
+              label={(props.mode === 'light') ? 
+              <Brightness4Icon/> : <DarkModeIcon/>} 
             />
-            
           </FormGroup> 
           
           </Box>

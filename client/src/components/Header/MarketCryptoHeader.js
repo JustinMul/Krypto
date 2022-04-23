@@ -14,28 +14,28 @@ const MarketCryptoHeader = (props) => {
       <TableHead >
          <TableCell align="left"  sx= {
         {backgroundColor: (theme) =>
-        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(134, 134, 134)', color: "white", fontWeight: "bold"}
       }>Symbol</TableCell>
           <TableCell align="left" sx= {
         {backgroundColor: (theme) =>
-        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(134, 134, 134)', color: "white", fontWeight: "bold"}
       }>Currency</TableCell>
           <TableCell align="left" sx= {
         {backgroundColor: (theme) =>
-        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(134, 134, 134)', color: "white", fontWeight: "bold"}
       }>Current Price</TableCell>
           <TableCell align="left" sx= {
         {backgroundColor: (theme) =>
-        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(134, 134, 134)', color: "white", fontWeight: "bold"}
       }>Change</TableCell>
           <TableCell align="left" sx= {
         {backgroundColor: (theme) =>
-        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(134, 134, 134)', color: "white", fontWeight: "bold"}
       }>Last Updated</TableCell>
           <TableCell align="left" sx= {
         {backgroundColor: (theme) =>
-        theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)'}
-      }>{(props.dashboard === 'market')? "Add To Watchlist" : "Remove"}</TableCell>
+        theme.palette.mode === 'dark' ? 'grey' : 'rgb(134, 134, 134)', color: "white", fontWeight: "bold"}
+      }>{(props.dashboard === 'market')? "Add to Watch List" : "Remove"}</TableCell>
         </TableHead>
 
  
