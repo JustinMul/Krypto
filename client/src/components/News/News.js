@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import {descriptionspliter, titlespliter} from '../../helpers/descriptionspliter';
 import { newsDateConvert } from '../../helpers/dateConvert';
+import Skeleton from '@mui/material/Skeleton';
 
 import Paper from '@mui/material/Paper';
 
@@ -20,7 +21,7 @@ const News = ({title, image, description, date, source}) => {
   <Box m="auto">  
         {/* <Item sx={{ gridRow: '1', gridColumn: 'span 2' }}> */}
         <Paper elevation={3}> 
-          <Card sx={{ maxWidth: 300}}>
+          <Card sx={{ maxWidth: 300, mb:4}}>
             <CardMedia
               component="img"
               alt="news"
@@ -36,7 +37,10 @@ const News = ({title, image, description, date, source}) => {
                 {titlespliter(title)}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {descriptionspliter(description)}
+                {(description) ? descriptionspliter(description) : 
+                <div ><Skeleton animation={false} />
+                <Skeleton animation={false} />
+                <Skeleton animation={false} /></div> }
               </Typography>
             </CardContent>
             <Divider variant="middle"/>

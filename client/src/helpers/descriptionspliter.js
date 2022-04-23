@@ -1,11 +1,9 @@
 export const descriptionspliter = (description) => {
-  const len = "People can have a better knowledge of the Metaverse and Web3 by learning how to utilize Minecraft."
-  const num = 95;
+  const limit = 95;
   let newDescription = "";
-  console.log("num count is ", num)
-  if (description.length > num) {
+  if (description.length > limit) {
     for (let i = 0; i < description.length; i++){
-      if (i === num - 3) {
+      if (i === limit - 3) {
         newDescription += "..."
         return newDescription;
       }
@@ -17,17 +15,15 @@ export const descriptionspliter = (description) => {
 }
 
 export const titlespliter = (title) => {
-  const len = "The Metaverse needs to keep an eye on privacy to avoid Meta’s mistakes"
-  const num = 60;
-  let newDescription = "";
-  console.log("num count is ", num)
-  if (title.length > num) {
+  const limit = 37;
+  let newTitle = "";
+  if (title.length > limit) {
     for (let i = 0; i < title.length; i++){
-      if (i === num - 3) {
-        newDescription += "..."
-        return newDescription;
+      if (i === limit) {
+        newTitle += "..."
+        return newTitle;
       }
-      newDescription += title[i];
+      newTitle += title[i];
     }
 
   }
