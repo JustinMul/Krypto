@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import {descriptionspliter, titlespliter} from '../../helpers/descriptionspliter';
 
 
 import Paper from '@mui/material/Paper';
@@ -19,7 +20,7 @@ const News = ({title, image, description, date, source}) => {
   <Box m="auto">  
         {/* <Item sx={{ gridRow: '1', gridColumn: 'span 2' }}> */}
         <Paper elevation={3}> 
-          <Card sx={{ maxWidth: 400}}>
+          <Card sx={{ maxWidth: 300}}>
             <CardMedia
               component="img"
               alt="news"
@@ -32,10 +33,10 @@ const News = ({title, image, description, date, source}) => {
                 {date}
               </Typography>
               <Typography gutterBottom variant="h5" component="div">
-                {title}
+                {titlespliter(title)}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {description}
+                {descriptionspliter(description)}
               </Typography>
             </CardContent>
             <Divider variant="middle"/>

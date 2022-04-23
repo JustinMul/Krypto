@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react';
 import axios from 'axios';
 import News from './News'
-
+import { Grid } from '@mui/material';
 import Box from  '@mui/material/Box';
 import SideBarList from '../Dashboard/SideBarList'
 
@@ -45,6 +45,7 @@ const NewsList = (props) => {
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <Grid container justifyContent={"center"}>
       <Box sx={{mt:10,mb:5}} display="grid" gridTemplateColumns="repeat(12, 1fr)" columngap="3" rowgap="3">
         <Box gridColumn="span 0.5">
           <SideBarList mode={props.mode} setMode={props.setMode}/>
@@ -56,6 +57,7 @@ const NewsList = (props) => {
           </Box> : <CircularProgress/>}
         </Box>
       </Box>
+      </Grid>
     </ThemeProvider>
   )
 }
