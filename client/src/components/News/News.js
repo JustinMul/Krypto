@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import {descriptionspliter, titlespliter} from '../../helpers/descriptionspliter';
-
+import { newsDateConvert } from '../../helpers/dateConvert';
 
 import Paper from '@mui/material/Paper';
 
@@ -30,7 +30,7 @@ const News = ({title, image, description, date, source}) => {
             <Divider variant="inset"/>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {date}
+                {newsDateConvert(date)}
               </Typography>
               <Typography gutterBottom variant="h5" component="div">
                 {titlespliter(title)}

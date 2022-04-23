@@ -15,7 +15,7 @@ import { Button } from '@mui/material';
 import {useState, useEffect} from 'react';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import dateConvert from '../../helpers/dateConvert';
+import {dateConvert} from '../../helpers/dateConvert';
 import ClearIcon from '@mui/icons-material/Clear';
 
 import '../../index.css'

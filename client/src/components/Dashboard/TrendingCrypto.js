@@ -9,7 +9,7 @@ import ButtonBase from '@mui/material/ButtonBase';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
-import dateConvert from '../../helpers/dateConvert';
+import {dateConvert} from '../../helpers/dateConvert';
 import { display } from '@mui/system';
 import '../../index.css'
 import nameslice from '../../helpers/nameslice';
