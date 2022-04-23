@@ -52,7 +52,7 @@ function TrendingCrypto(props) {
                {nameslice(props.name)}
               </Typography>
               <Typography variant="body2" gutterBottom>
-              ${(props.current_price).toFixed(2)}
+              ${(props.current_price)}
               </Typography>
             <Typography variant="body2" gutterBottom>
               {dateConvert(props.last_updated)}
