@@ -2,6 +2,7 @@ import React from 'react';
 import { Message } from './Message';
 
 export class MessagesPanel extends React.Component {
+    
     state = { input_value: '' }
     send = () => {
         if (this.state.input_value && this.state.input_value != '') {

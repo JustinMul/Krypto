@@ -4,6 +4,7 @@ import './chat.scss';
 import { MessagesPanel } from './MessagesPanel';
 import socketClient from "socket.io-client";
 import SideBarList from '../Dashboard/SideBarList';
+import { Grid } from '@mui/material';
 const SERVER = "http://127.0.0.1:8081";
 export class Chat extends React.Component {
 
@@ -76,9 +77,13 @@ export class Chat extends React.Component {
 
         return (
             <div className='chat-app'>
-
-                <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
-                <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
+                <Grid>
+                <SideBarList/>
+                    <Grid ml={10}>
+                        <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
+                        <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
+                    </Grid>
+                </Grid>
             </div>
         );
     }
