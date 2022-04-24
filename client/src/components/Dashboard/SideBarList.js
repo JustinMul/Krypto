@@ -15,7 +15,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
 import Tooltip from '@mui/material/Tooltip';
 import { useState } from 'react';
 import FormGroup from '@mui/material/FormGroup';
@@ -30,6 +29,7 @@ import { Avatar } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Badge from '@mui/material/Badge';
+
 const drawerWidth = 195;
 
 const openedMixin = (theme) => ({
@@ -130,132 +130,104 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function SideBarList(props) {
  
-      const [textColor, setTextColor] = useState('black');
-      const [value, setValue] = useState({});
-      const [open, setOpen] = useState(false);
-      const theme = useTheme();
+  const [textColor, setTextColor] = useState('black');
+  const [value, setValue] = useState({});
+  const [username, setUsername] = useState({});
+  const [open, setOpen] = useState(false);
+  const theme = useTheme();
     
-    const handleClick = () => {
-      setValue(localStorage.removeItem('username'));
-    }
+  const handleClick = () => {
+    setValue(localStorage.removeItem('username'));
+  }
 
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
   
-    const handleDrawerOpen = () => {
-      setOpen(true);
-    };
-  
-    const handleDrawerClose = () => {
-      setOpen(false);
-    };
-    const [username, setUsername] = useState({});
-    const handleSwtich = () => {
-      (props.mode === 'dark') ? props.setMode('light') : props.setMode('dark')
-    }
-  
-    useEffect(() => {
-      
-      setUsername(JSON.parse(localStorage.getItem('username')));
-     
-    }, []);
+  const handleSwtich = () => {
+    (props.mode === 'dark') ? props.setMode('light') : props.setMode('dark')
+  }
+
+  useEffect(() => {
+    
+    setUsername(JSON.parse(localStorage.getItem('username')));
+   
+  }, []);
 
   return (
     <Box sx={{ display: 'flex'}}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} >
-        <Toolbar>
-        <Tooltip title="Menu" placement="right-start" arrow>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          </Tooltip>
-          <Box display={'flex'} flexGrow={1}>
-          <Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
-            <img src={'https://thumbs.gfycat.com/IllSharpCod.webp'} prop={"img"} width='40' alt="bitcoin-gif"/>
-            </Link>
-          
-          <Typography variant="h6" noWrap component="div" pl={2} pt={1}>
-             Hello, {username.name}! Welcome to Krypto   
-          </Typography>
-              
-              </Box>
-              <Box>
-              <FormGroup >
+        <AppBar position="fixed" open={open} sx= {
             {
-              (props.mode === 'light') ? 
-              <Brightness4Icon onClick={handleSwtich}/> : 
-              <DarkModeIcon onClick={handleSwtich}/>
-            } 
-          </FormGroup>
-          
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            variant="dot"
-            width="5"
-          >
-            <Avatar alt="Remy Sharp"
-              src={username.img}
-              sx={{ width: 50, height: 50, border: 1, borderColor: "black" }}
-            />
-          </StyledBadge>
-          <Typography variant="h6" noWrap component="div" pl={2} pt={1}>
-            {username.name}   
-          </Typography>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-          
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {/* button for dashboard */}
-          {<Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
-      
-            <ListItemButton
-              key="dashboard"
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-
-              <ListItemIcon
+            backgroundColor: (theme) =>
+            theme.palette.mode === 'dark' ? '#48374D' : '#F5EEEE'
+            }
+          }>
+          <Toolbar>
+            <Tooltip title="Menu" placement="right-start" arrow>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
+                  marginRight: 5,
+                  ...(open && { display: 'none' }),
                 }}
               >
-                <Tooltip title="Dashboard" placement="right-start" arrow>
-                  <DashboardIcon/>
-                </Tooltip>
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
-              
-            </ListItemButton>
-            </Link>
-          }
-          
-            {/* button for Chatrooms */}
-            {<Link to="/chatrooms" style={{ textDecoration: 'none', color: 'grey'}}>
-                        
+                <MenuIcon />
+              </IconButton>
+            </Tooltip>
+            <Box display={'flex'} flexGrow={1}>
+              <Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
+                <img src={'https://simplefx.com/assets/images/headers-img/home-animation.gif'} prop={"img"} width='40' alt="bitcoin-gif"/>
+              </Link>
+              <Typography color={"black"} variant="h6" noWrap component="div" pl={2} pt={1}>
+                Hello, {username.name}! Welcome to Krypto   
+              </Typography>
+            </Box>
+            <Box>
+              <FormGroup>
+                {
+                  (props.mode === 'light') ? 
+                  <Brightness4Icon onClick={handleSwtich}/> : 
+                  <DarkModeIcon onClick={handleSwtich}/>
+                } 
+              </FormGroup>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <StyledBadge
+              overlap="circular"
+              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+              variant="dot"
+              width="5"
+            >
+              <Avatar alt="Remy Sharp"
+                src={username.img}
+                sx={{ width: 50, height: 50, border: 1, borderColor: "black" }}
+              />
+            </StyledBadge>
+            <Typography variant="h6" noWrap component="div" pl={2} pt={1}>
+              {username.name}   
+            </Typography>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            {/* button for dashboard */}
+            {<Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
+        
               <ListItemButton
-                key="chatrooms"
+                key="dashboard"
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
@@ -270,27 +242,28 @@ export default function SideBarList(props) {
                     justifyContent: 'center',
                   }}
                 >
-                  <Tooltip title="Chat" placement="right-start" arrow>
-                    <ChatIcon />
+                  <Tooltip title="Dashboard" placement="right-start" arrow>
+                    <DashboardIcon/>
                   </Tooltip>
                 </ListItemIcon>
-                <ListItemText primary="Chatrooms" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
+                
               </ListItemButton>
-                        </Link>
-              }
-
-               {/* button for news */}
-              {<Link to="/news" style={{ textDecoration: 'none', color: 'grey'}}>
-                        
+              </Link>
+            }
+            
+              {/* button for Chatrooms */}
+              {<Link to="/chatrooms" style={{ textDecoration: 'none', color: 'grey'}}>
+                          
                 <ListItemButton
-                  key="news"
+                  key="chatrooms"
                   sx={{
                     minHeight: 48,
                     justifyContent: open ? 'initial' : 'center',
                     px: 2.5,
                   }}
                 >
-  
+
                   <ListItemIcon
                     sx={{
                       minWidth: 0,
@@ -298,20 +271,20 @@ export default function SideBarList(props) {
                       justifyContent: 'center',
                     }}
                   >
-                    <Tooltip title="News" placement="right-start" arrow>
-                      <NewspaperIcon />
+                    <Tooltip title="Chat" placement="right-start" arrow>
+                      <ChatIcon />
                     </Tooltip>
                   </ListItemIcon>
-                  <ListItemText primary="News" sx={{ opacity: open ? 1 : 0 }} />
+                  <ListItemText primary="Chatrooms" sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
                           </Link>
                 }
 
-                {/* button for calculators */}
-                {<Link to="/calculators" style={{ textDecoration: 'none', color: 'grey'}}>
-                        
+                {/* button for news */}
+                {<Link to="/news" style={{ textDecoration: 'none', color: 'grey'}}>
+                          
                   <ListItemButton
-                    key="calculators"
+                    key="news"
                     sx={{
                       minHeight: 48,
                       justifyContent: open ? 'initial' : 'center',
@@ -319,52 +292,80 @@ export default function SideBarList(props) {
                     }}
                   >
     
-                <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <Tooltip title="Converter" placement="right-start" arrow>
-                      <SwapVerticalCircleIcon />
-                    </Tooltip>
-                  </ListItemIcon>
-                  <ListItemText primary="Converter" sx={{ opacity: open ? 1 : 0 }} />
-                </ListItemButton>
-                          </Link>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <Tooltip title="News" placement="right-start" arrow>
+                        <NewspaperIcon />
+                      </Tooltip>
+                    </ListItemIcon>
+                    <ListItemText primary="News" sx={{ opacity: open ? 1 : 0 }} />
+                  </ListItemButton>
+                            </Link>
                   }
-              
-        </List>
-        <Divider />
-        
-        {<Link to="/" onClick={() => handleClick()} style={{ textDecoration: 'none', color: 'grey'}}>
-                        
-                        <ListItemButton
-                          key="/"
-                          sx={{
-                            minHeight: 48,
-                            justifyContent: open ? 'initial' : 'center',
-                            px: 2.5,
-                          }}
-                          onClick ={handleClick}
-                        >
-                          <ListItemIcon
+
+                  {/* button for calculators */}
+                  {<Link to="/calculators" style={{ textDecoration: 'none', color: 'grey'}}>
+                          
+                    <ListItemButton
+                      key="calculators"
+                      sx={{
+                        minHeight: 48,
+                        justifyContent: open ? 'initial' : 'center',
+                        px: 2.5,
+                      }}
+                    >
+      
+                  <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <Tooltip title="Converter" placement="right-start" arrow>
+                        <SwapVerticalCircleIcon />
+                      </Tooltip>
+                    </ListItemIcon>
+                    <ListItemText primary="Converter" sx={{ opacity: open ? 1 : 0 }} />
+                  </ListItemButton>
+                            </Link>
+                    }
+                
+          </List>
+          <Divider />
+          
+          {<Link to="/" onClick={() => handleClick()} style={{ textDecoration: 'none', color: 'grey'}}>
+                          
+                          <ListItemButton
+                            key="/"
                             sx={{
-                              minWidth: 0,
-                              mr: open ? 3 : 'auto',
-                              justifyContent: 'center',
+                              minHeight: 48,
+                              justifyContent: open ? 'initial' : 'center',
+                              px: 2.5,
                             }}
-                            >
-                            <Tooltip title="Logout" placement="right-start" arrow>
-                              <LogoutIcon/>
-                            </Tooltip>
-                          </ListItemIcon>
-                          <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
-                        </ListItemButton>
-                                  </Link>
-                        }
-      </Drawer>
+                            onClick ={handleClick}
+                          >
+                            <ListItemIcon
+                              sx={{
+                                minWidth: 0,
+                                mr: open ? 3 : 'auto',
+                                justifyContent: 'center',
+                              }}
+                              >
+                              <Tooltip title="Logout" placement="right-start" arrow>
+                                <LogoutIcon/>
+                              </Tooltip>
+                            </ListItemIcon>
+                            <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
+                          </ListItemButton>
+                                    </Link>
+                          }
+        </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
       </Box>

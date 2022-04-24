@@ -16,15 +16,10 @@ import { Typography } from "@mui/material";
 
 import SideBarList from './Dashboard/SideBarList'
 import SwapVerticalCircleIcon from '@mui/icons-material/SwapVerticalCircle';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 export default function CurrencyConverter(props) {
-  const darkTheme = createTheme({
-    palette: {
-      mode: props.mode,
-    },
-  });
+
   const [ state, setState] = useState([{data:[]}]);
   const [ primary, setPrimary] = useState({
     price:"",
@@ -108,7 +103,7 @@ export default function CurrencyConverter(props) {
   }
 
   return (
-    <ThemeProvider theme={darkTheme}>
+
     <>
     {/* <Header/> */}
     <SideBarList mode={props.mode} setMode={props.setMode}/>
@@ -211,6 +206,6 @@ export default function CurrencyConverter(props) {
     </Box>
     
     </>
-    </ThemeProvider>
+
   );
 }

@@ -5,18 +5,14 @@ import MarketCryptoList from './MarketCryptoList';
 import topFourTrending from "../../helpers/topFourTrending";
 import SearchForm from "./SearchForm";
 import searchFilter from "../../helpers/searchFilter";
-import Header from '../Header/Header';
 import SideBarList from "./SideBarList";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { CircularProgress, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { sizing } from "@mui/system";
-import MarketCryptoHeader from "../Header/MarketCryptoHeader";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Button } from "@mui/material";
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import Skeleton from '@mui/material/Skeleton';
-import { Icon } from "@mui/material";
+
 
 // import SlideFromContainer from "./SlideFrom";
 
@@ -30,11 +26,7 @@ const Dashboard = (props) => {
   const [dashboard, setDashboard] = useState("market");
   const [search, setSearch] = useState("");
   const[loading, setLoading] = useState(false)
-  const darkTheme = createTheme({
-    palette: {
-      mode: props.mode,
-    },
-  });
+
   const handlewatchlist = () => {
     if (dashboard === 'market') {
       setDashboard("watchlist");
@@ -73,7 +65,7 @@ const Dashboard = (props) => {
   const containerRef = React.useRef(null);
   return (
 
-    <ThemeProvider theme={darkTheme}>
+
 
       <Box sx={{ mt: -4 }} ref={containerRef}>
         <Grid container justifyContent={"center"}>
@@ -118,7 +110,7 @@ const Dashboard = (props) => {
         </Grid>
       </Box>
 
-    </ThemeProvider>
+
   )
 }
 

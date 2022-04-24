@@ -14,13 +14,20 @@ import ProtectedRoutes from './hooks/userAuth';
 import CurrencyConverter from './components/CurrencyConverter';
 import TrendingCryptoList from './components/Dashboard/TrendingCryptoList';
 import TrendingCrypto from './components/Dashboard/TrendingCrypto';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 
 
 function App() {
   const [mode, setMode] = useState("light")
 
+  const darkTheme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
   return (
+    <ThemeProvider theme={darkTheme}>
     <div className={mode}>
       <Routes>
           
@@ -86,7 +93,7 @@ function App() {
       </Routes>
 
     </div>
-
+</ThemeProvider>
   );
 }
 

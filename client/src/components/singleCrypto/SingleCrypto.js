@@ -48,7 +48,7 @@ const SingleCrypto = (props) => {
   console.log(state[0])
   return (
 
-    <ThemeProvider theme={darkTheme}>
+<div>
       {(loading) ? 
    <Grid container direction={'column'}  alignItems="center" justifyContent="center">
 
@@ -87,8 +87,8 @@ const SingleCrypto = (props) => {
       
      </Grid>
 }
-  </ThemeProvider>
 
+</div>
   )
 
 }

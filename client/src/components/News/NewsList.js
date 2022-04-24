@@ -4,15 +4,10 @@ import News from './News'
 import { Grid } from '@mui/material';
 import Box from  '@mui/material/Box';
 import SideBarList from '../Dashboard/SideBarList'
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 
 const NewsList = (props) => {
-  const darkTheme = createTheme({
-    palette: {
-      mode: props.mode,
-    },
-  });
+
   const[news, setNews] = useState([])
   const[loading, setLoading] = useState(false)
   const options = {
@@ -54,7 +49,7 @@ const NewsList = (props) => {
   })
 
   return (
-    <ThemeProvider theme={darkTheme}>
+
           <Grid container justifyContent={"center"} display='flex' direction='column' mt={10}>
           <Typography fontSize={25} textAlign='center'>KRYPTO TIMES : DECRYPT THE CRYPTO</Typography> 
       <Box sx={{mt:10,mb:5}} display="grid" gridTemplateColumns="repeat(12, 1fr)" columngap="3" rowgap="3">
@@ -69,7 +64,7 @@ const NewsList = (props) => {
         </Box>
       </Box>
       </Grid>
-    </ThemeProvider>
+
   )
 }
 
