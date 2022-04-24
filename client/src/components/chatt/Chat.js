@@ -4,7 +4,11 @@ import './chat.scss';
 import { MessagesPanel } from './MessagesPanel';
 import socketClient from "socket.io-client";
 import SideBarList from '../Dashboard/SideBarList';
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Grid } from '@mui/material';
+
+
 const SERVER = "http://127.0.0.1:8081";
 export class Chat extends React.Component {
 
@@ -37,7 +41,7 @@ export class Chat extends React.Component {
             this.setState({ channels });
         });
         socket.on('message', message => {
-            
+            console.log('this is the value of message: ', message)
             let channels = this.state.channels
             channels.forEach(c => {
                 if (c.id === message.channel_id) {
@@ -73,18 +77,31 @@ export class Chat extends React.Component {
         this.socket.emit('send-message', { channel_id, text, senderName: this.socket.id, id: Date.now() });
     }
 
-    render(props) {
+    
+    darkTheme = 
+         createTheme({
+        palette: {
+          mode: this.props.mode,
+        },
+      });
+    render() {
 
         return (
-            <div className='chat-app'>
-                <Grid>
-                <SideBarList/>
-                    <Grid ml={10}>
-                        <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
-                        <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
+
+
+                <ThemeProvider theme={this.darkTheme}>
+            <SideBarList mode={this.props.mode} setMode={this.props.setMode}/>
+            <Grid  container direction={"row"} justifyContent={'center'} width={"60%"} ml={10}>
+                    <Grid item xs={8} >
+                    <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
                     </Grid>
+                    <Grid item xs={4}>
+                    <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
+                   
                 </Grid>
-            </div>
+            </Grid>
+            </ThemeProvider>
+
         );
     }
 }

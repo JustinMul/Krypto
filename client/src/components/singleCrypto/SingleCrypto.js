@@ -82,7 +82,7 @@ const SingleCrypto = (props) => {
        </Grid>
  
 
-       <Skeleton variant="rectangular" animation="wave" width={"70%"} height={100} />
+       <Skeleton variant="rectangular" animation="wave" width={700} height={150} />
 
       
      </Grid>

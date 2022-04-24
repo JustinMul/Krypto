@@ -16,6 +16,7 @@ const cryptoRouter = require('./routes/singleCrypto');
 const chartRouter = require('./routes/chart');
 
 const cookieSession = require("cookie-session");
+const { SocketAddress } = require('net');
 
 
 const app = express();
@@ -102,16 +103,35 @@ const io = new Server(server, {
   }
 });
 const STATIC_CHANNELS = [{
-  name: 'Global chat',
+  name: 'Trending',
+  img: 'https://www.un.org/sites/un2.un.org/files/styles/large-article-image-style-16-9/public/field/image/1597430564.8627.jpg?itok=k7m8PyxC',
+  dis: "Join the room to talk about what's hot in the crypto market.",
   participants: 0,
   id: 1,
   sockets: []
 }, {
-  name: 'Funny',
+  name: 'Market',
+  img: 'https://mtltimes.ca/wp-content/uploads/2022/02/crypto-market.jpg',
+  dis: "Join the room to talk about anything related to the crypto Market.",
   participants: 0,
   id: 2,
   sockets: []
+}, {
+  name: 'Events',
+  img: 'https://www.altcoinbuzz.io/wp-content/uploads/2022/01/Top-crypto-news-1200-x-630-px.jpg',
+  dis: "Join the room to talk about any events related to any crypto.",
+  participants: 0,
+  id: 3,
+  sockets: []
+}, {
+  name: 'General',
+  img: 'https://image.cnbcfm.com/api/v1/image/106837526-1612866638564-gettyimages-1294702554-yn_cryptoimages_016.jpeg?v=1638814215&w=1920&h=1080',
+  dis: "Join the room to talk about anything related to crypto.",
+  participants: 0,
+  id: 4,
+  sockets: []
 }];
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   next();
@@ -124,6 +144,7 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
     console.log('channel join', id);
     STATIC_CHANNELS.forEach(c => {
       if (c.id === id) {
+        
         if (c.sockets.indexOf(socket.id) === (-1)) {
           c.sockets.push(socket.id);
           c.participants++;
@@ -131,6 +152,7 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
         }
       } else {
         let index = c.sockets.indexOf(socket.id);
+     
         if (index !== (-1)) {
           c.sockets.splice(index, 1);
           c.participants--;
@@ -148,6 +170,7 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
   socket.on('disconnect', () => {
     STATIC_CHANNELS.forEach(c => {
       let index = c.sockets.indexOf(socket.id);
+    
       if (index !== (-1)) {
         c.sockets.splice(index, 1);
         c.participants--;
