@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import SingleCrypto from './components/singleCrypto/SingleCrypto';
 
 import Login from './components/login';
-import ChatroomList from './components/Chat/ChatroomList';
+
 import NewsList from './components/News/NewsList';
 import { Chat } from './components/chatt/Chat';
 

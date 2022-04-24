@@ -16,6 +16,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Button } from "@mui/material";
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import Skeleton from '@mui/material/Skeleton';
+import { Icon } from "@mui/material";
+
 // import SlideFromContainer from "./SlideFrom";
 
 const Dashboard = (props) => {
@@ -88,12 +90,12 @@ const Dashboard = (props) => {
               </Grid>
               <Grid >
               
-                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} gap={124}> <Typography fontSize={20} >Market</Typography><Button onClick={handlewatchlist}><FavoriteBorderIcon/></Button></Grid> : <Grid container display={'flex'} direction={"row"} gap={120}> <Typography fontSize={20} >Watch List</Typography><Button onClick={handlewatchlist}><CurrencyBitcoinIcon/></Button></Grid>}
+                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} gap={124}> <Typography fontSize={20} >
+                  Market</Typography><Button onClick={handlewatchlist}><FavoriteBorderIcon/></Button></Grid> : <Grid container display={'flex'} direction={"row"} gap={120}> <Typography fontSize={20} >Watch List</Typography><Button onClick={handlewatchlist}><CurrencyBitcoinIcon/></Button></Grid>}
                 </Grid>
                 <MarketCryptoList loading={loading} render={render} setRender={setRender} dashboard={dashboard} data={filteredRows} mode={props.mode} 
               setMode={props.setMode}/>
-              
-          
+
             </div>)
             :             (<div>        
               <SideBarList mode={props.mode} setMode={props.setMode}/>
@@ -106,7 +108,7 @@ const Dashboard = (props) => {
               </Grid>
               <Grid >
               
-                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} gap={124}> <Typography fontSize={20} >Market</Typography><Button onClick={handlewatchlist}><FavoriteBorderIcon/></Button></Grid> : <Grid container display={'flex'} direction={"row"} gap={120}> <Typography fontSize={20} >Watch List</Typography><Button onClick={handlewatchlist}><CurrencyBitcoinIcon/></Button></Grid>}
+                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} gap={124}> <Typography fontSize={20}>Market</Typography><Button onClick={handlewatchlist}><FavoriteBorderIcon/></Button></Grid> : <Grid container display={'flex'} direction={"row"} gap={120}> <Typography fontSize={20} >Watch List</Typography><Button onClick={handlewatchlist}><CurrencyBitcoinIcon/></Button></Grid>}
                 </Grid>
                 <Skeleton variant="rectangular" animation="wave" height={'48vh'} />
               
