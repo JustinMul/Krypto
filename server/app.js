@@ -16,6 +16,7 @@ const cryptoRouter = require('./routes/singleCrypto');
 const chartRouter = require('./routes/chart');
 
 const cookieSession = require("cookie-session");
+const { SocketAddress } = require('net');
 
 
 const app = express();
@@ -143,6 +144,7 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
     console.log('channel join', id);
     STATIC_CHANNELS.forEach(c => {
       if (c.id === id) {
+        
         if (c.sockets.indexOf(socket.id) === (-1)) {
           c.sockets.push(socket.id);
           c.participants++;
@@ -150,6 +152,7 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
         }
       } else {
         let index = c.sockets.indexOf(socket.id);
+     
         if (index !== (-1)) {
           c.sockets.splice(index, 1);
           c.participants--;
@@ -167,6 +170,7 @@ io.on('connection', (socket) => { // socket object may be used to send specific 
   socket.on('disconnect', () => {
     STATIC_CHANNELS.forEach(c => {
       let index = c.sockets.indexOf(socket.id);
+    
       if (index !== (-1)) {
         c.sockets.splice(index, 1);
         c.participants--;

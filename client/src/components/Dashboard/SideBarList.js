@@ -15,6 +15,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+
+import Tooltip from '@mui/material/Tooltip';
 import { useState } from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import { Link } from 'react-router-dom';
@@ -27,7 +29,7 @@ import {useEffect} from 'react';
 import { Avatar } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-
+import Badge from '@mui/material/Badge';
 const drawerWidth = 195;
 
 const openedMixin = (theme) => ({
@@ -96,6 +98,34 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    backgroundColor: '#44b700',
+    color: '#44b700',
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    '&::after': {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      animation: 'ripple 1.2s infinite ease-in-out',
+      border: '1px solid currentColor',
+      content: '""',
+    },
+  },
+  '@keyframes ripple': {
+    '0%': {
+      transform: 'scale(.8)',
+      opacity: 1,
+    },
+    '100%': {
+      transform: 'scale(2.4)',
+      opacity: 0,
+    },
+  },
+}));
 
 
 export default function SideBarList(props) {
@@ -108,6 +138,7 @@ export default function SideBarList(props) {
     const handleClick = () => {
       setValue(localStorage.removeItem('username'));
     }
+
   
     const handleDrawerOpen = () => {
       setOpen(true);
@@ -122,7 +153,9 @@ export default function SideBarList(props) {
     }
   
     useEffect(() => {
+      
       setUsername(JSON.parse(localStorage.getItem('username')));
+     
     }, []);
 
   return (
@@ -130,6 +163,7 @@ export default function SideBarList(props) {
       <CssBaseline />
       <AppBar position="fixed" open={open} >
         <Toolbar>
+        <Tooltip title="Menu" placement="right-start" arrow>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -142,32 +176,42 @@ export default function SideBarList(props) {
           >
             <MenuIcon />
           </IconButton>
+          </Tooltip>
           <Box display={'flex'} flexGrow={1}>
           <Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
-            <img src={'https://simplefx.com/assets/images/headers-img/home-animation.gif'} prop={"img"} width='40'/>
-          </Link>
+            <img src={'https://thumbs.gfycat.com/IllSharpCod.webp'} prop={"img"} width='40' alt="bitcoin-gif"/>
+            </Link>
+          
           <Typography variant="h6" noWrap component="div" pl={2} pt={1}>
-             Hello {username.name}   
+             Hello, {username.name}! Welcome to Krypto   
           </Typography>
+              
               </Box>
               <Box>
-          <FormGroup >  
+              <FormGroup >
             {
               (props.mode === 'light') ? 
               <Brightness4Icon onClick={handleSwtich}/> : 
               <DarkModeIcon onClick={handleSwtich}/>
             } 
-          </FormGroup> 
+          </FormGroup>
           
           </Box>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-        <Avatar alt="Remy Sharp"
-                    src={username.img}
-                    sx={{ width: 50, height: 50, border: 1, borderColor: "black" }}
-                  />
+          <StyledBadge
+            overlap="circular"
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            variant="dot"
+            width="5"
+          >
+            <Avatar alt="Remy Sharp"
+              src={username.img}
+              sx={{ width: 50, height: 50, border: 1, borderColor: "black" }}
+            />
+          </StyledBadge>
           <Typography variant="h6" noWrap component="div" pl={2} pt={1}>
             {username.name}   
           </Typography>
@@ -180,7 +224,7 @@ export default function SideBarList(props) {
         <List>
           {/* button for dashboard */}
           {<Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
-            
+      
             <ListItemButton
               key="dashboard"
               sx={{
@@ -197,9 +241,12 @@ export default function SideBarList(props) {
                   justifyContent: 'center',
                 }}
               >
-                <DashboardIcon/>
+                <Tooltip title="Dashboard" placement="right-start" arrow>
+                  <DashboardIcon/>
+                </Tooltip>
               </ListItemIcon>
               <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
+              
             </ListItemButton>
             </Link>
           }
@@ -223,7 +270,9 @@ export default function SideBarList(props) {
                     justifyContent: 'center',
                   }}
                 >
-                  <ChatIcon />
+                  <Tooltip title="Chat" placement="right-start" arrow>
+                    <ChatIcon />
+                  </Tooltip>
                 </ListItemIcon>
                 <ListItemText primary="Chatrooms" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
@@ -249,7 +298,9 @@ export default function SideBarList(props) {
                       justifyContent: 'center',
                     }}
                   >
-                    <NewspaperIcon />
+                    <Tooltip title="News" placement="right-start" arrow>
+                      <NewspaperIcon />
+                    </Tooltip>
                   </ListItemIcon>
                   <ListItemText primary="News" sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
@@ -275,7 +326,9 @@ export default function SideBarList(props) {
                       justifyContent: 'center',
                     }}
                   >
-                    <SwapVerticalCircleIcon />
+                    <Tooltip title="Converter" placement="right-start" arrow>
+                      <SwapVerticalCircleIcon />
+                    </Tooltip>
                   </ListItemIcon>
                   <ListItemText primary="Converter" sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>
@@ -303,8 +356,9 @@ export default function SideBarList(props) {
                               justifyContent: 'center',
                             }}
                             >
-                            <LogoutIcon/>
-                           
+                            <Tooltip title="Logout" placement="right-start" arrow>
+                              <LogoutIcon/>
+                            </Tooltip>
                           </ListItemIcon>
                           <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
                         </ListItemButton>
@@ -316,25 +370,5 @@ export default function SideBarList(props) {
       </Box>
     </Box>
   );
-}
+};
 
-
-//  <li>
-//         <Link to="/dashboard" style={{ textDecoration: 'none', color: textColor }}>Dashboard</Link>
-//         </li>
-//         <li>
-//         <Link to="/watchlist" style={{ textDecoration: 'none', color: textColor }}>Watchlist</Link>
-//         </li>
-//         <li>
-//         <Link to="/news" style={{ textDecoration: 'none', color: textColor }}>News</Link>
-//         </li>
-//         <li>
-//         <Link to="/chatrooms" style={{ textDecoration: 'none', color: textColor }}>Chat</Link>
-//         </li>
-//         <li>
-//         <Link to="/calculators" style={{ textDecoration: 'none', color: textColor }}>Calculators</Link>
-//         </li>
-//         <li>
-//         {/* <Link to="/" onClick={() => clearName()}>Logout</Link> */}
-//         <Link to="/" style={{ textDecoration: 'none', color: textColor }} onClick ={handleClick}>Logout</Link>
-//         </li>

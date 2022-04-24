@@ -4,8 +4,10 @@ import { ChannelList } from './ChannelList';
 import { MessagesPanel } from './MessagesPanel';
 import socketClient from "socket.io-client";
 import SideBarList from '../Dashboard/SideBarList';
+
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Grid } from '@mui/material';
+
 
 const SERVER = "http://127.0.0.1:8081";
 export class Chat extends React.Component {
@@ -39,7 +41,7 @@ export class Chat extends React.Component {
             this.setState({ channels });
         });
         socket.on('message', message => {
-            
+            console.log('this is the value of message: ', message)
             let channels = this.state.channels
             channels.forEach(c => {
                 if (c.id === message.channel_id) {
@@ -90,6 +92,7 @@ export class Chat extends React.Component {
 
         return (
 
+
         <ThemeProvider theme={darkTheme}>
                 <SideBarList mode={this.props.mode} setMode={this.props.setMode}/>
             <Grid  container direction={"row"}  ml={3} spacing={2} columns={12}>
@@ -98,6 +101,7 @@ export class Chat extends React.Component {
                     </Grid>
                     <Grid item xs={6} direction={"column"} style={{maxHeight: '80.5vh', overflow: 'hidden'}}>
                         <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
+
                     </Grid>
             </Grid>
         </ThemeProvider>

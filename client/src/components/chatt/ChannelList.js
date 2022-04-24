@@ -27,3 +27,32 @@ export class ChannelList extends React.Component {
     }
 
 }
+
+ // {
+//     const user = JSON.parse(localStorage.getItem('username'));
+//     const date = new Date()
+//     const options = {
+//         hour: 'numeric',
+//         minute: 'numeric',
+//         hour12: true
+//     };
+//     const time = new Intl.DateTimeFormat('en-US', options).format(date)
+//     return (
+//         <Card sx={{ width: 300 , padding:0.5, marginTop:3, marginBottom:3} }>
+//         <CardActionArea>
+//         <Chip
+//         avatar={<Avatar alt="Natacha" src={user.img} />}
+//         label={user.name}
+//         variant="outlined"
+//         />
+//         <CardContent>
+//         <Typography component="h8" variant="h8">Sent at: {time}</Typography>
+//         <Typography variant="body2" color="text.secondary">
+//         {this.props.text}
+//         </Typography>
+//         </CardContent>
+//         </CardActionArea>
+//     </Card>
+//     )
+// }
+// }
