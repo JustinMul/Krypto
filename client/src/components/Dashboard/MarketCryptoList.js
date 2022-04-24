@@ -1,29 +1,21 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import MarketCrypto from './MarketCrypto';
-import { CircularProgress, Grid, Typography } from "@mui/material";
-import TableRow from '@mui/material/TableRow';
-import TableHead from '@mui/material/TableHead';
+import { Grid } from "@mui/material";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import MarketCryptoHeader from '../Header/MarketCryptoHeader';
-import {makeStyles} from '@mui/material';
-
-
 
 export default function MarketCryptoList(props) {
 
-const [num, setNum] = useState(0);
-
+  const [num, setNum] = useState(0);
+  const [deleted, setDeleted] = useState("");
+  const [fav, setFav] = useState([]);  
   const [state, setState] = useState([{
     watchlist: []
   }]);
-
-  const [deleted, setDeleted] = useState("");
-  // const [render, setRender] = useState("");
 
   const handleSubmitWatchlist = () => {
     props.setRender(deleted);
@@ -34,20 +26,19 @@ const [num, setNum] = useState(0);
   useEffect(() => {
     handleSubmitWatchlist();
   }, [deleted]);
+
   useEffect(() => {
     Promise.all([
-      // axios.get('/market'),
       axios.put('/watchlist', {user: JSON.parse(localStorage.getItem('username'))} )
     ]).then((all)=> {
-
+      
       setState(prev => [{...prev,
         watchlist: all[0].data
       }])
     })
-
+    
   },[props.render, props.dashboard]);
   
-  const [fav, setFav] = useState([]);  
 
   const handleSubmit = () => {
     
@@ -119,24 +110,27 @@ const [num, setNum] = useState(0);
   });
 
   return (
-      <div >
-            <Grid container direction={"column"} style={{maxHeight: '52.5vh', overflow: 'hidden'}} mb={2.8} 
-           >         
-            <TableContainer component={Paper}  sx= {
-              {backgroundColor: (theme) =>
-              theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)', borderTop: "1px solid grey", borderBottom: "1px solid grey",
-              mb: 4
-              }
-            }>
-            <Table stickyHeader aria-label="sticky table" align="left">
-              <MarketCryptoHeader dashboard={props.dashboard}/>
-                    <TableBody>  
-                        {(props.dashboard === "market") ? marketCrypto : watchlistCrypto}
-                    </TableBody>
-            </Table>
-          </TableContainer>
-        </Grid>
-                      
-      </div>
+    <div>
+      <Grid 
+        container direction={"column"} 
+        style={{maxHeight: '52.5vh', overflow: 'hidden'}} 
+        mb={2.8} 
+      >         
+        <TableContainer component={Paper}  sx= {
+          {backgroundColor: (theme) =>
+          theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)', borderTop: "1px solid grey", borderBottom: "1px solid grey",
+          mb: 4
+          }
+        }>
+          <Table stickyHeader aria-label="sticky table" align="left">
+            <MarketCryptoHeader dashboard={props.dashboard}/>
+                  <TableBody>  
+                      {(props.dashboard === "market") ? marketCrypto : watchlistCrypto}
+                  </TableBody>
+          </Table>
+        </TableContainer>
+      </Grid>
+                    
+    </div>
   );
 }
