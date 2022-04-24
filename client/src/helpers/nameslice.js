@@ -1,7 +1,7 @@
 const nameslice = (name) => {
   let string = "";
-  if (name.length > 14) {
-for (let i = 0; i < 10; i++){
+  if (name.length > 18) {
+for (let i = 0; i < 18; i++){
   string += name[i]
 }
 return string += "...";

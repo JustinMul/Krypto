@@ -197,8 +197,8 @@ export default function SideBarList(props) {
               <FormGroup>
                 {
                   (props.mode === 'light') ? 
-                  <Brightness4Icon onClick={handleSwtich}/> : 
-                  <DarkModeIcon onClick={handleSwtich}/>
+                  <div>Light Mode <Brightness4Icon onClick={handleSwtich}/> </div> : 
+                  <div>Dark Mode     <DarkModeIcon onClick={handleSwtich}/></div>
                 } 
               </FormGroup>
             </Box>
