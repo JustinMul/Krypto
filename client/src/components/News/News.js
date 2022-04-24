@@ -28,7 +28,6 @@ const News = ({title, image, description, date, source, loading}) => {
                 height="140"
                 image={image}
               />
-              <Divider variant="inset"/>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   {newsDateConvert(date)}
@@ -54,11 +53,9 @@ const News = ({title, image, description, date, source, loading}) => {
   } else {
     return (
       <Box m="auto">  
-      {/* <Item sx={{ gridRow: '1', gridColumn: 'span 2' }}> */}
       <Paper elevation={3}> 
         <Card sx={{ maxWidth: 300, mb:4}}>
-        <Skeleton variant="rectangular" animation="wave" width={280} height={140} />
-          <Divider variant="inset"/>
+        <Skeleton variant="rectangular" animation="wave" width={300} height={140} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
             <Skeleton animation="wave" />

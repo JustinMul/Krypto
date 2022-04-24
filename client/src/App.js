@@ -15,7 +15,7 @@ import CurrencyConverter from './components/CurrencyConverter';
 import TrendingCryptoList from './components/Dashboard/TrendingCryptoList';
 import TrendingCrypto from './components/Dashboard/TrendingCrypto';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { amber, grey, deepOrange } from '@mui/material/colors';
+import { amber, grey, deepOrange, common} from '@mui/material/colors';
 
 
 
@@ -32,7 +32,7 @@ function App() {
             default: "#f5eeee",
             paper: "#C5C0CD",
           },
-          divider: amber[200],
+          divider: common.black,
           text: {
             primary: grey[900],
             secondary: grey[800],
@@ -41,7 +41,7 @@ function App() {
       : {
           // palette values for dark mode
           primary: {main: "#07060D"},
-          divider: deepOrange[700],
+          divider: common.white,
           background: {
             default: "#48374D",
             paper: "rgba(117, 58, 195, 0.177)",

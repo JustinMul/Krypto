@@ -158,6 +158,14 @@ export default function SideBarList(props) {
    
   }, []);
 
+  useEffect(() => {
+    if (props.mode === 'dark') {
+      setTextColor('white');
+    } else if (props.mode === 'light') {
+      setTextColor('black');
+    }
+  }, [props.mode])
+
   return (
     <Box sx={{ display: 'flex'}}>
       <CssBaseline />
@@ -178,7 +186,7 @@ export default function SideBarList(props) {
               </IconButton>
             </Tooltip>
             <Box display={'flex'} flexGrow={1}>
-              <Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
+              <Link to="/dashboard" style={{ textDecoration: 'none', color: textColor}}>
                 <img src={'https://simplefx.com/assets/images/headers-img/home-animation.gif'} prop={"img"} width='40' alt="bitcoin-gif"/>
               </Link>
               <Typography  variant="h6" noWrap component="div" pl={2} pt={1}>
@@ -219,7 +227,7 @@ export default function SideBarList(props) {
           <Divider />
           <List>
             {/* button for dashboard */}
-            {<Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
+            {<Link to="/dashboard" style={{ textDecoration: 'none', color: textColor}}>
         
               <ListItemButton
                 key="dashboard"
@@ -238,7 +246,7 @@ export default function SideBarList(props) {
                   }}
                 >
                   <Tooltip title="Dashboard" placement="right-start" arrow>
-                    <DashboardIcon/>
+                    <DashboardIcon style={(props.mode === 'dark') ? { color: 'white' } : {color: "black"}}/>
                   </Tooltip>
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
@@ -248,7 +256,7 @@ export default function SideBarList(props) {
             }
             
               {/* button for Chatrooms */}
-              {<Link to="/chatrooms" style={{ textDecoration: 'none', color: 'grey'}}>
+              {<Link to="/chatrooms" style={{ textDecoration: 'none', color: textColor}}>
                           
                 <ListItemButton
                   key="chatrooms"
@@ -267,7 +275,7 @@ export default function SideBarList(props) {
                     }}
                   >
                     <Tooltip title="Chat" placement="right-start" arrow>
-                      <ChatIcon />
+                      <ChatIcon style={(props.mode === 'dark') ? { color: 'white' } : {color: "black"}}/>
                     </Tooltip>
                   </ListItemIcon>
                   <ListItemText primary="Chatrooms" sx={{ opacity: open ? 1 : 0 }} />
@@ -276,7 +284,7 @@ export default function SideBarList(props) {
                 }
 
                 {/* button for news */}
-                {<Link to="/news" style={{ textDecoration: 'none', color: 'grey'}}>
+                {<Link to="/news" style={{ textDecoration: 'none', color: textColor}}>
                           
                   <ListItemButton
                     key="news"
@@ -295,7 +303,7 @@ export default function SideBarList(props) {
                       }}
                     >
                       <Tooltip title="News" placement="right-start" arrow>
-                        <NewspaperIcon />
+                        <NewspaperIcon style={(props.mode === 'dark') ? { color: 'white' } : {color: "black"}}/>
                       </Tooltip>
                     </ListItemIcon>
                     <ListItemText primary="News" sx={{ opacity: open ? 1 : 0 }} />
@@ -304,7 +312,7 @@ export default function SideBarList(props) {
                   }
 
                   {/* button for calculators */}
-                  {<Link to="/calculators" style={{ textDecoration: 'none', color: 'grey'}}>
+                  {<Link to="/calculators" style={{ textDecoration: 'none', color: textColor}}>
                           
                     <ListItemButton
                       key="calculators"
@@ -323,7 +331,7 @@ export default function SideBarList(props) {
                       }}
                     >
                       <Tooltip title="Converter" placement="right-start" arrow>
-                        <SwapVerticalCircleIcon />
+                        <SwapVerticalCircleIcon style={(props.mode === 'dark') ? { color: 'white' } : {color: "black"}}/>
                       </Tooltip>
                     </ListItemIcon>
                     <ListItemText primary="Converter" sx={{ opacity: open ? 1 : 0 }} />
@@ -334,7 +342,7 @@ export default function SideBarList(props) {
           </List>
           <Divider />
           
-          {<Link to="/" onClick={() => handleClick()} style={{ textDecoration: 'none', color: 'grey'}}>
+          {<Link to="/" onClick={() => handleClick()} style={{ textDecoration: 'none', color: textColor}}>
                           
                           <ListItemButton
                             key="/"
@@ -353,7 +361,7 @@ export default function SideBarList(props) {
                               }}
                               >
                               <Tooltip title="Logout" placement="right-start" arrow>
-                                <LogoutIcon/>
+                                <LogoutIcon style={(props.mode === 'dark') ? { color: 'white' } : {color: "black"}}/>
                               </Tooltip>
                             </ListItemIcon>
                             <ListItemText primary="Logout" sx={{ opacity: open ? 1 : 0 }} />
