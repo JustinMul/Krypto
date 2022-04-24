@@ -25,7 +25,7 @@
 //   });
 
 //   const handleEmail = (event) => {
-
+    
 //     setValues({
 //       ...values ,
 //       email: event.target.value
@@ -60,7 +60,7 @@
 //       if(response.data.email && response.data.password){
 //         localStorage.setItem('username',JSON.stringify(response.data));
         
-//         navigate('/dashboard');
+//       navigate('/dashboard');
 //       }
 //     });
 //   }
@@ -176,9 +176,8 @@
 
 // export default Login;
 
-
 import * as React from 'react';
-import { useState } from 'react';
+
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
@@ -194,6 +193,12 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import Fingerprint from '@mui/icons-material/Fingerprint';
+import EmailIcon from '@mui/icons-material/Email';
+import InputAdornment from '@mui/material/InputAdornment';
+import LockIcon from '@mui/icons-material/Lock';
+import { red } from '@mui/material/colors';
 
 function Copyright(props) {
   return (
@@ -211,23 +216,12 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
-  const [values, setValues] = useState({
-    email : '',
-    password: ''
-  });
+
   let navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // setValues({
-    //         ...values ,
-    //         email: data.get('email'),
-    //         password: data.get('password'),
-    //       })
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
     const values = {
       email: data.get('email'),
       password: data.get('password'),
@@ -247,7 +241,7 @@ export default function Login() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: '100vh'}}>
         <CssBaseline />
         <Grid
           item
@@ -259,8 +253,9 @@ export default function Login() {
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
+            backgroundSize:'1100px 900px',
             backgroundPosition: 'center',
+            
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -277,21 +272,32 @@ export default function Login() {
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" sx={{  mt: 3 }} >
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 5 }}>
               <TextField
+                sx={{ mt: 4, mb: 2 }}
                 margin="normal"
                 required
                 fullWidth
                 id="email"
                 label="Email Address"
+                color='error'
                 name="email"
                 autoComplete="email"
                 autoFocus
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start" color='error'>
+                      <EmailIcon sx={{ color: 'error', mr: 1, my: 0.5 }} style={{ color: "red" }}/>
+                    </InputAdornment>
+                  ),
+                }}
+
               />
               <TextField
+                sx={{ mt: 6, mb: 2 }}
                 margin="normal"
                 required
                 fullWidth
@@ -299,7 +305,16 @@ export default function Login() {
                 label="Password"
                 type="password"
                 id="password"
+                variant='outlined'
+                color='error'
                 autoComplete="current-password"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start" color='error'>
+                      <LockIcon sx={{ color: 'error', mr: 1, my: 0.5 }} style={{ color: "red" }}/>
+                    </InputAdornment>
+                  ),
+                }}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -309,14 +324,21 @@ export default function Login() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                
+                color="error"
+                sx={{ mt: 5, mb: 2 }}
+                // startIcon={}
+                size="large"
               >
+              <IconButton aria-label="fingerprint" color="error" size="medium">
+                <Fingerprint style={{ color: "white" }}/>
+              </IconButton>
                 Sign In
               </Button>
-              <Grid container>
+              <Grid container sx={{ mt: 10 }}>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
+                  <Link href="#" variant="body2" >
+                    <Typography color="red">Forgot password?</Typography>
                   </Link>
                 </Grid>
                 <Grid item>
@@ -325,7 +347,7 @@ export default function Login() {
                   </Link>
                 </Grid>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
+              <Copyright sx={{ mt: 8 }} />
             </Box>
           </Box>
         </Grid>

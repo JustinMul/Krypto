@@ -13,15 +13,17 @@ import Chip from '@mui/material/Chip';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import TextField from '@mui/material/TextField';
 import { Typography } from "@mui/material";
-
 import SideBarList from './Dashboard/SideBarList'
+
 import SwapVerticalCircleIcon from '@mui/icons-material/SwapVerticalCircle';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
-
-
 export default function CurrencyConverter(props) {
-
+  const darkTheme = createTheme({
+    palette: {
+      mode: props.mode,
+    },
+  });
   const [ state, setState] = useState([{data:[]}]);
   const [ primary, setPrimary] = useState({
     price:"",
@@ -105,7 +107,7 @@ export default function CurrencyConverter(props) {
   }
 
   return (
-
+    <ThemeProvider theme={darkTheme}>
     <>
     {/* <Header/> */}
     <SideBarList mode={props.mode} setMode={props.setMode}/>
@@ -114,17 +116,19 @@ export default function CurrencyConverter(props) {
       sx={{
         m:'auto',
         width: 500,
-        height: 700,
+        height: 600,
         display: 'grid',
         gridTemplateRows: 'repeat(4, 1fr)',
         alignItems:'center',
         // justifyItems:'center'
+        mt:-5,
       }}
     >
       <Typography variant="h4" textAlign={'center'}>Crypto Currency Converter</Typography> 
       <TextField sx={{ m: 1, minWidth: 300 }}
         id="outlined-number"
         value={number}
+        
         label="Enter Amount to Convert"
         type="number"
         InputLabelProps={{
@@ -148,7 +152,7 @@ export default function CurrencyConverter(props) {
               )
             };
           }}
-          label="Primary"
+          label="From"
           onChange={handlePrimary}
         >
           <MenuItem value="">
@@ -158,13 +162,13 @@ export default function CurrencyConverter(props) {
         </Select>
         <FormHelperText>Primary Currency</FormHelperText>
       </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 300 }}  >
-        <InputLabel id="demo-simple-select-helper-label" >To</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 300 }}>
+        <InputLabel id="demo-simple-select-helper-label">To</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           value={secondary}
-          label="Secondary"
+          label="To"
           onChange={handleSecondary}
           renderValue={(crypto)=> {
             if(crypto.image) {
@@ -208,6 +212,6 @@ export default function CurrencyConverter(props) {
     </Box>
     
     </>
-
+    </ThemeProvider>
   );
 }
