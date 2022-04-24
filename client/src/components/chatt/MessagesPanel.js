@@ -27,13 +27,25 @@ export class MessagesPanel extends React.Component {
     render() {
 
       const user = JSON.parse(localStorage.getItem('username'));
-        let list = <Typography component="h6" variant="h6" align='center' mt={2}>Click the Join Room Button to get started</Typography>;
+        let list = <Typography component="h6" variant="h6" align='center' mt={2}>
+                Click the Join Room Button to get started
+            </Typography>;
         if (this.props.channel && this.props.channel.messages) {
-            list = this.props.channel.messages.map(m => <Message key={m.id} id={m.id} senderName={m.senderName} text={m.text} user={m.user} time={m.time} img={m.img}/>);
+            list = this.props.channel.messages.map(m => 
+                <Message 
+                    key={m.id} 
+                    id={m.id} 
+                    senderName={m.senderName} 
+                    text={m.text} 
+                    user={m.user} 
+                    time={m.time} 
+                    img={m.img}
+                />
+            );
         }
         return (
             <div >
-                <Accordion >
+                <Accordion>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
@@ -48,8 +60,8 @@ export class MessagesPanel extends React.Component {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
-                    Do not verbally abuse, attack, embarrass, or threaten anyone else in the chat room, no matter
-                    what they might say to you.
+                        Do not verbally abuse, attack, embarrass, or threaten anyone else in the chat room, no matter
+                        what they might say to you.
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -58,7 +70,7 @@ export class MessagesPanel extends React.Component {
                   <Grid item display='flex' justifyContent="space-between" sx={{ width: 660}} mt={2}>
                     <input type="text" onChange={this.handleInput}  value={this.state.input_value} size="72" placeholder="Write your message here.." p='2'/>
                     <Button onClick={this.send} size='medium' variant="contained" endIcon={<SendIcon />}>
-                    Send
+                        Send
                     </Button>
                   </Grid>
                 }
