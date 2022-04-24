@@ -45,13 +45,13 @@ const MarketCrypto = (props) => {
       <TableCell align="left"> <Link to={`/crypto/${cleanedUrl}`} style={{ textDecoration: 'none', color: textColor}}>{dateConvert(props.last_updated)}</Link></TableCell>
 
         { (props.dashboard === "watchlist") ?
-                <TableCell>
+                <TableCell >
                 <Button aria-label="like"  onClick={() => props.setDeleted(props.id)}>
                   <ClearIcon style={{ color: red[500] }}/>
                   </Button>
                   </TableCell>
 :
-<TableCell><Button aria-label="like"  onClick={() => props.setFav([props.id, props.image])}>
+<TableCell align="center"><Button aria-label="like"  onClick={() => props.setFav([props.id, props.image])}>
 <FavoriteIcon style={{ color: red[500] }}/>
 </Button></TableCell> 
         }
