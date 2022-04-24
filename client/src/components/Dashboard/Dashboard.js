@@ -50,7 +50,7 @@ const Dashboard = (props) => {
         }])
         },  setTimeout(()=>{
           setLoading(true)
-        }, 500)
+        }, 1000)
       )
       .catch((err)=>console.log(err));
   },[dashboard, render]);
