@@ -13,6 +13,7 @@ import {dateConvert} from '../../helpers/dateConvert';
 import { display } from '@mui/system';
 import '../../index.css'
 import nameslice from '../../helpers/nameslice';
+import './TrendingCrypto.scss'
 
 const Img = styled('img')({
   margin: 'auto',
@@ -28,6 +29,7 @@ function TrendingCrypto(props) {
         
     <div>
       <Grid   style={{flex: "wrap"}} p={1}>
+      <Link style = {{textDecoration: 'none'}} to={`/crypto/${cleanedUrl}`}>
          <Paper
       sx={{
         p: 1,
@@ -36,13 +38,15 @@ function TrendingCrypto(props) {
         flexGrow: 1
       }}>
     
-   
-      <Grid container sx={{ width: 250, height: 100 }} >
-        <Grid item>
-          <ButtonBase sx={{ width: 80, height: 100 }}>
-          <Link to={`/crypto/${cleanedUrl}`}><img src={props.image} alt={props.name} width="50"/>  </Link>
-          </ButtonBase>
-        </Grid>
+    
+      <Grid container sx={{ width: 250, height: 115}} >
+        {/* <Grid item xs={12} container> */}
+        <div className='imgContainer' >
+          <div className = "cryptoLogo" >
+            <img src={props.image} alt={props.name}  />  
+          </div>
+        </div>
+        {/* </Grid> */}
         <Grid item xs={15} sm container >
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
@@ -50,6 +54,8 @@ function TrendingCrypto(props) {
                {nameslice(props.name)}
               </Typography>
               <Typography variant="body2" gutterBottom>
+              Price: 
+              
               ${(props.current_price)}
               </Typography>
             <Typography variant="body2" gutterBottom>
@@ -70,8 +76,10 @@ function TrendingCrypto(props) {
           <FileUploadIcon style={{color: "green", mt:4}}/>
         </Grid>
       </Grid>
+     
     
     </Paper>
+    </Link>
       </Grid>
     </div>
   )
