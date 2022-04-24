@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChannelList } from './ChannelList';
-import './chat.scss';
+// import './chat.scss';
 import { MessagesPanel } from './MessagesPanel';
 import socketClient from "socket.io-client";
 import SideBarList from '../Dashboard/SideBarList';
@@ -73,34 +73,38 @@ export class Chat extends React.Component {
         });
     }
 
+
+    
     handleSendMessage = (channel_id, text) => {
-        this.socket.emit('send-message', { channel_id, text, senderName: this.socket.id, id: Date.now() });
+        const user=JSON.parse(localStorage.getItem('username'));
+        
+        this.socket.emit('send-message', { channel_id, text, senderName: this.socket.id, user: user.name, img: user.img , id: Date.now() });
     }
 
     
-    darkTheme = 
-         createTheme({
-        palette: {
-          mode: this.props.mode,
-        },
-      });
     render() {
+     const   darkTheme = 
+             createTheme({
+            palette: {
+              mode: this.props.mode,
+            },
+          });
 
         return (
 
 
-                <ThemeProvider theme={this.darkTheme}>
-            <SideBarList mode={this.props.mode} setMode={this.props.setMode}/>
-            <Grid  container direction={"row"} justifyContent={'center'} width={"60%"} ml={10}>
-                    <Grid item xs={8} >
-                    <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
+        <ThemeProvider theme={darkTheme}>
+                <SideBarList mode={this.props.mode} setMode={this.props.setMode}/>
+            <Grid  container direction={"row"}  ml={3} spacing={2} columns={12}>
+                    <Grid item xs={6} >
+                        <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
                     </Grid>
-                    <Grid item xs={4}>
-                    <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
-                   
-                </Grid>
+                    <Grid item xs={6}>
+                        <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
+
+                    </Grid>
             </Grid>
-            </ThemeProvider>
+        </ThemeProvider>
 
         );
     }
