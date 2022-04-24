@@ -50,7 +50,7 @@ const NewsList = (props) => {
 
   return (
 
-          <Grid container justifyContent={"center"} display='flex' direction='column' mt={10}>
+          <Grid container justifyContent={"center"} display='flex' direction='column' mt={15}>
           <Typography fontSize={25} textAlign='center'>KRYPTO TIMES : DECRYPT THE CRYPTO</Typography> 
       <Box sx={{mt:10,mb:5}} display="grid" gridTemplateColumns="repeat(12, 1fr)" columngap="3" rowgap="3">
         <Box gridColumn="span 0.5">
