@@ -1,11 +1,8 @@
 import React from 'react';
 import { ChannelList } from './ChannelList';
-// import './chat.scss';
 import { MessagesPanel } from './MessagesPanel';
 import socketClient from "socket.io-client";
 import SideBarList from '../Dashboard/SideBarList';
-
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Grid } from '@mui/material';
 
 
@@ -87,7 +84,7 @@ export class Chat extends React.Component {
         return (
         <div>
             <SideBarList mode={this.props.mode} setMode={this.props.setMode}/>
-            <Grid  container direction={"row"}  ml={3} spacing={2} columns={12}>
+            <Grid  container direction={"row"}  ml={15} spacing={2} columns={12}>
                 <Grid item xs={6} >
                     <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
                 </Grid>
