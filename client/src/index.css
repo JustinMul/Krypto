@@ -36,5 +36,4 @@ div.rowTest{
 div.shiftdown{
    display: flex;
    flex-direction: row;
-color: rgba(117, 58, 195, 0.177);
 }
