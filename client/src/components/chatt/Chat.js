@@ -83,30 +83,19 @@ export class Chat extends React.Component {
 
     
     render() {
-     const   darkTheme = 
-             createTheme({
-            palette: {
-              mode: this.props.mode,
-            },
-          });
 
         return (
-
-
-        <ThemeProvider theme={darkTheme}>
-                <SideBarList mode={this.props.mode} setMode={this.props.setMode}/>
+        <div>
+            <SideBarList mode={this.props.mode} setMode={this.props.setMode}/>
             <Grid  container direction={"row"}  ml={3} spacing={2} columns={12}>
-                    <Grid item xs={6} >
-                        <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
-                    </Grid>
-                    <Grid item xs={6} direction={"column"} style={{maxHeight: '80.5vh', overflow: 'hidden'}}>
-                        <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
-
-                    </Grid>
+                <Grid item xs={6} >
+                    <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
+                </Grid>
+                <Grid item xs={6} direction={"column"} style={{maxHeight: '80.5vh', overflow: 'hidden'}}>
+                    <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
+                </Grid>
             </Grid>
-        </ThemeProvider>
-
+        </div>
         );
     }
 }
-//                <Grid container direction={"column"} style={{maxHeight: '80.5vh', overflow: 'hidden'}}>

@@ -15,6 +15,7 @@ import CurrencyConverter from './components/CurrencyConverter';
 import TrendingCryptoList from './components/Dashboard/TrendingCryptoList';
 import TrendingCrypto from './components/Dashboard/TrendingCrypto';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { amber, grey, deepOrange } from '@mui/material/colors';
 
 
 
@@ -23,9 +24,35 @@ function App() {
 
   const darkTheme = createTheme({
     palette: {
-      mode: mode,
-    },
-  });
+      ...(mode === 'light'
+      ? {
+          // palette values for light mode
+          primary: {  main: "#f5eeee" },
+          background: {
+            default: "#f5eeee",
+            paper: "#C5C0CD",
+          },
+          divider: amber[200],
+          text: {
+            primary: grey[900],
+            secondary: grey[800],
+          },
+        }
+      : {
+          // palette values for dark mode
+          primary: {main: "#07060D"},
+          divider: deepOrange[700],
+          background: {
+            default: "#48374D",
+            paper: "rgba(117, 58, 195, 0.177)",
+          },
+          text: {
+            primary: '#fff',
+            secondary: grey[100],
+          },
+        }),
+  },
+});
   return (
     <ThemeProvider theme={darkTheme}>
     <div className={mode}>

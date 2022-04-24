@@ -7,14 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-div.light{
+/* div.light{
   background-color: rgb(255, 255, 255);
 }
 
 div.dark{
   background-color: rgb(18, 18, 18);
   color: rgb(238, 238, 238);
-}
+} */
 
 div.testing{
   display: flex;
@@ -36,5 +36,5 @@ div.rowTest{
 div.shiftdown{
    display: flex;
    flex-direction: row;
-
+color: rgba(117, 58, 195, 0.177);
 }

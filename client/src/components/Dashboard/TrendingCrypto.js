@@ -33,9 +33,7 @@ function TrendingCrypto(props) {
         p: 1,
         margin: 'auto',
         maxWidth: 500,
-        flexGrow: 1,
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)',
+        flexGrow: 1
       }}>
     
    

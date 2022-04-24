@@ -147,7 +147,7 @@ export default function SideBarList(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  
+
   const handleSwtich = () => {
     (props.mode === 'dark') ? props.setMode('light') : props.setMode('dark')
   }
@@ -161,12 +161,7 @@ export default function SideBarList(props) {
   return (
     <Box sx={{ display: 'flex'}}>
       <CssBaseline />
-        <AppBar position="fixed" open={open} sx= {
-            {
-            backgroundColor: (theme) =>
-            theme.palette.mode === 'dark' ? '#48374D' : '#F5EEEE'
-            }
-          }>
+        <AppBar position="fixed" open={open}>
           <Toolbar>
             <Tooltip title="Menu" placement="right-start" arrow>
               <IconButton
@@ -186,7 +181,7 @@ export default function SideBarList(props) {
               <Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
                 <img src={'https://simplefx.com/assets/images/headers-img/home-animation.gif'} prop={"img"} width='40' alt="bitcoin-gif"/>
               </Link>
-              <Typography color={"black"} variant="h6" noWrap component="div" pl={2} pt={1}>
+              <Typography  variant="h6" noWrap component="div" pl={2} pt={1}>
                 Hello, {username.name}! Welcome to Krypto   
               </Typography>
             </Box>

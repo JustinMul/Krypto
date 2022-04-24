@@ -118,9 +118,7 @@ export default function MarketCryptoList(props) {
       >         
         <TableContainer component={Paper}  
           sx= {
-            {
-            backgroundColor: (theme) =>
-            theme.palette.mode === 'dark' ? 'grey' : 'rgb(238, 238, 238)', borderTop: "1px solid grey", borderBottom: "1px solid grey",
+            {borderTop: "1px solid grey", borderBottom: "1px solid grey",
             mb: 4
             }
           }
