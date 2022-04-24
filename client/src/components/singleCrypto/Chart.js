@@ -38,6 +38,7 @@ const BootstrapButton = styled(Button)({
   textTransform: 'none',
   fontSize: 16,
   padding: '6px 12px',
+  width:150,
   border: '1px solid',
   lineHeight: 1.5,
   backgroundColor: '#0063cc',
@@ -74,7 +75,7 @@ const Charts = () => {
 
   const [chartData, setChartData] = useState([]);
 
-  const [day, setDay] = useState(1);
+  const [day, setDay] = useState(30);
 
   useEffect(() => {
     axios.get(`/chart/${id}/${day}`) 
@@ -136,21 +137,21 @@ const Charts = () => {
 
   return (
   <Box width='100%'>
-    <Grid container spacing={5} direction='column'>
+    <Grid container spacing={0} direction='column' justifyContent={'center'}>
     <Paper elevation={3}>
       <Line data={data} options = {options}/>
     </Paper>
       
 
-      <Grid container spacing={3}>
+      <Grid container spacing={0} >
 
-        <Grid mt={4} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center'}}>
+        <Grid  mt={4} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center'}}>
           <BootstrapButton variant="contained" disableRipple onClick={() => dayHandler(1)}>
           One Day
           </BootstrapButton>
         </Grid>
     
-        <Grid mt={4} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center' }}>
+        <Grid mt={4} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center'}}>
           <BootstrapButton variant="contained" disableRipple onClick={() => dayHandler(7)}>
           One Week
           </BootstrapButton>

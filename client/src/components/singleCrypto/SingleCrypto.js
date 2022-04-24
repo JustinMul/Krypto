@@ -46,6 +46,7 @@ const SingleCrypto = (props) => {
 },[id]);
 
   console.log(state[0])
+  let name = state[0].data.name
   return (
 
 <div>
@@ -54,12 +55,12 @@ const SingleCrypto = (props) => {
 
       <SideBarList mode={props.mode} setMode={props.setMode}/>
 
-      <Grid item mb={0} align="center">
-        <img src = {state[0].img} width={100}></img>
-        <div>{state[0].data.name}</div>
+      <Grid item  mt={-1} align="center" >
+        <img src = {state[0].img} width={100} alt = "crypto"></img>
+        <div>{name.toUpperCase()}</div>
       </Grid>
 
-      <Grid item mt={5}  width={800}>
+      <Grid item mt={5}  width={850}>
         <Chart id={props.id} />
       </Grid>
 

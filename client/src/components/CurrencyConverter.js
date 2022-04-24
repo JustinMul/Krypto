@@ -18,6 +18,8 @@ import SideBarList from './Dashboard/SideBarList'
 import SwapVerticalCircleIcon from '@mui/icons-material/SwapVerticalCircle';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
+
+
 export default function CurrencyConverter(props) {
 
   const [ state, setState] = useState([{data:[]}]);
@@ -156,8 +158,8 @@ export default function CurrencyConverter(props) {
         </Select>
         <FormHelperText>Primary Currency</FormHelperText>
       </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 300 }}>
-        <InputLabel id="demo-simple-select-helper-label">To</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 300 }}  >
+        <InputLabel id="demo-simple-select-helper-label" >To</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
