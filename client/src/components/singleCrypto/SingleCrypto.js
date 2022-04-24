@@ -56,7 +56,7 @@ const SingleCrypto = (props) => {
       <SideBarList mode={props.mode} setMode={props.setMode}/>
 
       <Grid item  mt={-1} align="center" >
-        <img src = {state[0].img} width={100} alt = "crypto"></img>
+        <img src={state[0].img} width={100} alt = "crypto" ></img>
         <div>{name.toUpperCase()}</div>
       </Grid>
 
