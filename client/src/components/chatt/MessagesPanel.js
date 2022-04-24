@@ -34,7 +34,9 @@ export class MessagesPanel extends React.Component {
             list = this.props.channel.messages.map(m => <Message key={m.id} id={m.id} senderName={m.senderName} text={m.text} user={m.user} time={m.time} img={m.img}/>);
         }
         return (
+            
             <div >
+
                 <Accordion >
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -53,45 +55,18 @@ export class MessagesPanel extends React.Component {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
+
                 <div >{list}</div>
                 {this.props.channel &&
-                    <Grid item display='flex' justifyContent="space-between" sx={{ width: 550}}>
-
-
-
-
-
+                    <Grid item display='flex' justifyContent="space-between" sx={{ width: 500}}>
                         <input type="text" onChange={this.handleInput} value={this.state.input_value} />
                         {/* <button onClick={this.send}>Send</button> */}
                         <Button onClick={this.send} size='medium' variant="contained" endIcon={<SendIcon />}>
                         Send
                         </Button>
-
-
-
                     </Grid>
-
-
-
                 }
             </div>);
     }
 
 }
-
-{/* <Grid item display='flex' justifyContent="space-between" sx={{ width: 600}}>
-            <TextField
-              type="text"
-
-              value={currentMessage}
-              inputProps={{style: {width: 400, height: 5}}} 
-              placeholder="Write your message here"
-              onChange={(event) => {
-              setCurrentMessage(event.target.value);
-              }}
-              onKeyPress={(event) => {
-                event.key === "Enter" && sendMessage();
-              }}
-            />
-            
-        </Grid> */}

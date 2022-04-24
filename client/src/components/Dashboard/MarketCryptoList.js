@@ -13,6 +13,7 @@ import MarketCryptoHeader from '../Header/MarketCryptoHeader';
 import {makeStyles} from '@mui/material';
 
 
+
 export default function MarketCryptoList(props) {
 
 const [num, setNum] = useState(0);
@@ -38,7 +39,7 @@ const [num, setNum] = useState(0);
       // axios.get('/market'),
       axios.put('/watchlist', {user: JSON.parse(localStorage.getItem('username'))} )
     ]).then((all)=> {
-      console.log('This is what is returned from the api calls:', all);
+
       setState(prev => [{...prev,
         watchlist: all[0].data
       }])
@@ -134,8 +135,8 @@ const [num, setNum] = useState(0);
                     </TableBody>
             </Table>
           </TableContainer>
-       
         </Grid>
+                      
       </div>
   );
 }

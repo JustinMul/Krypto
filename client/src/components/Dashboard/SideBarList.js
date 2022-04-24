@@ -175,9 +175,7 @@ export default function SideBarList(props) {
     }
   
     useEffect(() => {
-      
       setUsername(JSON.parse(localStorage.getItem('username')));
-     
     }, []);
 
   return (
@@ -199,21 +197,19 @@ export default function SideBarList(props) {
           </IconButton>
           <Box display={'flex'} flexGrow={1}>
           <Link to="/dashboard" style={{ textDecoration: 'none', color: 'grey'}}>
-            <img src={'https://thumbs.gfycat.com/IllSharpCod.webp'} prop={"img"} width='40'/>
-            </Link>
-          
+            <img src={'https://simplefx.com/assets/images/headers-img/home-animation.gif'} prop={"img"} width='40'/>
+          </Link>
           <Typography variant="h6" noWrap component="div" pl={2} pt={1}>
              Hello {username.name}   
           </Typography>
-              
               </Box>
               <Box>
-          <FormGroup>
-            <FormControlLabel
-              control={<Switch sx={{ m: 1 }} onChange={handleSwtich}/>}
-              label={(props.mode === 'light') ? 
-              <Brightness4Icon/> : <DarkModeIcon/>} 
-            />
+          <FormGroup >  
+            {
+              (props.mode === 'light') ? 
+              <Brightness4Icon onClick={handleSwtich}/> : 
+              <DarkModeIcon onClick={handleSwtich}/>
+            } 
           </FormGroup> 
           
           </Box>

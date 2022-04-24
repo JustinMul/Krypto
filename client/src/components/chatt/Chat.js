@@ -96,7 +96,7 @@ export class Chat extends React.Component {
                     <Grid item xs={6} >
                         <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={6} direction={"column"} style={{maxHeight: '80.5vh', overflow: 'hidden'}}>
                         <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
                     </Grid>
             </Grid>
@@ -105,3 +105,4 @@ export class Chat extends React.Component {
         );
     }
 }
+//                <Grid container direction={"column"} style={{maxHeight: '80.5vh', overflow: 'hidden'}}>
