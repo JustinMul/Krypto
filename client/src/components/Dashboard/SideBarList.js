@@ -161,7 +161,8 @@ export default function SideBarList(props) {
   return (
     <Box sx={{ display: 'flex'}}>
       <CssBaseline />
-      <AppBar position="fixed" open={open} >
+      <AppBar position="fixed" open={open} sx = { {backgroundColor: (theme) =>
+            theme.palette.mode === 'dark' ? '#48374D' : '#f5eeee' , color: 'black'} }>
         <Toolbar>
         <Tooltip title="Menu" placement="right-start" arrow>
           <IconButton
@@ -182,7 +183,7 @@ export default function SideBarList(props) {
             <img src={'https://thumbs.gfycat.com/IllSharpCod.webp'} prop={"img"} width='40' alt="bitcoin-gif"/>
             </Link>
           
-          <Typography variant="h6" noWrap component="div" pl={2} pt={1}>
+          <Typography variant="h6" noWrap component="div" pl={2} pt={1} >
              Hello, {username.name}! Welcome to Krypto   
           </Typography>
               
