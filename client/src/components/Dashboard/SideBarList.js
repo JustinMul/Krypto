@@ -194,11 +194,17 @@ export default function SideBarList(props) {
               </Typography>
             </Box>
             <Box>
+
               <FormGroup>
                 {
                   (props.mode === 'light') ? 
-                  <Brightness4Icon onClick={handleSwtich}/> : 
-                  <DarkModeIcon onClick={handleSwtich}/>
+                  <Tooltip title="Switch to Dark mode" placement="left-start" arrow>
+                <Brightness4Icon onClick={handleSwtich}/>
+               </Tooltip>: 
+               <Tooltip title="Switch to Light mode" placement="left-start" arrow>
+                <DarkModeIcon onClick={handleSwtich}/>
+              </Tooltip>
+                  
                 } 
               </FormGroup>
             </Box>
