@@ -102,7 +102,6 @@ export default function CurrencyConverter(props) {
   }
 
   return (
-
     <>
     {/* <Header/> */}
     <SideBarList mode={props.mode} setMode={props.setMode}/>
