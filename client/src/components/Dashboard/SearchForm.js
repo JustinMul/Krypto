@@ -11,15 +11,15 @@ const SearchForm = (props) => {
     <form>
   
       <Input style={{width: 400, height: 40 }} 
+      inputProps={{ style: {textAlign: 'center'} }}
+      value={props.search}
+      onChange={props.onChange} 
+      name="value" 
+      placeholder="Enter the crypto you want to search" 
+      startAdornment={<InputAdornment position="start"><SearchIcon/></InputAdornment>}
 
-value={props.search}
-onChange={props.onChange} 
-name="value" 
-placeholder="Enter the crypto you want to search" 
-startAdornment={<InputAdornment position="start"><SearchIcon/></InputAdornment>}
-
->
-</Input>
+      >
+      </Input>
     </form>
     </Grid>
   )

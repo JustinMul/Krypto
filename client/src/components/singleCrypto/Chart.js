@@ -145,25 +145,25 @@ const Charts = () => {
 
       <Grid container spacing={0} >
 
-        <Grid  mt={4} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center'}}>
+        <Grid  mt={4} mb={5} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center'}}>
           <BootstrapButton variant="contained" disableRipple onClick={() => dayHandler(1)}>
           One Day
           </BootstrapButton>
         </Grid>
     
-        <Grid mt={4} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center'}}>
+        <Grid mt={4} mb={5} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center'}}>
           <BootstrapButton variant="contained" disableRipple onClick={() => dayHandler(7)}>
           One Week
           </BootstrapButton>
         </Grid>
     
-        <Grid mt={4} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center' }}>
+        <Grid mt={4} mb={5} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center' }}>
           <BootstrapButton variant="contained" disableRipple onClick={() => dayHandler(30)}>
           One Month
           </BootstrapButton>
         </Grid>
     
-        <Grid mt={4} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center' }}>
+        <Grid mt={4} mb={5} item xs={3} style={{ display: "flex", alignItems: "center" , justifyContent: 'center' }}>
           <BootstrapButton variant="contained" disableRipple onClick={() => dayHandler(365)}>
             One Year
           </BootstrapButton>

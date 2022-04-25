@@ -1,7 +1,17 @@
 .singleCryptoImg{
-
-
     border-radius: 50%;
-
- 
 }
+
+.icon {
+    position: relative;
+    margin: auto;
+    top: -30px;
+    margin-bottom: -25px;
+   
+}
+
+.iconContainer {
+    display: flex;
+    flex-basis: 100%;
+}
+

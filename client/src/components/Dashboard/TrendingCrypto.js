@@ -55,7 +55,6 @@ function TrendingCrypto(props) {
               </Typography>
               <Typography variant="body2" gutterBottom>
               Price: 
-              
               ${(props.current_price)}
               </Typography>
             <Typography variant="body2" gutterBottom>
