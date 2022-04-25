@@ -41,8 +41,7 @@ const BootstrapButton = styled(Button)({
   width:150,
   border: '1px solid',
   lineHeight: 1.5,
-  backgroundColor: '#0063cc',
-  borderColor: '#0063cc',
+
   fontFamily: [
     '-apple-system',
     'BlinkMacSystemFont',
@@ -56,21 +55,21 @@ const BootstrapButton = styled(Button)({
     '"Segoe UI Symbol"',
   ].join(','),
   '&:hover': {
-    backgroundColor: '#0069d9',
-    borderColor: '#0062cc',
+    backgroundColor: '#295A24',
+    borderColor: '#295A24',
     boxShadow: 'none',
   },
   '&:active': {
     boxShadow: 'none',
-    backgroundColor: '#0062cc',
-    borderColor: '#005cbf',
+    backgroundColor: '#295A24',
+    borderColor: '#295A24',
   },
   '&:focus': {
     boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
   },
 });
 
-const Charts = () => {
+const Charts = (props) => {
   const { id } = useParams();
 
   const [chartData, setChartData] = useState([]);

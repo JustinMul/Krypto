@@ -25,12 +25,13 @@ div.testing{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-    /* color: rgb(152, 206, 254); */
+    color: rgb(0, 69, 129);
 }
 
 div.rowTest{
   display: flex;
   flex-direction: row;
+  color: rgb(133, 133, 133);
 }
 
 

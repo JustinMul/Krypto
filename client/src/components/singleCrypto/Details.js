@@ -38,7 +38,7 @@ console.log(props.details)
           <Grid container direction={'column'} alignItems={'center'}>
             <div className='iconContainer'>
                <div className='icon'>
-                  <DateRangeIcon sx={{fontSize:40}} />
+                  <DateRangeIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}} />
                 </div>
             </div>
             <Grid item>Genesis Date </Grid> 
@@ -53,7 +53,7 @@ console.log(props.details)
             <Grid container direction={'column'} alignItems={'center'}>
             <div className='iconContainer'>
                <div className='icon'>
-                 <ShowChartIcon sx={{fontSize:40}}/>  
+                 <ShowChartIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/>  
                 </div>
             </div>
               <Grid item> Market Cap</Grid>
@@ -70,7 +70,7 @@ console.log(props.details)
           <Grid container direction={'column'} alignItems={'center'}>
               <div className='iconContainer'>
                 <div className='icon'>
-                  <EqualizerIcon sx={{fontSize:40}}/> 
+                  <EqualizerIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/> 
                </div>
             </div>
             <Grid item> Market Cap Rank </Grid>
@@ -86,7 +86,7 @@ console.log(props.details)
           <Grid container direction={'column'} alignItems={'center'}>
              <div className='iconContainer'>
                 <div className='icon'>
-                  <CachedIcon sx={{fontSize:40}}/> 
+                  <CachedIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/> 
                 </div>
               </div>
             <Grid item>Circulating Supply</Grid>
@@ -106,7 +106,7 @@ console.log(props.details)
           <Grid container direction={'column'} alignItems={'center'}>
               <div className='iconContainer'>
                 <div className='icon'>
-                   <AttachMoneyIcon sx={{fontSize:40}}/> 
+                   <AttachMoneyIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/> 
                   </div>
               </div>
             <Grid item> Current Price </Grid>
@@ -122,7 +122,7 @@ console.log(props.details)
             <Grid container direction={'column'} alignItems={'center'}>
             <div className='iconContainer'>
                 <div className='icon'>
-                  <PriceChangeIcon sx={{fontSize:40}}/> 
+                  <PriceChangeIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/> 
                 </div>
               </div>
               <Grid item>Price Change (24h) </Grid>
@@ -140,7 +140,7 @@ console.log(props.details)
             <Grid container direction={'column'} alignItems={'center'}>
               <div className='iconContainer'>
                 <div className='icon'>
-                  < SentimentSatisfiedAltIcon sx={{fontSize:40}}/>  
+                  < SentimentSatisfiedAltIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/>  
                   </div>
               </div>
               <Grid item> Analyst up sentiment: </Grid>
@@ -156,7 +156,7 @@ console.log(props.details)
             <Grid container direction={'column'} alignItems={'center'}>
               <div className='iconContainer'>
                 <div className='icon'>
-                  <SentimentVeryDissatisfiedIcon sx={{fontSize:40}}/>  
+                  <SentimentVeryDissatisfiedIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/>  
                 </div>
               </div>
               <Grid item> Analyst down sentiment:</Grid>

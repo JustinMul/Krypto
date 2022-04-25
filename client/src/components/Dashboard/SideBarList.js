@@ -29,6 +29,7 @@ import { Avatar } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Badge from '@mui/material/Badge';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 const drawerWidth = 195;
 
@@ -348,6 +349,35 @@ export default function SideBarList(props) {
                   </Tooltip>
                 </ListItemIcon>
                 <ListItemText primary="Converter" 
+                sx={{ opacity: open ? 1 : 0 }}/>
+              </ListItemButton>
+            </Link>
+          }
+
+          {
+            <Link to="/developers" style={{ 
+              textDecoration: 'none', 
+              color: textColor
+              }}>    
+              <ListItemButton
+                key="Developers"
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}>
+  
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}>
+                  <Tooltip title="Developers" placement="right-start" arrow>
+                    <AdminPanelSettingsIcon style={(props.mode === 'dark') ? {color: 'white' } : {color: "black"}}/>
+                  </Tooltip>
+                </ListItemIcon>
+                <ListItemText primary="Developers" 
                 sx={{ opacity: open ? 1 : 0 }}/>
               </ListItemButton>
             </Link>

@@ -21,6 +21,7 @@ export default function TrendingCryptoList(props) {
           price_change_percentage_24h={crypto.price_change_percentage_24h}
           current_price={crypto.current_price}
           last_updated={crypto.last_updated}
+          mode={props.mode}
           />
 
     );

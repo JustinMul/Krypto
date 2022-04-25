@@ -12,6 +12,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Button } from "@mui/material";
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import Skeleton from '@mui/material/Skeleton';
+import "./TrendingCrypto.scss";
 
 
 // import SlideFromContainer from "./SlideFrom";
@@ -26,6 +27,8 @@ const Dashboard = (props) => {
   const [dashboard, setDashboard] = useState("market");
   const [search, setSearch] = useState("");
   const[loading, setLoading] = useState(false)
+  const [anime, setAnime] = useState("f");
+  const [middle, setMiddle] = useState("center");
 
   const handlewatchlist = () => {
     if (dashboard === 'market') {
@@ -42,10 +45,9 @@ const Dashboard = (props) => {
           trending:topFourTrending(res.data),
          
         }])
-        },  setTimeout(()=>{
+        setTimeout(()=>{
           setLoading(true)
-        }, 1000)
-      )
+        }, 1000)})
       .catch((err)=>console.log(err));
   },[dashboard, render]);
 
@@ -62,6 +64,16 @@ const Dashboard = (props) => {
     }
   }, [props.mode])
 
+  const handleAnime = () => {
+    setAnime("trendingAnime")
+    setMiddle("f")
+  }
+
+  useEffect(() => {
+    setAnime("f");
+    setMiddle("center")
+  }, [props.mode])
+
   const containerRef = React.useRef(null);
   return (
 
@@ -74,9 +86,9 @@ const Dashboard = (props) => {
               <SideBarList mode={props.mode} setMode={props.setMode}/>
               {/* <SlideFromContainer/> */}
               <Typography fontSize={25} >Dashboard</Typography> 
-              <Typography align="center" fontSize={14} >Trending</Typography> 
+              <Typography fontSize={14} align={middle} onClick={handleAnime} className={anime}>Trending</Typography> 
 
-              <TrendingCryptoList loading={loading} data={state[0].trending}/> 
+              <TrendingCryptoList mode={props.mode} loading={loading} data={state[0].trending}/> 
               <Grid pt={4} >
                 <SearchForm search={search} onChange={inputHandler} mode={props.mode} setMode={props.setMode}/>
               </Grid>
