@@ -1,91 +1,98 @@
-//  <Grid container 
-//       spacing={2}
-//       width="40vw"
-//       height="80vh"
-//       display="flex"
-//       direction='column'
-//       alignItems="center"
-//       justifyContent="space-between"
-//       paddingTop={2}
-//       >
-//         <Grid>
-//             <Typography component="h1" variant="h4">
-//               Welcome {user} to {room} Room
-//             </Typography>
-//             <Accordion >
-//               <AccordionSummary
-//                 expandIcon={<ExpandMoreIcon />}
-//                 aria-controls="panel1a-content"
-//                 id="panel1a-header"
-//               >
-//                 <Typography component="h1" variant="h6" align='center'>Chat Room Guidelines</Typography>
-//               </AccordionSummary>
-//               <AccordionDetails>
-//                 <Typography>
-//                 Do not verbally abuse, attack, embarrass, or threaten anyone else in the chat room, no matter
-//                 what they might say to you.
-//                 </Typography>
-//               </AccordionDetails>
-//             </Accordion>
-//         </Grid>
-//           <Grid overflow='hidden'>
+import React from 'react';
+import { ChannelList } from './ChannelList';
+import { MessagesPanel } from './MessagesPanel';
+import socketClient from "socket.io-client";
+import SideBarList from '../Dashboard/SideBarList';
+import { Grid } from '@mui/material';
 
-//             <ScrollToBottom className="message-container">
-//               {messageList.map((messageContent) => {
-//                 return (
-//                   <div
-//                   className="message"
-//                   id={user === messageContent.author ? "you" : "other"}
-//                 >
-//                         <Box mb={2}
-//                         display="flex"
-//                         flexDirection="column"
-//                         style={{
-//                           border: "1px solid black",
-//                           overflow: "hidden",
-//                           overflowY: "scroll" // added scroll
-//                         }}>
-//                           <Card sx={{ width: 300 , padding:0.5}}>
-//                             <CardActionArea>
-//                               <Chip
-//                                 avatar={<Avatar alt="Natacha" src={messageContent.img} />}
-//                                 label={messageContent.author}
-//                                 variant="outlined"
-//                               />
-//                               <CardContent>
-//                                 <Typography component="h8" variant="h8">sent at: {messageContent.time}</Typography>
-//                                 <Typography variant="body2" color="text.secondary">
-//                                   {messageContent.message}
-//                                 </Typography>
-//                               </CardContent>
-//                             </CardActionArea>
 
-//                           </Card>
-//                           </Box>
-//                   </div>
-//                 );
-//               })}
-//             </ScrollToBottom>
+const SERVER = "http://127.0.0.1:8081";
+export class Chat extends React.Component {
+
+    state = {
+        channels: null,
+        socket: null,
+        channel: null
+    }
+    socket;
+    componentDidMount() {
+        this.loadChannels();
+        this.configureSocket();
+    }
+
+    configureSocket = () => {
+        var socket = socketClient(SERVER);
+        socket.on('connection', () => {
+            if (this.state.channel) {
+                this.handleChannelSelect(this.state.channel.id);
+            }
+        });
+        socket.on('channel', channel => {
             
-//           </Grid>
-      
-//         <Grid item display='flex' justifyContent="space-between" sx={{ width: 600}}>
-//             <TextField
-//               type="text"
+            let channels = this.state.channels;
+            channels.forEach(c => {
+                if (c.id === channel.id) {
+                    c.participants = channel.participants;
+                }
+            });
+            this.setState({ channels });
+        });
+        socket.on('message', message => {
+            console.log('this is the value of message: ', message)
+            let channels = this.state.channels
+            channels.forEach(c => {
+                if (c.id === message.channel_id) {
+                    if (!c.messages) {
+                        c.messages = [message];
+                    } else {
+                        c.messages.push(message);
+                    }
+                }
+            });
+            this.setState({ channels });
+        });
+        this.socket = socket;
+    }
 
-//               value={currentMessage}
-//               inputProps={{style: {width: 400, height: 5}}} 
-//               placeholder="Write your message here"
-//               onChange={(event) => {
-//               setCurrentMessage(event.target.value);
-//               }}
-//               onKeyPress={(event) => {
-//                 event.key === "Enter" && sendMessage();
-//               }}
-//             />
-//             <Button onClick={sendMessage} size='medium' variant="contained" endIcon={<SendIcon />}>
-//             Send
-//             </Button>
-//         </Grid>
+    loadChannels = async () => {
+        fetch('http://localhost:8081/getChannels').then(async response => {
+            let data = await response.json();
+            this.setState({ channels: data.channels });
+        })
+    }
 
-//     </Grid>
+    handleChannelSelect = id => {
+        let channel = this.state.channels.find(c => {
+            return c.id === id;
+        });
+        this.setState({ channel });
+        this.socket.emit('channel-join', id, ack => {
+        });
+    }
+
+
+    
+    handleSendMessage = (channel_id, text) => {
+        const user=JSON.parse(localStorage.getItem('username'));
+        
+        this.socket.emit('send-message', { channel_id, text, senderName: this.socket.id, user: user.name, img: user.img , id: Date.now() });
+    }
+
+    
+    render() {
+
+        return (
+        <div>
+            <SideBarList mode={this.props.mode} setMode={this.props.setMode}/>
+            <Grid  container direction={"row"}  ml={15} spacing={2} columns={12}>
+                <Grid item xs={6} >
+                    <ChannelList channels={this.state.channels} onSelectChannel={this.handleChannelSelect} />
+                </Grid>
+                <Grid item xs={6} direction={"column"} style={{maxHeight: '80.5vh', overflow: 'hidden'}}>
+                    <MessagesPanel onSendMessage={this.handleSendMessage} channel={this.state.channel} />
+                </Grid>
+            </Grid>
+        </div>
+        );
+    }
+}

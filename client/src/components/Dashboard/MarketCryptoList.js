@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 import MarketCryptoHeader from '../Header/MarketCryptoHeader';
 
 export default function MarketCryptoList(props) {
-
+  const arr = [];
   const [num, setNum] = useState(0);
   const [deleted, setDeleted] = useState("");
   const [fav, setFav] = useState([]);  
@@ -23,6 +23,7 @@ export default function MarketCryptoList(props) {
     axios.put(`/user-delete`, {data: deleted , user: JSON.parse(localStorage.getItem('username'))})
     }
   }
+
   useEffect(() => {
     handleSubmitWatchlist();
   }, [deleted]);
@@ -48,9 +49,8 @@ export default function MarketCryptoList(props) {
         id: fav[0], 
         img: fav[1], 
         user: JSON.parse(localStorage.getItem('username'))})
-        .then((res) => 
-        console.log("This is the responds from /insert-watchlist post: ", res))
-        .catch((error) => console.log("from insert-watchlist error: ", error))
+      .then((res) => console.log("This is the responds from /insert-watchlist post: ", res))
+      .catch((error) => console.log("from insert-watchlist error: ", error))
     }
   }
   
@@ -58,7 +58,6 @@ export default function MarketCryptoList(props) {
     handleSubmit();
   }, [fav]);
 
-  const arr =[];
   const filter = state[0].watchlist.map((marketCrypto) => {
     props.data.map((crypto)=> {
       if (marketCrypto.crypto_id === crypto.id) {
@@ -110,27 +109,22 @@ export default function MarketCryptoList(props) {
   });
 
   return (
-    <div>
-      <Grid 
-        container direction={"column"} 
-        style={{maxHeight: '52.5vh', overflow: 'hidden'}} 
-        mb={2.8} 
-      >         
-        <TableContainer component={Paper}  
-          sx= {
-            {borderTop: "1px solid grey", borderBottom: "1px solid grey",
-            mb: 4
-            }
-          }
-        >
-          <Table stickyHeader aria-label="sticky table" align="left">
-            <MarketCryptoHeader dashboard={props.dashboard}/>
-            <TableBody>  
-                {(props.dashboard === "market") ? marketCrypto : watchlistCrypto}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Grid>
-    </div>
+    <Grid 
+      container direction={"column"} 
+      style={{maxHeight: '52.5vh', overflow: 'hidden'}} 
+      mb={2.8}>         
+      <TableContainer component={Paper}  
+        sx= {
+          {borderTop: "1px solid grey", borderBottom: "1px solid grey",
+          mb: 4
+          }}>
+        <Table stickyHeader aria-label="sticky table" align="left">
+          <MarketCryptoHeader dashboard={props.dashboard}/>
+          <TableBody>  
+              {(props.dashboard === "market") ? marketCrypto : watchlistCrypto}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Grid>
   );
 }

@@ -18,8 +18,7 @@ const News = ({title, image, description, date, source, loading}) => {
 
   if (loading){
     return (
-    <Box m="auto">  
-          {/* <Item sx={{ gridRow: '1', gridColumn: 'span 2' }}> */}
+    <Box m="auto" onClick = {(e) => (window.location.href = `${source}`)}>
           <Paper elevation={3}> 
             <Card sx={{ maxWidth: 300, mb:4}}>
               <CardMedia
@@ -42,10 +41,10 @@ const News = ({title, image, description, date, source, loading}) => {
                   <Skeleton animation={false} /></div> }
                 </Typography>
               </CardContent>
-              <Divider variant="middle"/>
-              <CardActions>
-                <Button size="small" onClick = {(e) => (window.location.href = `${source}`)}>Source</Button>
-              </CardActions>
+              {/* <Divider variant="middle"/> */}
+              {/* <CardActions onClick = {(e) => (window.location.href = `${source}`)}>
+              Source
+              </CardActions> */}
             </Card>
         </Paper>
     </Box>
@@ -70,10 +69,6 @@ const News = ({title, image, description, date, source, loading}) => {
               <Skeleton animation="wave"/>
             </Typography>
           </CardContent>
-          <Divider variant="middle"/>
-          <CardActions>
-            <Button size="small" onClick = {(e) => (window.location.href = `${source}`)}>Source</Button>
-          </CardActions>
         </Card>
     </Paper>
 </Box>

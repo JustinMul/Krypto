@@ -9,7 +9,7 @@ import { Box } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Skeleton from '@mui/material/Skeleton';
-import './singleCrypto.scss'
+import '../Dashboard/TrendingCrypto.scss'
 
 const SingleCrypto = (props) => {
   const darkTheme = createTheme({

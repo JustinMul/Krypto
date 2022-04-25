@@ -6,9 +6,10 @@ import Dashboard from './components/Dashboard/Dashboard';
 import SingleCrypto from './components/singleCrypto/SingleCrypto';
 
 import Login from './components/login';
+import SearchForm from './components/Dashboard/SearchForm';
 
 import NewsList from './components/News/NewsList';
-import { Chat } from './components/chatt/Chat';
+import { Chat } from './components/Chat/Chat';
 
 import ProtectedRoutes from './hooks/userAuth';
 import CurrencyConverter from './components/CurrencyConverter';
@@ -44,7 +45,7 @@ function App() {
           divider: common.white,
           background: {
             default: "#48374D",
-            paper: "rgba(117, 58, 195, 0.177)",
+            paper: "rgb(60, 35, 60)",
           },
           text: {
             primary: '#fff',

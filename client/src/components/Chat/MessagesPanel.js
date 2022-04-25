@@ -27,7 +27,7 @@ export class MessagesPanel extends React.Component {
     render() {
 
       const user = JSON.parse(localStorage.getItem('username'));
-        let list = <Typography component="h6" variant="h6" align='center' mt={2}>
+        let list = <Typography component="h6" variant="h6" align='start' mt={2}>
                 Click the Join Room Button to get started
             </Typography>;
         if (this.props.channel && this.props.channel.messages) {
@@ -45,6 +45,7 @@ export class MessagesPanel extends React.Component {
         }
         return (
             <div >
+              <Grid container width={700}>
                 <Accordion>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -65,6 +66,7 @@ export class MessagesPanel extends React.Component {
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
+              </Grid>
                 <div >{list}</div>
                 {this.props.channel &&
                   <Grid item display='flex' justifyContent="space-between" sx={{ width: 660}} mt={2}>

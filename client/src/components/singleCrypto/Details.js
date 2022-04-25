@@ -18,7 +18,7 @@ import EqualizerIcon from '@mui/icons-material/Equalizer';
 
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt'; 
 import SentimentVeryDissatisfiedIcon from'@mui/icons-material/SentimentVeryDissatisfied';
-
+import './singleCrypto.scss'
 
 const Details = (props) => {
 console.log(props.details)

@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS cryptos CASCADE;
-
-CREATE TABLE cryptos (
-  id SERIAL PRIMARY KEY,
-  crypto_id INTEGER
-);
