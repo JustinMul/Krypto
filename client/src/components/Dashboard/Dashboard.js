@@ -55,24 +55,6 @@ const Dashboard = (props) => {
     setSearch(event.target.value);
   };
   const filteredRows = searchFilter(state[0].market, search)
-  // const [textColor, setTextColor] = useState('black');
-  // useEffect(() => {
-  //   if (props.mode === 'dark') {
-  //     setTextColor('rgb(171, 171, 171)');
-  //   } else if (props.mode === 'light') {
-  //     setTextColor('black');
-  //   }
-  // }, [props.mode])
-
-  // const handleAnime = () => {
-  //   setAnime("trendingAnime")
-  //   setMiddle("f")
-  // }
-
-  // useEffect(() => {
-  //   setAnime("f");
-  //   setMiddle("center")
-  // }, [props.mode])
 
   const containerRef = React.useRef(null);
   return (
@@ -103,8 +85,8 @@ const Dashboard = (props) => {
             </div>)
             :             (<div>        
               <SideBarList mode={props.mode} setMode={props.setMode}/>
-              <Typography fontSize={25} fontFamily={'Pacifico'}>Dashboard</Typography> 
-              <Typography align="center" fontSize={14} fontFamily={'Pacifico'}>Trending</Typography> 
+              <Typography fontSize={20} fontFamily={'Pacifico'}>Dashboard</Typography> 
+              <Typography align="center" fontSize={20} fontFamily={'Pacifico'}>Trending</Typography> 
 
               <Skeleton variant="rectangular" animation="wave" width={1100} height={140} />
               <Grid pt={4}   align="center">
@@ -112,7 +94,7 @@ const Dashboard = (props) => {
               </Grid>
               <Grid >
               
-                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} gap={124}> <Typography fontSize={20}>Market</Typography><Button onClick={handlewatchlist}><FavoriteBorderIcon/></Button></Grid> : <Grid container display={'flex'} direction={"row"} gap={120}> <Typography fontSize={20} >Watch List</Typography><Button onClick={handlewatchlist}><CurrencyBitcoinIcon/></Button></Grid>}
+                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} gap={124}> <Typography fontSize={20}fontFamily={'Pacifico'} >Market</Typography><Button onClick={handlewatchlist}><FavoriteBorderIcon/></Button></Grid> : <Grid container display={'flex'} direction={"row"} gap={120}> <Typography fontSize={20} fontFamily={'Pacifico'}>Watch List</Typography><Button onClick={handlewatchlist}><CurrencyBitcoinIcon/></Button></Grid>}
                 </Grid>
                 <Skeleton variant="rectangular" animation="wave" height={'48vh'} />
               
