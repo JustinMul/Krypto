@@ -70,10 +70,10 @@ const developers = admins.map((dev) => {
         Krypto Developers
       </Typography>
 
-      <Grid container direction={"row"} justifyContent={"center"} mt={6}>
+      <Grid container direction={"row"} justifyContent={"center"} mt={6} >
       {developers}
         </Grid>
-          <Typography align="center" variant="h4" noWrap component="div" mr={3} mt={1}>Built with</Typography> 
+          <Typography fontFamily={'Pacifico'} align="center" variant="h4" noWrap component="div" mr={3} mt={1}>Built with</Typography> 
         <Grid container direction={"row"} justifyContent={"center"} mt={3}>
         <Tooltip title="React Js" arrow>
           <Typography className='anime' mr={4}><img src={"reactIcon.jpg"} alt={"React"} width={62}/></Typography> 
