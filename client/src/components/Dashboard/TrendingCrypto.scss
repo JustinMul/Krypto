@@ -42,16 +42,12 @@
   }
 }
 
+.card:hover {
+  box-shadow: 20;
+  
+}
 
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(90, 90, 90, 0);
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0);
 }

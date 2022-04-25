@@ -21,8 +21,8 @@ function App() {
           // palette values for light mode
           primary: {  main: "#1976d2" },
           background: {
-            default: "#EEECEE",
-            paper: "#EEECEE",
+            default: "#D6E8FA",
+            paper: "#f8f8ff",
           },
           divider: common.black,
           text: {
@@ -32,7 +32,7 @@ function App() {
         }
       : {
           // palette values for dark mode
-          primary: {main: "rgb(15, 30, 12)"},
+          primary: {main: "#5E5F6E"},
           divider: common.white,
           background: {
             default: "#282928",

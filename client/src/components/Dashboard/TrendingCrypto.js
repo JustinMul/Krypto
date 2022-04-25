@@ -32,24 +32,27 @@ function TrendingCrypto(props) {
       <Grid   style={{flex: "wrap"}} p={1}>
       <Link style = {{textDecoration: 'none'}} to={`/crypto/${cleanedUrl}`}>
          <Paper 
-      sx={(props.mode === 'light')?{
+      sx={(props.mode === 'dark')?{
         p: 1,
         margin: 'auto',
         maxWidth: 500,
         flexGrow: 1,
-        backgroundColor: "rgb(240, 244, 247)",
-       
-        border: '2px solid rgb(35, 35, 35)'
+        boxShadow:5,
+        border: '1px solid #ffffff',
+        borderRadius:5
+        // backgroundColor: "rgb(240, 244, 247)",
+        // border: '2px solid rgb(35, 35, 35)'
       }:
       {
         p: 1,
         margin: 'auto',
         maxWidth: 500,
         flexGrow: 1,
-        background: 'rgba(255, 255, 255, 0.1)',
-        backdropFilter: 'blur(35px)',
+       boxShadow:5,
+       background:'#f8f8ff',
+       borderRadius:5
         // backgroundColor: "rgb(200, 200, 200)"
-        border: '2px solid white'
+        // border: '2px solid #295A24'
       }}>
     
     
