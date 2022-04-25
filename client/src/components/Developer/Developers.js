@@ -7,8 +7,8 @@ import './Developer.scss'
 
 const Developers = (props) => {
   return (     
-    <Box mr={4}>  
-      <Paper elevation={3}> 
+    <Box >  
+      <Paper elevation={3} > 
         <Card 
           sx={{ width: 300, mb:4}} 
           align="center" 
