@@ -9,7 +9,6 @@ const SearchForm = (props) => {
     <Grid container justifyContent="center">
     <form>
       <Input style={{width: 400, height: 40 }} 
-
       value={props.search}
       onChange={props.onChange} 
       name="Search Crypto" 
@@ -17,7 +16,6 @@ const SearchForm = (props) => {
       placeholder="Search Cryptos..." 
       startAdornment={<InputAdornment position="start"><SearchIcon style={(props.mode === "dark") ? {color: "white"} : {color: "black"}}/></InputAdornment>}
       />
-
     </form>
     </Grid>
   )
