@@ -27,7 +27,7 @@ const MarketCrypto = (props) => {
   return (
 
     <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
-      <TableCell component="th" scope="row">
+      <TableCell component="th" scope="row" align='center'>
         <Link to={`/crypto/${cleanedUrl}`}>
           <img className="singleCryptoImg" 
             src={props.image} 
@@ -36,7 +36,7 @@ const MarketCrypto = (props) => {
           />
         </Link>
       </TableCell>
-      <TableCell align="left">
+      <TableCell align="center">
         <Link 
           to={`/crypto/${cleanedUrl}`} 
           style={{ 
@@ -46,7 +46,7 @@ const MarketCrypto = (props) => {
           {props.name}
         </Link>
       </TableCell>
-      <TableCell align="left">
+      <TableCell align="center">
         <Link 
           to={`/crypto/${cleanedUrl}`} 
           style={{ 
@@ -56,7 +56,7 @@ const MarketCrypto = (props) => {
           $ {(props.current_price)}
         </Link>
       </TableCell>
-      <TableCell align="left">
+      <TableCell align="center">
         <Link to={`/crypto/${cleanedUrl}`} 
           style={{ 
             textDecoration: 'none', 
@@ -72,7 +72,7 @@ const MarketCrypto = (props) => {
           </div>
         </Link>
       </TableCell>
-      <TableCell align="left">
+      <TableCell align="center">
         <Link to={`/crypto/${cleanedUrl}`} 
           style={{ 
             textDecoration: 'none', 
@@ -83,7 +83,7 @@ const MarketCrypto = (props) => {
       </TableCell>
       { 
         (props.dashboard === "watchlist") ?
-        <TableCell>
+        <TableCell align="center">
           <Button aria-label="like"  onClick={() => props.setDeleted(props.id)}>
             <ClearIcon style={{ color: red[500] }}/> 
           </Button>

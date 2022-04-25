@@ -15,6 +15,7 @@ import '../../index.css'
 import nameslice from '../../helpers/nameslice';
 import './TrendingCrypto.scss'
 
+
 const Img = styled('img')({
   margin: 'auto',
   display: 'block',
@@ -27,16 +28,17 @@ function TrendingCrypto(props) {
   let cleanedUrl = urlSpaceReplacer(props.id)
   return (
         
-    <div>
+    <div >
       <Grid   style={{flex: "wrap"}} p={1}>
       <Link style = {{textDecoration: 'none'}} to={`/crypto/${cleanedUrl}`}>
-         <Paper
-      sx={(props.mode === 'dark')?{
+         <Paper 
+      sx={(props.mode === 'light')?{
         p: 1,
         margin: 'auto',
         maxWidth: 500,
         flexGrow: 1,
-        backgroundColor: "rgb(35, 35, 35)",
+        backgroundColor: "rgb(240, 244, 247)",
+       
         border: '2px solid rgb(35, 35, 35)'
       }:
       {
@@ -44,8 +46,10 @@ function TrendingCrypto(props) {
         margin: 'auto',
         maxWidth: 500,
         flexGrow: 1,
-        backgroundColor: "rgb(200, 200, 200)",
-        border: '2px solid #295A24'
+        background: 'rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(35px)',
+        // backgroundColor: "rgb(200, 200, 200)"
+        border: '2px solid white'
       }}>
     
     

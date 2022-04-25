@@ -8,7 +8,7 @@ import {Chat} from './components/Chat/Chat'
 import ProtectedRoutes from './hooks/userAuth';
 import CurrencyConverter from './components/CurrencyConverter';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { grey, common, blue } from '@mui/material/colors';
+import { grey, common } from '@mui/material/colors';
 import DeveloperList from './components/Developer/DeveloperList'
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           primary: {  main: "#1976d2" },
           background: {
             default: "#EEECEE",
-            paper: blue[50],
+            paper: "#EEECEE",
           },
           divider: common.black,
           text: {
@@ -40,7 +40,7 @@ function App() {
           },
           text: {
             primary: '#fff',
-            secondary: '#fff',
+            secondary: grey[100],
           },
         }),
   },

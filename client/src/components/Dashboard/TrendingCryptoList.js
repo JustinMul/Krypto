@@ -32,6 +32,23 @@ export default function TrendingCryptoList(props) {
     
     <Grid container direction={"row"}>
       {trendingCrypto}
+      {/* <div className="todos-container">
+    <form className="form">
+        <div className="form-group">
+            <label htmlFor="title">Title</label>
+            <input type="text" id="title" placeholder="Enter todo's title" name="title" required />
+        </div>
+        <div className="form-group">
+            <label htmlFor="description">Description</label>
+            <textarea id="description" placeholder="Describe the todo" name="description" required />
+        </div>
+        <div className="form-group">
+            <button type="submit" class="form-submit-btn">
+                Add todo
+            </button>
+        </div>
+    </form>
+</div> */}
     </Grid>
 
    

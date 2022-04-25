@@ -50,9 +50,11 @@ const NewsList = (props) => {
 
   return (
 
+         
           <Grid container justifyContent={"center"} display='flex' direction='column' mt={12}>
-          <Typography fontSize={25} textAlign='center'>KRYPTO TIMES : DECRYPT THE CRYPTO</Typography> 
+     <Typography fontSize={25} fontFamily={'Pacifico'} textAlign='left' ml={22}>News</Typography>
       <Box sx={{mt:5,mb:5}} display="grid" gridTemplateColumns="repeat(12, 1fr)" columngap="3" rowgap="3">
+        
         <Box gridColumn="span 0.5">
           <SideBarList mode={props.mode} setMode={props.setMode}/>
         </Box>
@@ -64,6 +66,7 @@ const NewsList = (props) => {
         </Box>
       </Box>
       </Grid>
+
 
   )
 }

@@ -118,7 +118,7 @@ export default function CurrencyConverter(props) {
         mt:-5,
       }}
     >
-      <Typography variant="h4" textAlign={'center'}>Crypto Currency Converter</Typography> 
+      <Typography variant="h4" fontFamily={'Pacifico'} textAlign={'center'}>Crypto Currency Converter</Typography> 
       <TextField sx={{ m: 1, minWidth: 300 }}
         id="outlined-number"
         value={number}

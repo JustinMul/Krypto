@@ -29,8 +29,8 @@ import { Avatar } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Badge from '@mui/material/Badge';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import LogoDevIcon from '@mui/icons-material/LogoDev';
+// import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 const drawerWidth = 195;
 
@@ -190,7 +190,7 @@ export default function SideBarList(props) {
             <Link to="/dashboard" style={{ textDecoration: 'none', color: textColor}}>
               <img src={'https://simplefx.com/assets/images/headers-img/home-animation.gif'} prop={"img"} width='40' alt="bitcoin-gif"/>
             </Link>
-            <Typography  variant="h6" noWrap component="div" pl={2} pt={1}>
+            <Typography fontFamily={'Open Sans'} variant="h6" noWrap component="div" pl={2} pt={1}>
               Hello, {username.name}! Welcome to Krypto   
             </Typography>
           </Box>
