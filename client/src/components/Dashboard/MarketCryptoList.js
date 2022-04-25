@@ -114,10 +114,8 @@ export default function MarketCryptoList(props) {
       style={{maxHeight: '52.5vh', overflow: 'hidden'}} 
       mb={2.8}>         
       <TableContainer component={Paper}  
-        sx= {
-          {borderTop: "1px solid grey", borderBottom: "1px solid grey",
-          mb: 4
-          }}>
+        sx= {{border: "1px solid grey", mb: 4}}
+          >
         <Table stickyHeader aria-label="sticky table" align="left">
           <MarketCryptoHeader dashboard={props.dashboard} mode = {props.mode}/>
           <TableBody>  

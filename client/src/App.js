@@ -8,7 +8,7 @@ import {Chat} from './components/Chat/Chat'
 import ProtectedRoutes from './hooks/userAuth';
 import CurrencyConverter from './components/CurrencyConverter';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { grey, common } from '@mui/material/colors';
+import { grey, common, blue } from '@mui/material/colors';
 import DeveloperList from './components/Developer/DeveloperList'
 
 function App() {
@@ -19,10 +19,10 @@ function App() {
       ...(mode === 'light'
       ? {
           // palette values for light mode
-          primary: {  main: "#295A24" },
+          primary: {  main: "#1976d2" },
           background: {
             default: "#EEECEE",
-            paper: "#EEECEE",
+            paper: blue[50],
           },
           divider: common.black,
           text: {
@@ -40,7 +40,7 @@ function App() {
           },
           text: {
             primary: '#fff',
-            secondary: grey[100],
+            secondary: '#fff',
           },
         }),
   },
