@@ -30,6 +30,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Badge from '@mui/material/Badge';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import LogoDevIcon from '@mui/icons-material/LogoDev';
 
 const drawerWidth = 195;
 
@@ -374,7 +375,7 @@ export default function SideBarList(props) {
                     justifyContent: 'center',
                   }}>
                   <Tooltip title="Developers" placement="right-start" arrow>
-                    <AdminPanelSettingsIcon style={(props.mode === 'dark') ? {color: 'white' } : {color: "black"}}/>
+                    <LogoDevIcon style={(props.mode === 'dark') ? {color: 'white' } : {color: "black"}}/>
                   </Tooltip>
                 </ListItemIcon>
                 <ListItemText primary="Developers" 

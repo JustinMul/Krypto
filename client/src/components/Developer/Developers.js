@@ -3,9 +3,9 @@ import Skeleton from '@mui/material/Skeleton';
 import Paper from '@mui/material/Paper';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import './Admin.scss'
+import './Developer.scss'
 
-export const Admins = (props) => {
+const Developers = (props) => {
   return (     
     <Box mr={4}>  
       <Paper elevation={3}> 
@@ -55,3 +55,4 @@ export const Admins = (props) => {
     </Box>
   )
 }
+export default Developers

@@ -13,9 +13,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import '../Dashboard/TrendingCrypto.scss';
 import { useState, useEffect } from 'react';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Admins } from './Admins';
+import Developers from './Developers';
 
-export const AdminList = (props) => {
+const DeveloperList = (props) => {
   const username = JSON.parse(localStorage.getItem('username'));
   const [adminColor, setAdminColor] = useState("admin");
   const [adminColor2, setAdminColor2] = useState("admin2");
@@ -32,7 +32,7 @@ export const AdminList = (props) => {
     setAdminColor3("admin3")
     }
   }, [props.mode])
-  
+
   const admins = [
     {
       name: "Justin",
@@ -57,7 +57,7 @@ export const AdminList = (props) => {
     }]
 const developers = admins.map((dev) => {
   return (
-    <Admins
+    <Developers
     key={dev.name}
     name={dev.name}
     img={dev.img}
@@ -80,9 +80,21 @@ const developers = admins.map((dev) => {
       <Typography align="center" variant="h3" noWrap component="div" mr={3.5}>
         Developers
       </Typography>
-      <Grid container direction={"row"} justifyContent={"center"} mt={5}>
+      <Grid container direction={"row"} justifyContent={"center"} mt={3}>
       {developers}
         </Grid>
+        <Grid container direction={"row"} justifyContent={"center"} mt={5}>
+        <Typography variant="h4" noWrap component="div" mr={3} mt={2}>Stack</Typography> 
+        <Typography mr={4}><img src={"reactIcon.jpg"} alt={"React"} width={62}/></Typography> 
+        <Typography mr={4}><img src={"psqlIcon.png"} alt={"psql"} width={70}/></Typography> 
+        <Typography mr={4}><img src={"socketio.png"} alt={"socket.io"} width={70}/></Typography> 
+        <Typography mr={4}><img src={"js.webp"} alt={"Js"} width={65}/></Typography> 
+        <Typography mr={3.5}><img src={"html.png"} alt={"html"} width={65}/></Typography> 
+        <Typography mr={2}><img src={"css.png"} alt={"css"} width={65}/></Typography> 
+        <Typography mt={1}><img src={"sass.png"} alt={"sass"} width={103}/></Typography> 
+        <Typography mr={3}><img src={"mui.png"} alt={"mui"} width={80}/></Typography> 
+        </Grid> 
     </div>
   )
 }
+export default DeveloperList

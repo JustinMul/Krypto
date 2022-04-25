@@ -17,7 +17,7 @@ import TrendingCryptoList from './components/Dashboard/TrendingCryptoList';
 import TrendingCrypto from './components/Dashboard/TrendingCrypto';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { amber, grey, deepOrange, common, blue} from '@mui/material/colors';
-import { AdminList } from './components/Admin/AdminList';
+import DeveloperList from './components/Developer/DeveloperList'
 
 
 
@@ -119,7 +119,7 @@ function App() {
         
         <Route path="/developers" 
           element={
-            <AdminList 
+            <DeveloperList 
               mode={mode} 
               setMode={setMode}
             />
