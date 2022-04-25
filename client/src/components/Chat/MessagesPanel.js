@@ -8,6 +8,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {Button, Grid, Stack} from '@mui/material';
+import Input from '@mui/material/Input';
 
 
 export class MessagesPanel extends React.Component {
@@ -25,9 +26,7 @@ export class MessagesPanel extends React.Component {
     }
  
     render() {
-
-      const user = JSON.parse(localStorage.getItem('username'));
-        let list = <Typography component="h6" variant="h6" align='start' mt={2}>
+        let list = <Typography component="h6" variant="h6" align='center' mt={2}>
                 Click the Join Room Button to get started
             </Typography>;
         if (this.props.channel && this.props.channel.messages) {
@@ -44,39 +43,20 @@ export class MessagesPanel extends React.Component {
             );
         }
         return (
-            <div >
-              <Grid container width={700}>
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    <Stack direction="row" spacing={2} alignItems="center">
-                      <InfoIcon style={{color:'red'}}/>
-                      <Typography component="h1" variant="h6" align='center'>
-                          Chat Room Guidelines
-                      </Typography>
-                    </Stack>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography>
-                        Do not verbally abuse, attack, embarrass, or threaten anyone else in the chat room, no matter
-                        what they might say to you.
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-              </Grid>
-                <div >{list}</div>
-                {this.props.channel &&
-                  <Grid item display='flex' justifyContent="space-between" sx={{ width: 660}} mt={2}>
-                    <input type="text" onChange={this.handleInput}  value={this.state.input_value} size="72" placeholder="Write your message here.." p='2'/>
-                    <Button onClick={this.send} size='medium' variant="contained" endIcon={<SendIcon />}>
-                        Send
-                    </Button>
-                  </Grid>
-                }
-            </div>
+          <div >
+          <Grid style={{minHeight: '60vh', maxHeight: '60vh', overflow: 'auto'}}>
+          <div >{list}</div>
+          </Grid>
+          {this.props.channel &&
+            <Grid item display='flex' justifyContent="space-between"  mt={2} >
+              <Input style={{width: 400, height: 40}} type="text" onChange={this.handleInput}  value={this.state.input_value} size="72" placeholder="Write your message here.." p='2' inputProps={{ style: {textAlign: 'left'} }}/>
+              <Button onClick={this.send} size='medium' variant="contained" endIcon={<SendIcon />}>
+              Send
+              </Button>
+            </Grid>
+          }
+         
+      </div>
           );
     }
 }

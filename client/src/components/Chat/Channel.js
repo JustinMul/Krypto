@@ -16,10 +16,10 @@ export class Channel extends React.Component {
     render() {
         return (
             <Grid item align="center" xs={6}>
-            <Card sx={{ maxWidth: 250 , height: 325, mb: 3 } } align="center">
+            <Card sx={{ maxWidth: 250 , height: 300, mb: 3 } } align="center">
             <Typography fontSize = {20}>{this.props.name} </Typography>
          
-            <img src={this.props.img} alt={this.props.name} width={300}/>
+            <img src={this.props.img} alt={this.props.name} height={150}/>
             <CardActions align="center">
                 <div>
               <Typography variant="body2" color="text.secondary">
