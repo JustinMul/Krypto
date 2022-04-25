@@ -62,11 +62,11 @@ const SingleCrypto = (props) => {
       </Grid>
 
       <Grid item mt={5}  width={850}>
-        <Chart id={props.id} />
+        <Chart id={props.id} mode={props.mode}/>
       </Grid>
 
       <Grid item>
-        <Details details={state[0]} id ={id}/>
+        <Details details={state[0]} id ={id} mode={props.mode}/>
       </Grid>
      
     </Grid>:

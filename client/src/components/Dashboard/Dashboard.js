@@ -76,7 +76,7 @@ const Dashboard = (props) => {
               <Typography fontSize={25} >Dashboard</Typography> 
               <Typography align="center" fontSize={14} >Trending</Typography> 
 
-              <TrendingCryptoList loading={loading} data={state[0].trending}/> 
+              <TrendingCryptoList mode={props.mode} loading={loading} data={state[0].trending}/> 
               <Grid pt={4} >
                 <SearchForm search={search} onChange={inputHandler} mode={props.mode} setMode={props.setMode}/>
               </Grid>

@@ -15,7 +15,7 @@ const SearchForm = (props) => {
       name="Search Crypto" 
       color="primary"
       placeholder="Search Cryptos..." 
-      startAdornment={<InputAdornment position="start"><SearchIcon/></InputAdornment>}
+      startAdornment={<InputAdornment position="start"><SearchIcon style={(props.mode === "dark") ? {color: "white"} : {color: "black"}}/></InputAdornment>}
       />
 
     </form>

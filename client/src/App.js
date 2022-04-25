@@ -28,10 +28,10 @@ function App() {
       ...(mode === 'light'
       ? {
           // palette values for light mode
-          primary: {  main: "#f5eeee" },
+          primary: {  main: "#295A24" },
           background: {
-            default: "#f5eeee",
-            paper: "#C5C0CD",
+            default: "#EEECEE",
+            paper: "#EEECEE",
           },
           divider: common.black,
           text: {
@@ -41,11 +41,11 @@ function App() {
         }
       : {
           // palette values for dark mode
-          primary: {main: "#07060D"},
+          primary: {main: "rgb(15, 30, 12)"},//sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'rgb(1, 19, 11)'}}
           divider: common.white,
           background: {
-            default: "#48374D",
-            paper: "rgb(60, 35, 60)",
+            default: "#282928",
+            paper: "rgb(35, 35, 35)",
           },
           text: {
             primary: '#fff',
