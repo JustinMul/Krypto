@@ -31,7 +31,7 @@ const DeveloperList = (props) => {
       github: "https://github.com/JustinMul",
       linkedin: "https://www.linkedin.com/in/justin-m-67321bb8/",
       img: "/justin.jpeg",
-      description: ""
+      description: "*NEED TO FILL THIS IN*"
     },
     {
       name: "Jack",
@@ -45,7 +45,7 @@ const DeveloperList = (props) => {
       github: "https://github.com/saurabhdabas",
       linkedin: "https://www.linkedin.com/in/saurabh-dabas-a3617b15a/",
       img: "saurabh.jpg",
-      description: ""
+      description: "Full Stack Developer with Passion to create dynamic websites"
     }]
 const developers = admins.map((dev) => {
   return (

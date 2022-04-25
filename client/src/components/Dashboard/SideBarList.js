@@ -190,8 +190,8 @@ export default function SideBarList(props) {
             <Link to="/dashboard" style={{ textDecoration: 'none', color: textColor}}>
               <img src={'https://simplefx.com/assets/images/headers-img/home-animation.gif'} prop={"img"} width='40' alt="bitcoin-gif"/>
             </Link>
-            <Typography fontFamily={'Open Sans'} variant="h6" noWrap component="div" pl={2} pt={1}>
-              Hello, {username.name}! Welcome to Krypto   
+            <Typography fontFamily={'Pacifico'} variant="h5" noWrap component="div" pl={2} pt={1}>
+              Hello, {username.name}! 
             </Typography>
           </Box>
           <Box>
