@@ -30,14 +30,17 @@ function TrendingCrypto(props) {
     <div>
       <Grid   style={{flex: "wrap"}} p={1}>
       <Link style = {{textDecoration: 'none'}} to={`/crypto/${cleanedUrl}`}>
-         <Paper className='card'
+         <Paper 
       sx={(props.mode === 'dark')?{
+   
         p: 1,
         margin: 'auto',
         maxWidth: 500,
         flexGrow: 1,
+        boxShadow:5,
+        border: '1px solid #ffffff',
+        borderRadius:5
         // backgroundColor: "rgb(240, 244, 247)",
-       
         // border: '2px solid rgb(35, 35, 35)'
       }:
       {
@@ -46,8 +49,14 @@ function TrendingCrypto(props) {
         margin: 'auto',
         maxWidth: 500,
         flexGrow: 1,
+       boxShadow:5,
+       background:'#f8f8ff',
+       borderRadius:5
+
+       
+    
         
-        // backgroundColor: "rgb(200, 200, 200)",
+        // backgroundColor: "rgb(200, 200, 200)"
         // border: '2px solid #295A24'
       }}>
     

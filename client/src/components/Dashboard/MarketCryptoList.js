@@ -112,10 +112,10 @@ export default function MarketCryptoList(props) {
     <Grid 
       container direction={"column"} 
       style={{maxHeight: '52.5vh', overflow: 'hidden'}} 
-      mb={2.8}>         
+      mb={2.8}  >         
       <TableContainer component={Paper}  
         sx= {
-          {borderTop: "1px solid grey", borderBottom: "1px solid grey",
+          {
           mb: 4
           }}>
         <Table stickyHeader aria-label="sticky table" >

@@ -86,15 +86,17 @@ const Dashboard = (props) => {
               <SideBarList mode={props.mode} setMode={props.setMode}/>
               {/* <SlideFromContainer/> */}
               <Typography fontSize={25} fontFamily={'Pacifico'} mb={3}>Dashboard</Typography> 
-
+              <Typography align="center" fontSize={20} fontFamily={'Pacifico'}>Trending</Typography> 
               <TrendingCryptoList mode={props.mode} loading={loading} data={state[0].trending}/> 
               <Grid pt={4} >
                 <SearchForm search={search} onChange={inputHandler} mode={props.mode} setMode={props.setMode}/>
               </Grid>
               <Grid >
               
-                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} justifyContent ={"space-between"}> <Typography fontSize={20} >
-                  Market</Typography><FavoriteBorderIcon onClick={handlewatchlist}/></Grid> : <Grid container display={'flex'} justifyContent ={"space-between"} direction={"row"} gap={120}> <Typography fontSize={20} >Watch List</Typography><CurrencyBitcoinIcon onClick={handlewatchlist}/></Grid>}
+                {(dashboard === "market") ?<Grid container display={'flex'} direction={"row"} justifyContent ={"space-between"}> 
+                <Typography fontSize={20} fontFamily={'Pacifico'}>
+                  Market</Typography>
+                  <FavoriteBorderIcon  onClick={handlewatchlist}/></Grid> : <Grid container display={'flex'} justifyContent ={"space-between"} direction={"row"} gap={120}> <Typography fontSize={20} fontFamily={'Pacifico'} >Watch List</Typography><CurrencyBitcoinIcon onClick={handlewatchlist}/></Grid>}
                 </Grid>
                 <MarketCryptoList loading={loading} render={render} setRender={setRender} dashboard={dashboard} data={filteredRows} mode={props.mode} 
               setMode={props.setMode}/>
@@ -102,7 +104,7 @@ const Dashboard = (props) => {
             :             (<div>        
               <SideBarList mode={props.mode} setMode={props.setMode}/>
               <Typography fontSize={25} fontFamily={'Pacifico'}>Dashboard</Typography> 
-              <Typography align="center" fontSize={14} >Trending</Typography> 
+              <Typography align="center" fontSize={14} fontFamily={'Pacifico'}>Trending</Typography> 
 
               <Skeleton variant="rectangular" animation="wave" width={1100} height={140} />
               <Grid pt={4}   align="center">

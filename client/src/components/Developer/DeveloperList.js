@@ -36,23 +36,23 @@ const DeveloperList = (props) => {
   const admins = [
     {
       name: "Justin",
-      github: "https://github.com",
-      linkedin: "https://www.linkedin.com",
-      img: "J",
-      description: ""
+      github: "https://github.com/JustinMul",
+      linkedin: "https://www.linkedin.com/in/justin-m-67321bb8/",
+      img: "/justin.jpeg",
+      description: "test"
     },
     {
       name: "Jack",
       github: "https://github.com/Jackthz97?tab=repositories",
       linkedin: "https://www.linkedin.com/in/tianhao-zhang-b49a5b226/",
-      img: "https://scontent.fyzd1-2.fna.fbcdn.net/v/t39.30808-6/238895873_1250827202017389_3723395007403731988_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=85Pb-LL4UhgAX_7Tq7y&_nc_ht=scontent.fyzd1-2.fna&oh=00_AT_QukIE_3-Ob9oYJoo4ct_4PAVsuoNYxqYVhnhNTjOedw&oe=62661B6F",
+      img: "Jack.png",
       description: "I love to create and develop websites! Please hire me!"
     },
     {
       name: "Saurabh",
-      github: "https://github.com",
-      linkedin: "https://www.linkedin.com",
-      img: "S",
+      github: "https://github.com/saurabhdabas",
+      linkedin: "https://www.linkedin.com/in/saurabh-dabas-a3617b15a/",
+      img: "saurabh.jpg",
       description: ""
     }]
 const developers = admins.map((dev) => {
