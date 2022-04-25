@@ -3,7 +3,7 @@ import Skeleton from '@mui/material/Skeleton';
 import Paper from '@mui/material/Paper';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import '../Dashboard/TrendingCrypto.scss';
+import './Admin.scss'
 
 export const Admins = (props) => {
   return (     
