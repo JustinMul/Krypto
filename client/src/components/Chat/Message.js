@@ -3,8 +3,8 @@ import {Avatar, Chip} from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-
+import { CardActionArea} from '@mui/material';
+import { Paper } from '@mui/material';
 export class Message extends React.Component {
 
     render() {
@@ -13,8 +13,8 @@ export class Message extends React.Component {
 
         
         return (
-            
-            <Card sx={{ width: 300 , padding:0.5, marginTop:3, marginBottom:3} }>
+            <Paper elevation={6} sx={{width:250}}>
+            <Card sx={{ width: 250 , padding:0.5, marginTop:3, marginBottom:3 ,borderRadius: "50"} }>
                 <CardActionArea>
                 <Chip
                 avatar={<Avatar alt="Natacha" src={this.props.img} />}
@@ -29,6 +29,7 @@ export class Message extends React.Component {
                 </CardContent>
                 </CardActionArea>
             </Card>
+            </Paper>
         )
     }
 }
