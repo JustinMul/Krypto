@@ -25,6 +25,7 @@ div.testing{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    /* color: rgb(152, 206, 254); */
 }
 
 div.rowTest{

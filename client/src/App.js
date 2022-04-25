@@ -9,14 +9,14 @@ import Login from './components/login';
 import SearchForm from './components/Dashboard/SearchForm';
 
 import NewsList from './components/News/NewsList';
-import { Chat } from './components/Chat/Chat';
+import {Chat} from './components/Chat/Chat'
 
 import ProtectedRoutes from './hooks/userAuth';
 import CurrencyConverter from './components/CurrencyConverter';
 import TrendingCryptoList from './components/Dashboard/TrendingCryptoList';
 import TrendingCrypto from './components/Dashboard/TrendingCrypto';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { amber, grey, deepOrange, common} from '@mui/material/colors';
+import { amber, grey, deepOrange, common, blue} from '@mui/material/colors';
 
 
 
@@ -28,10 +28,10 @@ function App() {
       ...(mode === 'light'
       ? {
           // palette values for light mode
-          primary: {  main: "#f5eeee" },
+          primary: {  main: "#295A24" },
           background: {
-            default: "#f5eeee",
-            paper: "#C5C0CD",
+            default: "#FCF7F3",
+            paper: blue[50],
           },
           divider: common.black,
           text: {
