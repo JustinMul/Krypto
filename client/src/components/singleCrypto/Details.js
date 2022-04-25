@@ -1,19 +1,12 @@
 import React from 'react'
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { red } from '@mui/material/colors';
-import Fab from '@mui/material/Fab';
-import Chart from './Chart';
-import { Grid, Paper, TextField } from '@mui/material';
-import { Box } from '@mui/system';
+import { Grid, Paper } from '@mui/material';
 import DateRangeIcon from '@mui/icons-material/DateRange';
-
-import AlignVerticalBottomIcon from '@mui/icons-material/AlignVerticalBottom';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import CachedIcon from '@mui/icons-material/Cached';
 import PriceChangeIcon from '@mui/icons-material/PriceChange';
 
-import DonutSmallIcon from '@mui/icons-material/DonutSmall'
+
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt'; 
@@ -38,7 +31,7 @@ console.log(props.details)
           <Grid container direction={'column'} alignItems={'center'}>
             <div className='iconContainer'>
                <div className='icon'>
-                  <DateRangeIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}} />
+                  <DateRangeIcon sx={(props.mode ==='light')?{fontSize:40}: {fontSize:40, color:'white'}} />
                 </div>
             </div>
             <Grid item>Genesis Date </Grid> 
@@ -53,7 +46,7 @@ console.log(props.details)
             <Grid container direction={'column'} alignItems={'center'}>
             <div className='iconContainer'>
                <div className='icon'>
-                 <ShowChartIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/>  
+                 <ShowChartIcon sx={(props.mode ==='light')?{fontSize:40}: {fontSize:40, color:'white'}}/>  
                 </div>
             </div>
               <Grid item> Market Cap</Grid>
@@ -70,7 +63,7 @@ console.log(props.details)
           <Grid container direction={'column'} alignItems={'center'}>
               <div className='iconContainer'>
                 <div className='icon'>
-                  <EqualizerIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/> 
+                  <EqualizerIcon sx={(props.mode ==='light')?{fontSize:40,}: {fontSize:40, color:'white'}}/> 
                </div>
             </div>
             <Grid item> Market Cap Rank </Grid>
@@ -86,7 +79,7 @@ console.log(props.details)
           <Grid container direction={'column'} alignItems={'center'}>
              <div className='iconContainer'>
                 <div className='icon'>
-                  <CachedIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/> 
+                  <CachedIcon sx={(props.mode ==='light')?{fontSize:40}: {fontSize:40, color:'white'}}/> 
                 </div>
               </div>
             <Grid item>Circulating Supply</Grid>
@@ -106,7 +99,7 @@ console.log(props.details)
           <Grid container direction={'column'} alignItems={'center'}>
               <div className='iconContainer'>
                 <div className='icon'>
-                   <AttachMoneyIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/> 
+                   <AttachMoneyIcon sx={(props.mode ==='light')?{fontSize:40}: {fontSize:40, color:'white'}}/> 
                   </div>
               </div>
             <Grid item> Current Price </Grid>
@@ -122,7 +115,7 @@ console.log(props.details)
             <Grid container direction={'column'} alignItems={'center'}>
             <div className='iconContainer'>
                 <div className='icon'>
-                  <PriceChangeIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/> 
+                  <PriceChangeIcon sx={(props.mode ==='light')?{fontSize:40}: {fontSize:40, color:'white'}}/> 
                 </div>
               </div>
               <Grid item>Price Change (24h) </Grid>
@@ -140,7 +133,7 @@ console.log(props.details)
             <Grid container direction={'column'} alignItems={'center'}>
               <div className='iconContainer'>
                 <div className='icon'>
-                  < SentimentSatisfiedAltIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/>  
+                  < SentimentSatisfiedAltIcon sx={(props.mode ==='light')?{fontSize:40}: {fontSize:40, color:'white'}}/>  
                   </div>
               </div>
               <Grid item> Analyst up sentiment: </Grid>
@@ -156,7 +149,7 @@ console.log(props.details)
             <Grid container direction={'column'} alignItems={'center'}>
               <div className='iconContainer'>
                 <div className='icon'>
-                  <SentimentVeryDissatisfiedIcon sx={(props.mode ==='light')?{fontSize:40, color:'#295A24'}: {fontSize:40, color:'white'}}/>  
+                  <SentimentVeryDissatisfiedIcon sx={(props.mode ==='light')?{fontSize:40}: {fontSize:40, color:'white'}}/>  
                 </div>
               </div>
               <Grid item> Analyst down sentiment:</Grid>

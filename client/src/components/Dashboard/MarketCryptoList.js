@@ -118,7 +118,7 @@ export default function MarketCryptoList(props) {
           {borderTop: "1px solid grey", borderBottom: "1px solid grey",
           mb: 4
           }}>
-        <Table stickyHeader aria-label="sticky table" align="left">
+        <Table stickyHeader aria-label="sticky table" >
           <MarketCryptoHeader dashboard={props.dashboard} mode = {props.mode}/>
           <TableBody>  
               {(props.dashboard === "market") ? marketCrypto : watchlistCrypto}

@@ -29,6 +29,8 @@ import { Avatar } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Badge from '@mui/material/Badge';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import LogoDevIcon from '@mui/icons-material/LogoDev';
 
 const drawerWidth = 195;
 
@@ -188,7 +190,7 @@ export default function SideBarList(props) {
             <Link to="/dashboard" style={{ textDecoration: 'none', color: textColor}}>
               <img src={'https://simplefx.com/assets/images/headers-img/home-animation.gif'} prop={"img"} width='40' alt="bitcoin-gif"/>
             </Link>
-            <Typography  variant="h6" noWrap component="div" pl={2} pt={1}>
+            <Typography fontFamily={'Open Sans'} variant="h6" noWrap component="div" pl={2} pt={1}>
               Hello, {username.name}! Welcome to Krypto   
             </Typography>
           </Box>
@@ -348,6 +350,35 @@ export default function SideBarList(props) {
                   </Tooltip>
                 </ListItemIcon>
                 <ListItemText primary="Converter" 
+                sx={{ opacity: open ? 1 : 0 }}/>
+              </ListItemButton>
+            </Link>
+          }
+
+          {
+            <Link to="/developers" style={{ 
+              textDecoration: 'none', 
+              color: textColor
+              }}>    
+              <ListItemButton
+                key="Developers"
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}>
+  
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}>
+                  <Tooltip title="Developers" placement="right-start" arrow>
+                    <LogoDevIcon style={(props.mode === 'dark') ? {color: 'white' } : {color: "black"}}/>
+                  </Tooltip>
+                </ListItemIcon>
+                <ListItemText primary="Developers" 
                 sx={{ opacity: open ? 1 : 0 }}/>
               </ListItemButton>
             </Link>

@@ -1,26 +1,19 @@
 .cryptoLogo {
-
   position: relative;
   margin: auto;
- 
   top: -33px;
   margin-bottom: -25px;
+
   img{
     width:50px;
     border-radius: 50%;
-
   }
-
 }
 .cryptoLogo:hover{
   position: relative;
   margin: auto;
   top: -40px;
-    margin-bottom: -25px;
-    
-
-
- 
+  margin-bottom: -25px;
 }
 
 .imgContainer {
@@ -29,9 +22,22 @@
 }
 
 .singleCryptoImg{
-
-
   border-radius: 50%;
+}
 
+.trendingAnime{
+  animation-name: trending;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes trending {
+  0% {
 
+    margin-left: 0px;
+  }
+  100% {
+
+    margin-left: 94%;
+  }
 }

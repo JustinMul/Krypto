@@ -25,6 +25,7 @@ div.testing{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    color: rgb(0, 69, 129);
 }
 
 div.rowTest{
@@ -37,4 +38,5 @@ div.rowTest{
 div.shiftdown{
    display: flex;
    flex-direction: row;
+   justify-content: center;
 }
