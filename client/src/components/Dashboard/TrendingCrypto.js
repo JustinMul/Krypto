@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import urlSpaceReplacer from '../../helpers/urlSpaceReplacer';
 import { Grid } from '@mui/material';
 import { red } from '@mui/material/colors';
-import { Box } from '@mui/system';
+import { borderRadius, Box } from '@mui/system';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
 import { styled } from '@mui/material/styles';
@@ -58,7 +58,7 @@ function TrendingCrypto(props) {
     
       <Grid container sx={{ width: 250, height: 115}} >
         {/* <Grid item xs={12} container> */}
-        <div className='imgContainer' >
+        <div className='imgContainer'  >
           <div className = "cryptoLogo" >
             <img src={props.image} alt={props.name}  />  
           </div>

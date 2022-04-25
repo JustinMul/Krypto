@@ -31,21 +31,21 @@ const DeveloperList = (props) => {
       github: "https://github.com/JustinMul",
       linkedin: "https://www.linkedin.com/in/justin-m-67321bb8/",
       img: "/justin.jpeg",
-      description: ""
+      description: "*NEED TO FILL THIS IN*"
     },
     {
       name: "Jack",
       github: "https://github.com/Jackthz97?tab=repositories",
       linkedin: "https://www.linkedin.com/in/tianhao-zhang-b49a5b226/",
       img: "Jack.png",
-      description: "I love to create and develop websites! Please hire me!"
+      description: "Full Stack Developer that loves to create & develop websites!"
     },
     {
       name: "Saurabh",
       github: "https://github.com/saurabhdabas",
       linkedin: "https://www.linkedin.com/in/saurabh-dabas-a3617b15a/",
       img: "saurabh.jpg",
-      description: ""
+      description: "Full Stack Developer with Passion to create dynamic websites"
     }]
 const developers = admins.map((dev) => {
   return (

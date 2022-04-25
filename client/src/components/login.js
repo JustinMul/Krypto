@@ -198,7 +198,7 @@ import Fingerprint from '@mui/icons-material/Fingerprint';
 import EmailIcon from '@mui/icons-material/Email';
 import InputAdornment from '@mui/material/InputAdornment';
 import LockIcon from '@mui/icons-material/Lock';
-import { red } from '@mui/material/colors';
+
 
 function Copyright(props) {
   return (
@@ -249,11 +249,11 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(/Login.png)',
+            backgroundImage: 'url(/undraw_login_re_4vu2.svg)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize:'1100px 900px',
+            backgroundSize:'1170px 900px',
             backgroundPosition: 'center',
             
           }}
@@ -269,28 +269,28 @@ export default function Login() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5" sx={{  mt: 3 }} >
+            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}> */}
+              <img src="/KRYPTO_free-file.png" height='70' alt ="logo"></img>
+            {/* </Avatar> */}
+            {/* <Typography component="h1" variant="h5" sx={{  mt: 3 }} >
               Sign in
-            </Typography>
+            </Typography> */}
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 5 }}>
               <TextField
-                sx={{ mt: 4, mb: 2 }}
+                sx={{ mt: 4, mb: 2}}
                 margin="normal"
                 required
                 fullWidth
                 id="email"
                 label="Email Address"
-                color='error'
+                color='primary'
                 name="email"
                 autoComplete="email"
                 autoFocus
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start" color='error'>
-                      <EmailIcon sx={{ color: 'error', mr: 1, my: 0.5 }} style={{ color: "red" }}/>
+                      <EmailIcon sx={{ color: 'error', mr: 1, my: 0.5 }} style={{ color: "#1976D2" }}/>
                     </InputAdornment>
                   ),
                 }}
@@ -306,12 +306,12 @@ export default function Login() {
                 type="password"
                 id="password"
                 variant='outlined'
-                color='error'
+                color='primary'
                 autoComplete="current-password"
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start" color='error'>
-                      <LockIcon sx={{ color: 'error', mr: 1, my: 0.5 }} style={{ color: "red" }}/>
+                    <InputAdornment position="start" color='primary'>
+                      <LockIcon sx={{ color: 'error', mr: 1, my: 0.5 }} style={{ color: "#1976D2" }}/>
                     </InputAdornment>
                   ),
                 }}
@@ -325,12 +325,12 @@ export default function Login() {
                 fullWidth
                 variant="contained"
                 
-                color="error"
+                color="primary"
                 sx={{ mt: 5, mb: 2 }}
                 // startIcon={}
                 size="large"
               >
-              <IconButton aria-label="fingerprint" color="error" size="medium">
+              <IconButton aria-label="fingerprint" color="primary" size="medium">
                 <Fingerprint style={{ color: "white" }}/>
               </IconButton>
                 Sign In
@@ -338,7 +338,7 @@ export default function Login() {
               <Grid container sx={{ mt: 10 }}>
                 <Grid item xs>
                   <Link href="#" variant="body2" >
-                    <Typography color="red">Forgot password?</Typography>
+                    <Typography color="primary">Forgot password?</Typography>
                   </Link>
                 </Grid>
                 <Grid item>
