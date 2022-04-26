@@ -11,8 +11,18 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { dateConvert } from "../../helpers/dateConvert";
 import ClearIcon from "@mui/icons-material/Clear";
 import "./TrendingCrypto.scss";
+import { styled } from "@mui/material/styles"
 
 const MarketCrypto = (props) => {
+
+  const StyledButton = styled(Button)(() => ({
+    ':hover': {
+      color:'white',
+      transform: 'scale(1.2)',
+      cursor:'pointer'
+    },
+  }));
+
   let cleanedUrl = urlSpaceReplacer(props.id);
   const [textColor, setTextColor] = useState("black");
 
@@ -96,18 +106,18 @@ const MarketCrypto = (props) => {
       </TableCell>
       {props.dashboard === "watchlist" ? (
         <TableCell align="center">
-          <Button aria-label="like" onClick={() => props.setDeleted(props.id)}>
+          <StyledButton aria-label="like" onClick={() => props.setDeleted(props.id)}>
             <ClearIcon style={{ color: red[500] }} />
-          </Button>
+          </StyledButton>
         </TableCell>
       ) : (
         <TableCell align="center">
-          <Button
+          <StyledButton
             aria-label="like"
             onClick={() => props.setFav([props.id, props.image])}
           >
             <FavoriteIcon style={{ color: red[500] }} />
-          </Button>
+          </StyledButton>
         </TableCell>
       )}
     </TableRow>
