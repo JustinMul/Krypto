@@ -205,7 +205,7 @@ export default function SideBarList(props) {
               pl={2}
               pt={1}
             >
-              Hello, {username.name}!
+              Welcome to Krytpo, {username.name}!
             </Typography>
           </Box>
           <Box>
@@ -250,11 +250,7 @@ export default function SideBarList(props) {
             {username.name}
           </Typography>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
+          {theme.direction === 'rtl' ? <ChevronRightIcon style={(props.mode === 'dark') ? {color: 'white' } : {color: "black"}}/> : <ChevronLeftIcon style={(props.mode === 'dark') ? {color: 'white' } : {color: "black"}}/>}
           </IconButton>
         </DrawerHeader>
 
