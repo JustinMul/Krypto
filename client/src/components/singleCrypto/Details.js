@@ -50,7 +50,7 @@ console.log(props.details)
                 </div>
             </div>
               <Grid item> Market Cap</Grid>
-              <Grid item>  ${(props.details.data.market_data.market_cap.cad) ? props.details.data.market_data.market_cap.cad : "N/A"} </Grid>
+              <Grid item>  $ {(props.details.data.market_data.market_cap.cad) ? props.details.data.market_data.market_cap.cad : "N/A"} </Grid>
             </Grid>
 
         </Paper>
@@ -103,7 +103,7 @@ console.log(props.details)
                   </div>
               </div>
             <Grid item> Current Price </Grid>
-            <Grid item> ${(props.details.price) ? props.details.price : "N/A"}</Grid>
+            <Grid item> $ {(props.details.price) ? props.details.price : "N/A"}</Grid>
           </Grid>
         </Paper>
         <Paper sx={{
@@ -119,7 +119,7 @@ console.log(props.details)
                 </div>
               </div>
               <Grid item>Price Change (24h) </Grid>
-              <Grid item>${(props.details.priceChange) ? props.details.priceChange : "N/A"}</Grid>
+              <Grid item>$ {(props.details.priceChange) ? props.details.priceChange : "N/A"}</Grid>
             
             </Grid>
         </Paper>

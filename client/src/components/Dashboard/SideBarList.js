@@ -254,7 +254,7 @@ export default function SideBarList(props) {
                     justifyContent: 'center',
                   }}>
                   <Tooltip title="Dashboard" placement="right-start" arrow>
-                    <DashboardIcon style={(props.mode === 'dark') ? { color: 'white' } : {color: "black"}}/>
+                    <DashboardIcon style={(props.mode === 'dark') ? { color: 'white' } : { color: "black" }}/>
                   </Tooltip>
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }}/>

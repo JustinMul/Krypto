@@ -69,8 +69,7 @@ const developers = admins.map((dev) => {
       <Typography align="center" variant="h3" fontFamily={'Pacifico'} mr={3.5}>
         Krypto Developers
       </Typography>
-
-      <Grid container direction={"row"} justifyContent={"center"} mt={6} >
+      <Grid container direction={"row"} justifyContent={"center"} mt={2.5}>
       {developers}
         </Grid>
           <Typography fontFamily={'Pacifico'} align="center" variant="h4" noWrap component="div" mr={3} mt={1}>Built with</Typography> 

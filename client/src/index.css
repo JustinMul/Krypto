@@ -31,7 +31,7 @@ code {
 div.rowTest{
   display: flex;
   flex-direction: row;
-  color: rgb(133, 133, 133);
+  color: rgb(75, 75, 75);
 }
 
 

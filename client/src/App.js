@@ -29,6 +29,7 @@ function App() {
             primary: grey[900],
             secondary: grey[800],
           },
+          borderColor: {default: '#1976d2'}
         }
       : {
           // palette values for dark mode
@@ -36,7 +37,7 @@ function App() {
           divider: common.white,
           background: {
             default: "#282928",
-            paper: "rgb(35, 35, 35)",
+            paper: "rgb(75, 75, 75)",
           },
           text: {
             primary: '#fff',
@@ -44,6 +45,7 @@ function App() {
           },
         }),
   },
+  
 });
   return (
     <ThemeProvider theme={darkTheme}>
