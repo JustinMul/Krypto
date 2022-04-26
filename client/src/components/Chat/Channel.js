@@ -31,7 +31,6 @@ export class Channel extends React.Component {
                 </div>
               </div>
             </CardActions>
-
             </Card>
             </Grid>    
         )

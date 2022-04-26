@@ -67,7 +67,7 @@ const Dashboard = (props) => {
             (<div>        
               <SideBarList mode={props.mode} setMode={props.setMode}/>
               {/* <SlideFromContainer/> */}
-              <Typography fontSize={25} fontFamily={'Pacifico'} mb={3}>Dashboard</Typography> 
+              <Typography fontSize={25} fontFamily={'Pacifico'} mt={3} mb={3}>Dashboard</Typography> 
               <Typography align="center" fontSize={20} fontFamily={'Pacifico'}>Trending</Typography> 
               <TrendingCryptoList mode={props.mode} loading={loading} data={state[0].trending}/> 
               <Grid pt={4} >

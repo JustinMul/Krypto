@@ -44,7 +44,7 @@ const SingleCrypto = (props) => {
     <div>
       {
         (loading) ? 
-        <Grid container direction={'column'}  alignItems="center" justifyContent="center">
+        <Grid container direction={'column'}  alignItems="center" justifyContent="center" mb={5}>
           <SideBarList mode={props.mode} setMode={props.setMode}/>
           <Grid item  mt={-1} align="center" >
             <img className = 'singleCryptoImg' src = {state[0].img} width={100} alt = "crypto" ></img>

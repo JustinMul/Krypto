@@ -29,6 +29,7 @@ function App() {
             primary: grey[900],
             secondary: grey[800],
           },
+          borderColor: {default: '#1976d2'}
         }
       : {
           // palette values for dark mode
@@ -44,6 +45,7 @@ function App() {
           },
         }),
   },
+  
 });
   return (
     <ThemeProvider theme={darkTheme}>

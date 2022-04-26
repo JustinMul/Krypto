@@ -31,7 +31,7 @@ const DeveloperList = (props) => {
       github: "https://github.com/JustinMul",
       linkedin: "https://www.linkedin.com/in/justin-m-67321bb8/",
       img: "/justin.jpeg",
-      description: "*NEED TO FILL THIS IN*"
+      description: "Full Stack Developer with Passion to create dynamic websites"
     },
     {
       name: "Jack",
@@ -67,11 +67,9 @@ const developers = admins.map((dev) => {
     <div>
       <SideBarList mode={props.mode} setMode={props.setMode}/>
       <Typography align="center" variant="h3" fontFamily={'Pacifico'} mr={3.5}>
-        Krypto
+        Krypto        Developers
       </Typography>
-      <Typography align="center" variant="h3"  fontFamily={'Pacifico'} mr={3.5} mt={1.5}>
-        Developers
-      </Typography>
+
       <Grid container direction={"row"} justifyContent={"center"} mt={2.5}>
       {developers}
         </Grid>
