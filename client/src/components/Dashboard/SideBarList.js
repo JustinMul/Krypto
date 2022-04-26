@@ -30,7 +30,6 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Badge from '@mui/material/Badge';
 import LogoDevIcon from '@mui/icons-material/LogoDev';
-// import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 const drawerWidth = 195;
 

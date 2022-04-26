@@ -58,7 +58,7 @@ export default function MarketCryptoList(props) {
     handleSubmit();
   }, [fav]);
 
-  const filter = state[0].watchlist.map((marketCrypto) => {
+  state[0].watchlist.map((marketCrypto) => {
     props.data.map((crypto)=> {
       if (marketCrypto.crypto_id === crypto.id) {
         arr.push(crypto)

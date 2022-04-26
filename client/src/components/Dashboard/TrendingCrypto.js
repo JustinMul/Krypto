@@ -2,26 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import urlSpaceReplacer from '../../helpers/urlSpaceReplacer';
 import { Grid } from '@mui/material';
-import { red } from '@mui/material/colors';
-import { borderRadius, Box } from '@mui/system';
 import Typography from '@mui/material/Typography';
-import ButtonBase from '@mui/material/ButtonBase';
-import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import {dateConvert} from '../../helpers/dateConvert';
-import { display } from '@mui/system';
 import '../../index.css'
 import nameslice from '../../helpers/nameslice';
 import './TrendingCrypto.scss'
-
-
-const Img = styled('img')({
-  margin: 'auto',
-  display: 'block',
-  maxWidth: '100%',
-  maxHeight: '100%'
-});
 
 function TrendingCrypto(props) {
   console.log('this is being passed to trending props', props)

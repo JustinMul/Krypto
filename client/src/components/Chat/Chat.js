@@ -5,7 +5,6 @@ import socketClient from "socket.io-client";
 import SideBarList from '../Dashboard/SideBarList';
 import { Grid } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
-import SendIcon from '@mui/icons-material/Send';
 import Typography from '@mui/material/Typography';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -13,9 +12,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Stack } from '@mui/material';
 import './Chat.scss'
-import { withStyles } from '@mui/material';
-
-
 
 
 const SERVER = "http://127.0.0.1:8081";

@@ -1,8 +1,6 @@
 import {React, useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
-import { Chart } from 'react-chartjs-2'
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';

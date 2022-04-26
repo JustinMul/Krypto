@@ -1,13 +1,8 @@
 import React from 'react';
 import { Message } from './Message';
-import InfoIcon from '@mui/icons-material/Info';
 import SendIcon from '@mui/icons-material/Send';
 import Typography from '@mui/material/Typography';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {Button, Grid, Stack} from '@mui/material';
+import {Button, Grid} from '@mui/material';
 import Input from '@mui/material/Input';
 
 
