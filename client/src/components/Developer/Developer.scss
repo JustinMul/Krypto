@@ -8,46 +8,46 @@ img.rounded:hover {
   margin-top: -4px;
 }
 
-.anime:hover{
+.anime:hover {
   margin-top: -3px;
 }
 
-.admin{
+.admin {
   animation-name: backgroundColorPalette;
   animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-.adminDark{
+.adminDark {
   animation-name: backgroundColorPaletteDark;
   animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-.admin2{
+.admin2 {
   animation-name: backgroundColorPalette2;
   animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-.adminDark2{
+.adminDark2 {
   animation-name: backgroundColorPaletteDark2;
   animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-.admin3{
+.admin3 {
   animation-name: backgroundColorPalette3;
   animation-duration: 6s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-.adminDark3{
+.adminDark3 {
   animation-name: backgroundColorPaletteDark3;
   animation-duration: 6s;
   animation-iteration-count: infinite;
@@ -97,7 +97,7 @@ img.rounded:hover {
     margin-top: 20px;
   }
   50% {
-    background-color:#7eb4ed;
+    background-color: #7eb4ed;
     box-shadow: 0px 20px 40px #0a3a87;
     margin-top: 0px;
   }
@@ -115,7 +115,7 @@ img.rounded:hover {
     margin-top: 20px;
   }
   50% {
-    background-color:#545454;
+    background-color: #545454;
     box-shadow: 0px 10px 20px #ecf1ee;
     margin-top: 0px;
   }

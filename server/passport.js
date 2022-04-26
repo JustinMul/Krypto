@@ -33,7 +33,7 @@ passport.use(
       clientSecret: GITHUB_CLIENT_SECRET,
       callbackURL: "http://localhost:3000/dashboard",
     },
-    function(accessToken, refreshToken, profile, done) {
+    function (accessToken, refreshToken, profile, done) {
       done(null, profile);
     }
   )

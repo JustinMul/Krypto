@@ -4,13 +4,13 @@
   top: -33px;
   margin-bottom: -25px;
 
-  img{
-    width:50px;
+  img {
+    width: 50px;
     border-radius: 50%;
     background-color: white;
   }
 }
-.cryptoLogo:hover{
+.cryptoLogo:hover {
   position: relative;
   margin: auto;
   top: -40px;
@@ -22,11 +22,11 @@
   flex-basis: 100%;
 }
 
-.singleCryptoImg{
+.singleCryptoImg {
   border-radius: 50%;
 }
 
-.trendingAnime{
+.trendingAnime {
   animation-name: trending;
   animation-duration: 4s;
   animation-iteration-count: infinite;
@@ -34,18 +34,15 @@
 }
 @keyframes trending {
   0% {
-
     margin-left: 0px;
   }
   100% {
-
     margin-left: 94%;
   }
 }
 
 .card:hover {
   box-shadow: 20;
-  
 }
 
 ::-webkit-scrollbar {

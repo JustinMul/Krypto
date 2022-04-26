@@ -1,16 +1,16 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from "react-router-dom";
 const userAuth = () => {
-  const user=localStorage.getItem('username')
-  if(user){
-    return true
+  const user = localStorage.getItem("username");
+  if (user) {
+    return true;
   } else {
-    return false
+    return false;
   }
-}
+};
 
-const  ProtectedRoutes=() =>{
-  const auth=userAuth()
-  return auth?<Outlet/>: <Navigate to="/"/>
-}
+const ProtectedRoutes = () => {
+  const auth = userAuth();
+  return auth ? <Outlet /> : <Navigate to="/" />;
+};
 
 export default ProtectedRoutes;

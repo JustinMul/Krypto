@@ -7,36 +7,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* div.light{
-  background-color: rgb(255, 255, 255);
-}
 
-div.dark{
-  background-color: rgb(18, 18, 18);
-  color: rgb(238, 238, 238);
-} */
 
-div.testing{
+div.testing {
   display: flex;
   flex-direction: column;
-  padding-bottom: 100%; 
+  padding-bottom: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-    color: rgb(0, 69, 129);
+  color: rgb(0, 69, 129);
 }
 
-div.rowTest{
+div.rowTest {
   display: flex;
   flex-direction: row;
   color: rgb(75, 75, 75);
 }
 
 
-div.shiftdown{
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
+div.shiftdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
