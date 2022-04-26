@@ -6,6 +6,7 @@ import "../Dashboard/TrendingCrypto.scss";
 import { useState, useEffect } from "react";
 import Developers from "./Developers";
 import "./Developer.scss";
+import { Link } from "react-router-dom";
 
 const DeveloperList = (props) => {
   // const username = JSON.parse(localStorage.getItem('username'));
@@ -89,52 +90,116 @@ const DeveloperList = (props) => {
       <Grid container direction={"row"} justifyContent={"center"} mt={3}>
         <Tooltip title="React Js" arrow>
           <Typography className="anime" mr={4}>
-            <img src={"reactIcon.jpg"} alt={"React"} width={62} />
+            <a
+              href="https://reactjs.org/"
+              rel="reactjs noreferrer"
+              target="_blank"
+            >
+              <img src={"reactIcon.jpg"} alt={"React"} width={62} />
+            </a>
           </Typography>
         </Tooltip>
         <Tooltip title="PostgreSQL" arrow>
           <Typography className="anime" mr={4}>
-            <img src={"psqlIcon.png"} alt={"psql"} width={70} />
+            <a
+              href="https://www.postgresql.org/"
+              rel="psql noreferrer"
+              target="_blank"
+            >
+              <img src={"psqlIcon.png"} alt={"psql"} width={70} />
+            </a>
           </Typography>
         </Tooltip>
         <Tooltip title="Socket.io" arrow>
           <Typography className="anime" mr={4}>
-            <img src={"socketio.png"} alt={"socket.io"} width={70} />
+            <a
+              href="https://socket.io/"
+              rel="socketio noreferrer"
+              target="_blank"
+            >
+              <img src={"socketio.png"} alt={"socket.io"} width={70} />
+            </a>
           </Typography>
         </Tooltip>
         <Tooltip title="Node Js" arrow>
           <Typography className="anime" mr={4.5}>
-            <img src={"node.png"} alt={"Node Js"} width={70} />
+            <a
+              href="https://nodejs.org/en/about/"
+              rel="nodejs noreferrer"
+              target="_blank"
+            >
+              <img src={"node.png"} alt={"Node Js"} width={70} />
+            </a>
           </Typography>
         </Tooltip>
         <Tooltip title="JavaScript" arrow>
           <Typography className="anime" mr={5}>
-            <img src={"js.webp"} alt={"Js"} width={65} />
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+              rel="javascript noreferrer"
+              target="_blank"
+            >
+              <img src={"js.webp"} alt={"Js"} width={65} />
+            </a>
           </Typography>
         </Tooltip>
         <Tooltip title="HTML" arrow>
           <Typography className="anime" mr={4}>
-            <img src={"html.png"} alt={"html"} width={65} />
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"
+              rel="html noreferrer"
+              target="_blank"
+            >
+              <img src={"html.png"} alt={"html"} width={65} />
+            </a>
           </Typography>
         </Tooltip>
         <Tooltip title="CSS" arrow>
           <Typography className="anime" mr={2}>
-            <img src={"css.png"} alt={"css"} width={65} />
+            <a
+              href="https://www.w3schools.com/css/css_intro.asp"
+              rel="css noreferrer"
+              target="_blank"
+            >
+              <img src={"css.png"} alt={"css"} width={65} />
+            </a>
           </Typography>
         </Tooltip>
         <Tooltip title="SASS" arrow>
           <Typography className="anime" mt={1}>
-            <img src={"sass.png"} alt={"sass"} width={103} />
+            <a
+              href="https://sass-lang.com/documentation"
+              rel="sass noreferrer"
+              target="_blank"
+            >
+              <img src={"sass.png"} alt={"sass"} width={103} />
+            </a>
           </Typography>
         </Tooltip>
         <Tooltip title="Material UI" arrow>
           <Typography className="anime" mr={3}>
-            <img src={"mui.png"} alt={"mui"} width={80} />
+            <a
+              href="https://mui.com/material-ui/getting-started/installation/"
+              rel="mui noreferrer"
+              target="_blank"
+            >
+              <img src={"mui.png"} alt={"mui"} width={80} />
+            </a>
           </Typography>
         </Tooltip>
         <Tooltip title="Express Js" arrow>
           <Typography mt={2}>
-            <img className="rounded" src={"expressjs.png"} alt={"Express Js"} />
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Introduction"
+              rel="expressjs noreferrer"
+              target="_blank"
+            >
+              <img
+                className="rounded"
+                src={"expressjs.png"}
+                alt={"Express Js"}
+              />
+            </a>
           </Typography>
         </Tooltip>
       </Grid>
