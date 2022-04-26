@@ -72,7 +72,7 @@ export default function Login() {
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize:'1170px 900px',
+            backgroundSize:'1200px 900px',
             backgroundPosition: 'center',
             
           }}

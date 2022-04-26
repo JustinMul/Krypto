@@ -18,7 +18,7 @@ const News = ({title, image, description, date, source, loading}) => {
 
   if (loading){
     return (
-    <Box m="auto" onClick = {(e) => (window.location.href = `${source}`)}>
+    <Box m="auto" onClick = {(e) => (window.open(`${source}`) )}>
           <Paper elevation={3}> 
             <Card sx={{ maxWidth: 300, mb:4}}>
               <CardMedia
