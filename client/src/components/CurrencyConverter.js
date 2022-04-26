@@ -130,8 +130,8 @@ export default function CurrencyConverter(props) {
         }}
         onChange={handleChange}
       />
-      <FormControl sx={{ m: 1, minWidth: 300 }}>
-        <InputLabel id="demo-simple-select-helper-label">From</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: 300 }} >
+        <InputLabel  id="demo-simple-select-helper-label">From</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
