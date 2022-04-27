@@ -107,11 +107,24 @@ const Charts = (props) => {
       },
     },
     scales: {
-      x: {
+      y:{
         ticks: {
+          color: props.mode ==="dark" ? 'white' : 'black' ,
+        },
+      },
+      xAxes: {
+        ticks: {
+          color: props.mode ==="dark" ? 'white' : 'black' ,
           maxTicksLimit: 27,
         },
       },
+    },
+    plugins: { 
+      legend : {
+        labels: {
+          color: props.mode === "dark" ? 'white' : 'black'
+      }
+  }
     },
     responsive: true,
     animation: {

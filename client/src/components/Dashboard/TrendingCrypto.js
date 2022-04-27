@@ -62,14 +62,17 @@ function TrendingCrypto(props) {
                     >
                       {nameslice(props.name)}
                     </Typography>
-                    <Typography variant="body2" gutterBottom color={"#5E5F6E"}>
+                    <Typography
+                      variant="body2"
+                      gutterBottom
+                      color={props.mode === "dark" ? "white" : "#5E5F6E"}
+                    >
                       Price: $ {props.current_price}
                     </Typography>
                     <Typography
                       variant="body2"
                       gutterBottom
-                      gutterBottom
-                      color={"#5E5F6E"}
+                      color={props.mode === "dark" ? "white" : "#5E5F6E"}
                     >
                       {dateConvert(props.last_updated)}
                     </Typography>

@@ -32,13 +32,13 @@ const DeveloperList = (props) => {
       linkedin: "https://www.linkedin.com/in/justin-m-67321bb8/",
       img: "justin.jpeg",
       description:
-        "Full Stack Developer with Passion to create dynamic websites",
+        "Full stack developer with interests in building innovative websites!",
     },
     {
       name: "Jack",
       github: "https://github.com/Jackthz97?tab=repositories",
       linkedin: "https://www.linkedin.com/in/tianhao-zhang-b49a5b226/",
-      img: "Jack.png",
+      img: "jack.jpeg",
       description:
         "Full Stack Developer that loves to create & develop websites!",
     },
@@ -73,7 +73,7 @@ const DeveloperList = (props) => {
       <Typography align="center" variant="h3" fontFamily={"Pacifico"} mr={3.5}>
         Krypto Developers
       </Typography>
-      <Grid container direction={"row"} justifyContent={"center"} mt={2.5}>
+      <Grid container direction={"row"} justifyContent={"center"} mt={4}>
         {developers}
       </Grid>
       <Typography
@@ -100,7 +100,7 @@ const DeveloperList = (props) => {
           </Typography>
         </Tooltip>
         <Tooltip title="PostgreSQL" arrow>
-          <Typography className="anime" mr={4}>
+          <Typography className="anime" mr={3.5}>
             <a
               href="https://www.postgresql.org/"
               rel="psql noreferrer"
@@ -111,13 +111,24 @@ const DeveloperList = (props) => {
           </Typography>
         </Tooltip>
         <Tooltip title="Socket.io" arrow>
-          <Typography className="anime" mr={4}>
+          <Typography className="anime" mr={3.5}>
             <a
               href="https://socket.io/"
               rel="socketio noreferrer"
               target="_blank"
             >
               <img src={"socketio.png"} alt={"socket.io"} width={70} />
+            </a>
+          </Typography>
+        </Tooltip>
+        <Tooltip title="Chart Js" arrow>
+          <Typography className="anime" mr={3}>
+            <a
+              href="https://www.chartjs.org/"
+              rel="chartjs noreferrer"
+              target="_blank"
+            >
+              <img src={"chartjs.png"} alt={"Chart Js"} width={70} />
             </a>
           </Typography>
         </Tooltip>
@@ -133,7 +144,7 @@ const DeveloperList = (props) => {
           </Typography>
         </Tooltip>
         <Tooltip title="JavaScript" arrow>
-          <Typography className="anime" mr={5}>
+          <Typography className="anime" mr={4.5}>
             <a
               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
               rel="javascript noreferrer"
@@ -144,7 +155,7 @@ const DeveloperList = (props) => {
           </Typography>
         </Tooltip>
         <Tooltip title="HTML" arrow>
-          <Typography className="anime" mr={4}>
+          <Typography className="anime" mr={3.5}>
             <a
               href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics"
               rel="html noreferrer"
@@ -166,7 +177,7 @@ const DeveloperList = (props) => {
           </Typography>
         </Tooltip>
         <Tooltip title="SASS" arrow>
-          <Typography className="anime" mt={1}>
+          <Typography className="anime" mt={1} mr={1}>
             <a
               href="https://sass-lang.com/documentation"
               rel="sass noreferrer"

@@ -115,7 +115,7 @@ export default function CurrencyConverter(props) {
       sx={{
         m:'auto',
         width: 500,
-        height: 700,
+        height: 650,
         display: 'grid',
         gridTemplateRows: 'repeat(4, 1fr)',
         alignItems:'center',
