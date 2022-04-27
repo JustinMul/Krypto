@@ -45,7 +45,7 @@ export default function MarketCryptoList(props) {
 
   const handleSubmit = () => {
     if (fav.length > 0) {
-      console.log("axios call to the back end to store fav gets called");
+      
       axios
         .put(`/insert-watchlist`, {
           id: fav[0],
