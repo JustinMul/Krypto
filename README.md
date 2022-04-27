@@ -1,41 +1,41 @@
 # Krypto
 
-##Overview
+## Overview
 The idea behind this website was to ultimately address the overwhelming number of crypto information sources out there and provide users with a smooth & seamless experience.
 
-##User Stories
+## User Stories
 
-###Login
+### Login
 -User can login
 
-###Dashboard
--User can toggle dark and light mode
--User can access latest crypto trends
--User can add/delete items from watchlist
--User can search for particular cryptos they're interested in
+### Dashboard
+- User can toggle dark and light mode
+- User can access latest crypto trends
+- User can add/delete items from watchlist
+- User can search for particular cryptos they're interested in
 
-###Crypto information page
--User can click on any crypto to open specific crypto details page
--User can view date specific price trends on a chart
--User can filter the date range for the price chart 
--User can view detailed crypto metrics
+### Crypto information page
+- User can click on any crypto to open specific crypto details page
+- User can view date specific price trends on a chart
+- User can filter the date range for the price chart 
+- User can view detailed crypto metrics
 
-###Chat Room 
--User can join a chat room
--User can send and receive messages
+### Chat Room 
+- User can join a chat room
+- User can send and receive messages
 
-###News
+### News
 -User can browse news articles
 -User can select particular news article to be redirected to the source
 
-###Currency Converter
--Use can specify amount of the primary currency
--User can select a primary currency from a drop down
--User can select a secondary currency from a  secondary  dropdown
--User can check/clear the conversion result
+### Currency Converter
+- Use can specify amount of the primary currency
+- User can select a primary currency from a drop down
+- User can select a secondary currency from a  secondary  dropdown
+- User can check/clear the conversion result
 
 
-##Setup
+## Setup
 List of dependencies
 
 Client Side:
@@ -58,7 +58,7 @@ Client Side:
 "socket.io-client": "^4.4.1",
 "web-vitals": "^2.1.4"
 
-**cd** into client folder to execute **npm install** the dependencies.
+** cd ** into client folder to execute **npm install** the dependencies.
 
 
 Server Side:
@@ -79,8 +79,8 @@ Server Side:
 "socket.io": "^4.4.1"
 
 
-**cd** into server folder to execute **npm install** the dependencies.
+** cd ** into server folder to execute **npm install** the dependencies.
 
 
-##Create and seed the databases
-**npm run db:reset**
+## Create and seed the databases
+** npm run db:reset **
