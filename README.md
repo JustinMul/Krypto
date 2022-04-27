@@ -87,8 +87,16 @@ List of dependencies
 - "socket.io": "^4.4.1"
 
 
-**cd** into server folder to execute **npm** **install** the dependencies.
+### **cd** into server folder to execute **npm** **install** the dependencies.
 
-
-## Create and seed the databases
+### Create and seed the databases
 **npm run db:reset**
+
+
+## Getting Started 
+
+### Create the .env by using .env.example as a reference
+
+### npm run local
+
+### Client will run on http://localhost:3000/ and server on http://localhost:8081/
