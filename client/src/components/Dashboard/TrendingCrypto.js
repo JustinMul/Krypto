@@ -39,19 +39,18 @@ function TrendingCrypto(props) {
                     boxShadow: 5,
                     background: "#f8f8ff",
                     borderRadius: 5,
-                    // backgroundColor: "rgb(200, 200, 200)"
-                    // border: '2px solid #295A24'
+
                   }
             }
           >
             <Grid container sx={{ width: 250, height: 115 }}>
-              {/* <Grid item xs={12} container> */}
+              
               <div className="imgContainer">
                 <div className="cryptoLogo">
                   <img src={props.image} alt={props.name} />
                 </div>
               </div>
-              {/* </Grid> */}
+              
               <Grid item xs={15} sm container>
                 <Grid item xs container direction="column" spacing={2}>
                   <Grid item xs>
