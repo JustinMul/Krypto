@@ -6,7 +6,7 @@ The idea behind this website was to ultimately address the overwhelming number o
 ## User Stories
 
 ### Login
--User can login
+- User can login
 
 ### Dashboard
 - User can toggle dark and light mode
@@ -58,7 +58,7 @@ List of dependencies
 - "socket.io-client": "^4.4.1",
 - "web-vitals": "^2.1.4"
 
-**cd** into client folder to execute **npm install** the dependencies.
+**cd** into client folder to execute **npm** **install** the dependencies.
 
 
 ### Server Side:
@@ -79,8 +79,8 @@ List of dependencies
 - "socket.io": "^4.4.1"
 
 
-**cd** into server folder to execute **npm install** the dependencies.
+**cd** into server folder to execute **npm** **install** the dependencies.
 
 
 ## Create and seed the databases
-** npm run db:reset **
+**npm run db:reset**
