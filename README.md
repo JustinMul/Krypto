@@ -5,14 +5,16 @@ The idea behind this website was to ultimately address the overwhelming number o
 
 ## User Stories
 
-### Login
-- User can login
+### Login (username: mark@gmail.com : password: 123)
+- User can login <br />
+![""](https://github.com/JustinMul/Krypto/blob/main/docs/loginGif.gif?raw=true)
 
 ### Dashboard
 - User can toggle dark and light mode
 - User can access latest crypto trends
 - User can add/delete items from watchlist
 - User can search for particular cryptos they're interested in
+- 
 
 ### Crypto information page
 - User can click on any crypto to open specific crypto details page
