@@ -13,29 +13,35 @@ The idea behind this website was to ultimately address the overwhelming number o
 - User can toggle dark and light mode
 - User can access latest crypto trends
 - User can add/delete items from watchlist
-- User can search for particular cryptos they're interested in
-- 
+- User can search for particular cryptos they're interested in <br />
+![""](https://github.com/JustinMul/Krypto/blob/main/docs/dashboard.gif?raw=true)
 
 ### Crypto information page
 - User can click on any crypto to open specific crypto details page
 - User can view date specific price trends on a chart
 - User can filter the date range for the price chart 
-- User can view detailed crypto metrics
+- User can view detailed crypto metrics <br />
+![""](https://github.com/JustinMul/Krypto/blob/main/docs/singleCrypto.gif?raw=true)
 
 ### Chat Room 
 - User can join a chat room
-- User can send and receive messages
+- User can send and receive messages <br />
+![""](https://github.com/JustinMul/Krypto/blob/main/docs/chatroom.gif?raw=true)
 
 ### News
 - User can browse news articles
-- User can select particular news article to be redirected to the source
+- User can select particular news article to be redirected to the source <br />
+![""](https://github.com/JustinMul/Krypto/blob/main/docs/news.gif?raw=true)
 
 ### Currency Converter
 - Use can specify amount of the primary currency
 - User can select a primary currency from a drop down
 - User can select a secondary currency from a  secondary  dropdown
-- User can check/clear the conversion result
+- User can check/clear the conversion result <br />
+![""](https://github.com/JustinMul/Krypto/blob/main/docs/cryptoConverter.gif?raw=true)
 
+### Dark mode showcase
+![""](https://github.com/JustinMul/Krypto/blob/main/docs/darkmode.gif?raw=true)
 
 ## Setup
 List of dependencies
