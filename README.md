@@ -3,6 +3,9 @@
 ## Overview
 The idea behind this website was to ultimately address the overwhelming number of crypto information sources out there and provide users with a smooth & seamless experience.
 
+## Disclaimer
+Currently working on hosting this website, stay tuned! 
+
 ## User Stories
 
 ### Login (username: mark@gmail.com : password: 123)
